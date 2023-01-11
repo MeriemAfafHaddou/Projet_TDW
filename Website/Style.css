@@ -1,0 +1,414 @@
+*{
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+h2{
+  padding:0;
+  font-size: 26pt;
+  margin: 40px 0 0 0;
+  text-transform: uppercase;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 4px;
+}
+/*********************************** M E N U *******************************/
+ul.navbar{
+    list-style-type: none;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    padding: 0;
+    align-content: space-between;
+    width: 100%;
+    background: white;
+    z-index: 10000;
+}
+ul.navbar>li{
+    display: inline;
+    float: left;
+    padding: 5px 20px;
+    background: white;
+  }
+  ul.navbar>li>a>img{
+    height: 20px;
+  }
+ul.navbar>li>a{
+    display: inline-block;
+    text-align: center;
+    padding: 14px 10px;
+    text-decoration: none;
+    color: black;
+  }
+   /*********************************** DIAPO *******************************/
+table.diapo{
+  width: 100%;
+  display: inline-flex;
+  margin: 0 10px;
+  overflow-y: hidden;
+  background-color: #FFF1E9;
+  border-radius: 50px;
+}
+.diapo tr>td>p{
+  padding: 20px;
+  color: gray;
+  font-size: 11pt;
+  line-height: 16pt;
+}
+.diapo h2{
+  padding:20px 20px 0 20px;
+  vertical-align: bottom;
+}
+.diapo img{
+  object-fit: cover;
+  height: 400px;
+  width: 400px;
+  border-radius: 0 40px 40px 0 ;
+  overflow-y: hidden;
+}
+.icon{
+  margin: 0 20px;
+  width: fit-content;
+  height: 30px;
+  border-radius: 20px;
+  background-color: rgb(228, 228, 228);
+  display: inline-block;
+}
+.icon>p{
+  vertical-align: middle;
+  display: inline;
+  padding: 5px 20px 5px 5px;
+  font-size: 11pt;
+}
+.icon>img{
+  height: 20px;
+  vertical-align: middle;
+  width: 20px;
+  bottom: 0;
+  display: inline;
+  padding: 5px 0px 5px 15px;
+
+}
+  /*********************************** DIAPO CONTAINER *******************************/
+
+.diapoContainer{
+  height: 400px;
+  padding: 0;
+  overflow: hidden;
+  width: 80%;
+  border-radius: 50px;
+  margin: 40px auto;
+  display: block;
+}
+.diapoContainer .diapo:hover{
+  animation-play-state: paused;
+}
+  /*********************************** CADRE *******************************/
+  .cadre{
+    margin: 10px 15px;
+    padding: 10px;
+    height: 320px;
+    border-radius: 30px;
+    background: linear-gradient(#fff, #FFF1E9);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3); 
+    overflow-y: hidden;
+  }
+  .cadre h4{
+    text-align: left;
+    font-size: 14pt;
+  }
+  .cadre p{
+    color: gray;
+    font-size: 11pt;
+    line-height: 16pt;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+  }
+  .cadre img{
+    width: 130px;
+    height: 130px;
+    float: right;
+    object-fit: cover;
+    border-radius: 20px;
+    filter: drop-shadow(10%);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2); 
+  }
+  .plus{
+    width: fit-content;
+    padding: 7px 14px;
+    background-color: black;
+    border-radius: 30px;
+    cursor: pointer;
+    
+  }
+  .plus>a{
+    text-decoration: none;
+    color: #fff;
+
+  }
+  /*********************************** CATEGORIE *******************************/
+  .container{
+  display: flex;
+  align-content: space-around;
+  margin: 10px auto;
+  padding: 0 30px;
+  width: 100%;
+  overflow: hidden;
+}
+.autres{
+  display: inline-block;
+  color: white;
+  background-color: black;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  width: 150px;
+  float: right;
+  margin-right: 110px;
+  text-align: center;
+}
+.scroll-item{
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+button.scroll{
+  background-color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 0,5px;
+  margin: 0 auto;
+  position: sticky;
+  padding: 10px;
+  width: 100px;
+}
+button.scroll:hover{
+  background-color: #FFF1E9;
+
+}
+  /*********************************** FOOTER *******************************/
+.footer{
+  margin: 0 60px;
+}
+.footer>ul{
+    list-style-type: none;
+    width: 100%;
+    padding: 0;
+    align-content: space-between;
+    width: 100%;
+    background: white;
+}
+.footer>ul>li{
+  display: inline;
+    float: left;
+    padding: 5px 20px;
+    background: white;
+}
+.footer>ul>li>a{
+  display: inline-block;
+    text-align: center;
+    padding: 14px 10px;
+    text-decoration: none;
+    color: black;
+}
+.footer>ul>li>a>img{
+  margin: 0 40px 0 0;
+  height: 20px;
+}
+.footer p{
+  color: gray;
+  font-size: 10pt;
+  text-align: left;
+  padding: 0;
+  margin: 0 0 0 20px;
+}
+.footer>div{
+  float: right;
+}
+.footer>div img{
+  padding: 10px;
+  margin: 0 10px 0 0 ;
+  height: 20px;
+}
+.footer hr{
+  opacity: 0.7;
+  margin: 0 auto;
+  margin: 10px 0;
+}
+  /*********************************** PAGE CATEGORIE *******************************/
+div.recettes{
+  display: grid;
+  grid-template-columns: 350px 350px 350px;
+  column-gap: 50px;
+  margin: 0 40px;
+}
+
+ 
+
+/***************** PAGE RECETTE *****************/
+.details{
+  display: block;
+  margin: 0 80px;
+}
+.details>div{
+  display: inline-block;
+  padding: 0 20px;
+  text-align: center;
+}
+.infos-container{
+  margin: 0 60px;
+  display: grid;
+  grid-template-columns: 60% 35%;
+  column-gap: 50px;
+
+}
+.infos{
+  background-color: #FFF1E9;
+  border-radius: 40px;
+  float: right;
+  display: block;
+  width: 100%;
+  height: 470px;
+}
+.infos>div>p{
+  display: inline-block;
+  padding: 0 10px;
+  margin: 9px 30px;
+  color: gray;
+}
+.infos>div>p+p{
+  float: right;
+  color: black;
+}
+.infos>div>hr{
+  margin: 0 auto;
+  padding: 0;
+  opacity: 0.6;
+  width: 80%;
+}
+input[type=checkbox]{
+  margin: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 40px;
+}
+input[type=checkbox]:checked{
+  color: gray;
+  text-decoration: line-through;
+}
+.image{
+  width: 100%;
+  height: 470px;
+  object-fit: cover;
+  border-radius: 40px;
+}
+.recette_det{
+  margin:0 20px;
+}
+.recette_det>h2{
+  margin: 20px 10px;
+}
+.recette_det~hr{
+  width: 70%;
+  margin: 20px;
+}
+.recette>h2{
+  margin: 30px 0 0 90px;
+}
+/******************************* HEALTHY *************************************/
+.healthy{
+  margin: 40px;
+}
+.healthy>input{
+  margin: 10px auto;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+.healthy>input[type='submit']{
+  cursor: pointer;
+  background-color: white;
+}
+.healthy>input[type='submit']:hover{
+  background-color: #FFF1E9;
+}
+/********************************** IDEES ***********************************/
+.idees_form{
+  margin: 50px;
+}
+.idees_form>p{
+  margin: 0 20px;
+  text-transform: uppercase;
+  color: gray;
+  font-size: 11pt;
+
+}
+.idees_form>center>input[type='submit']{
+  margin: 30px auto;
+  background-color: black;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14pt;
+
+}
+.idees_form>input[type='checkbox']{
+  color: black;
+  cursor: pointer;
+  margin: 20px;
+}
+.inputGroup{
+  background-color: #fff;
+    display: block;
+    margin: 20px;
+    position: relative;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding :10px 20px;
+    width: 100%;
+    border-radius: 20px;
+  }
+.inputGroup>*{
+  display: inline-block;
+  color: #3C454C;
+}
+.inputGroup>input{
+      cursor: pointer;
+      padding: 10px;
+      border: 10px;
+}
+.liste_ingred{
+  display: grid;
+  grid-template-columns: 25% 25% 25%;
+  column-gap: 100px;
+}
+/*********************************** LOGIN ***********************************/
+.login_container{
+  display: grid;
+  grid-template-columns: 40% 40%;
+  column-gap: 100px;
+  margin:40px 20px;
+}
+.login_container>div{
+  width: 100%;
+}
+.login_container>div>form{
+  margin: 30px;
+}
+.login_container>div>form>input{
+  margin: 10px;
+  background: white;
+  border-radius: 20px;
+  height: 25px;
+  padding: 10px 20px;
+}
+.login_container>div>form>input[type='submit']{
+  background-color: black;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14pt;
+  height: 40px;
+  overflow: hidden;
+  margin: 10px 120px;
+}
