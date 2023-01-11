@@ -248,11 +248,30 @@ div.recettes{
 }
 /*************************************** FILTER *************************************/
  .filter{
-  margin:30px;
+  margin:20px;
  }
  .filter>select{
   background-color: #fff;
-  padding: 20px;
+  display: inline-block;
+  margin: 0 10px;
+  padding: 5px 10px;
+  border: black 2px solid;
+  border-radius: 20px;
+ }
+ form.filter>input[name='trier']{
+  display: inline-block;
+  margin: 0 5px;
+  padding: 5px 20px;
+  background-color: white;
+  border-radius: 20px;
+  cursor: pointer;
+ }
+ form.filter>input[name='trier']:hover{
+  background-color: #FFF1E9;
+ }
+ .filter>p{
+  display: inline-block;
+  margin: 0 10px;
  }
 
 /************************************* PAGE RECETTE *********************************/
@@ -402,28 +421,47 @@ div.recette_det{
   display: grid;
   grid-template-columns: 40% 40%;
   column-gap: 100px;
-  margin:40px 20px;
+  margin:60px 20px;
 }
 .login_container>div{
   width: 100%;
 }
 .login_container>div>form{
-  margin: 30px;
+  margin: 40px 60px;
 }
 .login_container>div>form>input{
-  margin: 10px;
+  margin: 10px 10px;
   background: white;
   border-radius: 20px;
   height: 25px;
   padding: 10px 20px;
+  width: 300px;
 }
-.login_container>div>form>input[type='submit']{
+.login_container>div>form>label{
+  margin: 0 10px;
+  font-size: 10pt;
+}
+.login_container>div>form>center>input[type='submit']{
   background-color: black;
   color: #fff;
   cursor: pointer;
-  font-size: 14pt;
-  height: 40px;
-  overflow: hidden;
-  margin: 10px 120px;
+  width: 200px;
+  height: 50px;
+  font-size: 12pt;
+  margin: 40px 50px;
+  border-radius: 20px;
+}
+.login_img>img{
+  border-radius: 40px;
+  margin: 20px 60px 0 0;
+  object-fit: cover;
+  height: 360px;
+}
+.login_img>p{
+  margin: 0 0px 0 90px;
+}
+.login_img>p>a{
+  color: black;
+  font-weight: bold;
 }
 /*************************************************************************************/

@@ -19,16 +19,16 @@ class LoginView
                         <h2>Se connecter</h2>
                     </center>
                     <form method='post'>
-                        <label>ADRESSE EMAIL</label>
-                        <input type='text' name='email'/><br>
-                        <label>MOT DE PASSE</label>
-                        <input type='text' name='pwd'/>
-                        <input type='submit' value='Se connecter' name='login'>
+                        <label>Nom d'utilisateur</label><br>
+                        <input type='text' name='email' placeholder='Entrer votre nom utilisateur ...'/><br>
+                        <label>Mot de passe</label><br>
+                        <input type='text' name='pwd' placeholder='Entrer votre mot de passe ...'/>
+                        <center><input type='submit' value='Se connecter' name='login'></center>
                     </form>
                 </div>
                 <div class='login_img'>
-                    <img src=''>
-                    <p>Vous n'avez pas de compte? <a>Inscrivez Vous</a></p>
+                    <img src='http://drive.google.com/uc?export=view&id=1bre43I5xlswHFOTTLQqjE5HALFdC3uGS'>
+                    <p>Vous n'avez pas de compte? <a href='http://localhost/ElBenna/register.php'>Inscrivez Vous</a></p>
                 </div>
             </div>
             ";
