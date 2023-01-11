@@ -81,19 +81,22 @@ class RecetteView
                 </div>
             </div>
             <br><br>
-            <div class='recette_det'>
-            <h2>Ingrédients</h2>"; 
+            <div class='recipe'>
+            <h2>Ingrédients</h2> 
+            <div class='recette_det'>";
             while ($row2 = $res2->fetch(PDO::FETCH_ASSOC)){
-                    echo "<input type='checkbox'>".$row2['nom_ingred']."</input><br>";
+                    echo "<div><input type='checkbox'>".$row2['nom_ingred']."</input><br></div>";
                 };               
             echo "</div><br>
             <hr><br>
-            <div class='recette_det'>
-            <h2>Etapes</h2>";
+           
+            <h2>Etapes</h2>
+            <ol class='recette_det'>
+            ";
             while ($row3 = $res3->fetch(PDO::FETCH_ASSOC)){
-                echo "<input type='checkbox'>".$row3['instruction']."</input><br>";
+                echo "<li>".$row3['instruction']."<li><br>";
             };
-        echo "</div>
+        echo "</ol></div>
             ";
         }
         echo"</div>";

@@ -1,6 +1,5 @@
 *{
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
+  font-family: 'Playfair Display', serif;    overflow-x: hidden;
 }
 h2{
   padding:0;
@@ -51,7 +50,7 @@ table.diapo{
 }
 .diapo tr>td>p{
   padding: 20px;
-  color: gray;
+  color: black;
   font-size: 11pt;
   line-height: 16pt;
 }
@@ -110,17 +109,18 @@ table.diapo{
     height: 320px;
     border-radius: 30px;
     background: linear-gradient(#fff, #FFF1E9);
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3); 
+    /* box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);  */
     overflow-y: hidden;
   }
-  .cadre h4{
+  .cadre h3{
     text-align: left;
-    font-size: 14pt;
+    font-size: 18pt;
   }
   .cadre p{
-    color: gray;
+    color: black;
     font-size: 11pt;
     line-height: 16pt;
+    height: 65px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -142,7 +142,9 @@ table.diapo{
     background-color: black;
     border-radius: 30px;
     cursor: pointer;
-    
+    margin: 0 auto;
+    position: static;
+    margin-top: 40px;
   }
   .plus>a{
     text-decoration: none;
@@ -218,7 +220,7 @@ button.scroll:hover{
   height: 20px;
 }
 .footer p{
-  color: gray;
+  color: #707070;
   font-size: 10pt;
   text-align: left;
   padding: 0;
@@ -244,10 +246,16 @@ div.recettes{
   column-gap: 50px;
   margin: 0 40px;
 }
+/*************************************** FILTER *************************************/
+ .filter{
+  margin:30px;
+ }
+ .filter>select{
+  background-color: #fff;
+  padding: 20px;
+ }
 
- 
-
-/***************** PAGE RECETTE *****************/
+/************************************* PAGE RECETTE *********************************/
 .details{
   display: block;
   margin: 0 80px;
@@ -276,7 +284,7 @@ div.recettes{
   display: inline-block;
   padding: 0 10px;
   margin: 9px 30px;
-  color: gray;
+  color: #707070;
 }
 .infos>div>p+p{
   float: right;
@@ -295,7 +303,7 @@ input[type=checkbox]{
   border-radius: 40px;
 }
 input[type=checkbox]:checked{
-  color: gray;
+  color: #707070;
   text-decoration: line-through;
 }
 .image{
@@ -304,14 +312,17 @@ input[type=checkbox]:checked{
   object-fit: cover;
   border-radius: 40px;
 }
-.recette_det{
+div.recette_det{
   margin:0 20px;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  column-gap: 100px;
 }
-.recette_det>h2{
-  margin: 20px 10px;
+.recipe>h2{
+  margin: 20px 40px;
 }
 .recette_det~hr{
-  width: 70%;
+  width: 90%;
   margin: 20px;
 }
 .recette>h2{
@@ -324,11 +335,14 @@ input[type=checkbox]:checked{
 .healthy>input{
   margin: 10px auto;
   padding: 5px 10px;
+  width: 250px;
   border-radius: 15px;
 }
 .healthy>input[type='submit']{
   cursor: pointer;
   background-color: white;
+  padding: 10px 20px;
+  width: max-content;
 }
 .healthy>input[type='submit']:hover{
   background-color: #FFF1E9;
@@ -340,7 +354,7 @@ input[type=checkbox]:checked{
 .idees_form>p{
   margin: 0 20px;
   text-transform: uppercase;
-  color: gray;
+  color: #707070;
   font-size: 11pt;
 
 }
@@ -412,3 +426,4 @@ input[type=checkbox]:checked{
   overflow: hidden;
   margin: 10px 120px;
 }
+/*************************************************************************************/

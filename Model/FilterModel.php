@@ -4,11 +4,13 @@ require_once "ConnexionBdd.php";
 class FilterModel{
     private $db;
     //Methode permettant la recuperation des recettes de la bdd avec leurs cadres pour afficher leurs images
-    public function get_filter(){
+    public function get_filter($critere){
         $this->db = new ConnexionBdd();
         $cnx = $this->db->connexion();
         //requete pour selectionner 6 recettes aleatoires
-        $stmt = $cnx->prepare("SELECT * FROM cadre JOIN recette on cadre.id_recette=recette.id_recette WHERE tmp_prep IS NOT NULL ORDER BY RAND() LIMIT 6");
+        $stmt = $cnx->prepare("SELECT * FROM recette 
+        INNER JOIN cadre ON recette.id_recette=cadre.id_recette 
+        ORDER BY recette.$critere");
         $stmt->execute();
         //Ne pas laisser la cnx a la BDD etablie
         $this->db->deconnexion($cnx);

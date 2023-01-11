@@ -16,6 +16,7 @@ require_once "View/RecetteView.php";
 require_once "View/HealthyView.php";
 require_once "View/IdeesView.php";
 require_once "View/LoginView.php";
+require_once "View/FilterView.php";
 header('Content-type: text/html; charset=UTF-8');
 class website
 {
@@ -178,6 +179,7 @@ class website
         $menu =new MenuView();
         $page= new PageCategorieView();
         $titre= new TitreView();
+        $filtre=new FilterView();
         echo"<!DOCTYPE html>
         <html>";
         //Appeler le header
@@ -187,6 +189,7 @@ class website
         $menu->Menu();
         echo"<br>";
         $titre->Titre(1);
+        $filtre->filter();
         $page->page(1);
         $footer = new FooterView();
         $footer->Footer();
@@ -263,10 +266,12 @@ class website
         <center>
             <h2>Recettes avec un seuil de calories </h2>
         </center>
-        <form class='healthy' method='GET'>
-        Introduisez le seuil de calories dans 100g : <br><input type='number' name='calories' /> <br>
-        <input type='submit' value='Afficher les recettes' name='submit'/>
-        </form>";
+        <center>
+            <form class='healthy' method='GET'>
+            Introduisez le seuil de calories dans 100g : <br><input type='number' name='calories' /> <br>
+            <input type='submit' value='Afficher les recettes' name='submit'/>
+            </form>
+        </center>";
 
         echo"
         <script>
