@@ -10,8 +10,10 @@ class IdeesView
         //Le controleur pour recuperer les donnees de la bdd
         $controller = new IdeesController();
         //Le cadre vue pour afficher les recettes corresp
-        echo "<form action='#' method='POST' class='idees_form'>
-        <p>Cochez vos Ingrédients</p>";
+        echo "
+        <form action='#' method='POST' class='idees_form'>
+        <p>cherchez vos Ingrédients</p>
+        <input type='search' name='ideesearch'>";
         $res = $controller->form_idees();
         $liste[]='';
         echo"<div class='liste_ingred'>

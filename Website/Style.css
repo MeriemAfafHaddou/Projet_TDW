@@ -464,4 +464,32 @@ div.recette_det{
   color: black;
   font-weight: bold;
 }
-/*************************************************************************************/
+/******************************* GESTION DES UTILISATEURS **************************************/
+.admintable{
+  width: 90%;
+}
+.admintable tr:nth-child(2n+1){
+  background-color: #FFF1E9;
+}
+.admintable tr:nth-child(2n){
+  background-color: #FFF8F4;
+}
+.admintable td, th{
+  padding: 10px;
+  border: none;
+
+}
+input[name='ajouteruser']{
+  float: right;
+  border: none;
+  border-radius: 30px;
+  height: 40px;
+  width: 40px;
+  background-color: #ff7f35;
+  color: white;
+  font-size: 20pt;
+  font-weight: bolder;
+  margin: 0 70px;
+  position: static;
+  cursor: pointer;
+}

@@ -17,6 +17,7 @@ require_once "View/HealthyView.php";
 require_once "View/IdeesView.php";
 require_once "View/LoginView.php";
 require_once "View/FilterView.php";
+require_once "View/GestionUserView.php";
 header('Content-type: text/html; charset=UTF-8');
 class website
 {
@@ -330,7 +331,19 @@ class website
         $footer->Footer();
         echo"</body></html>";
     }
-
+    public function build_user(){
+        //Declaration du menu, diapo, categorie, et footer
+        $users=new GestionUserView();
+        echo"<!DOCTYPE html>
+        <html>";
+        //Appeler le header
+        $this->header();
+        echo"<body>";
+        //Construire le menu
+        $users->user();
+        $footer = new FooterView();
+        echo"</body></html>";
+    }
 
 }
 ?>
