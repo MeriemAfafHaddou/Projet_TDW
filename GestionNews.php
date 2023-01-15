@@ -1,5 +1,5 @@
 <?php 
-require_once "Website\all.php";
-$gestionnews=new website();
+require_once "Website\admin.php";
+$gestionnews=new admin();
 $gestionnews->build_GestionNews();
 ?>

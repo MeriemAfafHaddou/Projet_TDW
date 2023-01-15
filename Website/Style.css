@@ -137,19 +137,19 @@ table.diapo{
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2); 
   }
   .plus{
-    width: fit-content;
-    padding: 7px 14px;
-    background-color: black;
-    border-radius: 30px;
-    cursor: pointer;
-    margin: 0 auto;
-    position: static;
-    margin-top: 40px;
+    
   }
-  .plus>a{
-    text-decoration: none;
-    color: #fff;
-
+  .plus>input[type='submit']{
+    margin: 0px auto;
+    background-color: transparent;
+    color: #000;
+    text-decoration: underline;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 10pt;
   }
   /*********************************** CATEGORIE *******************************/
   .container1{
@@ -756,4 +756,29 @@ input[name='desc_news']{
 .addNutrition>input[type='submit']:hover{
   background-color: #FFF1E9;
   color: #000;
+}
+/************************************* PRINCIPALE ***********************************/
+.principale{
+  display: grid;
+  margin: 0 50px;
+  grid-template-columns: 350px 350px 350px;
+  column-gap: 50px;
+}
+.principale>div{
+  margin: 10px 0;
+  border-radius: 40px;
+  width: 250px;
+  padding: 30px;
+}
+.principale>div:hover{
+  background-color: #fff6f1;
+}
+.principale>div>a{
+  width: 100%;
+  text-decoration: none;
+  color: #000;
+}
+.principale>div>a>img{
+  height: 100px;
+  width: 100px;
 }

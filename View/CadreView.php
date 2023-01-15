@@ -1,4 +1,5 @@
 <?php
+require_once "./Website/all.php";
 //La vue du cadre
 class CadreView
 {
@@ -17,11 +18,21 @@ class CadreView
                     <tr>
                         <td colspan='3'>
                             <p>".$row['desc_cadre']."</p>
-                            <div class='plus'><a href='http://localhost/ElBenna/Recette.php?id='>Afficher la suite</a></div>
+                            <form method='POST' class='plus'>
+                                <div class='plus'>
+                                    <input type='hidden' name='recette_id' value='".$row['id_recette']."'>
+                                    <input type='submit' name='afficherplus' value='Afficher la suite'>
+                                </div>
+                            </form>
                         </td>
                     </tr>
                 </table>
             </div>
         ";
+        if(isset($_post['afficherplus'])){
+            $id=$_POST['recette_id'];
+            $recette=new website();
+            $recette->build_recette($id);
+        }
     }
 }

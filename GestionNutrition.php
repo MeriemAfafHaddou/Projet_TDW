@@ -1,5 +1,5 @@
 <?php 
-require_once "Website\all.php";
-$gestion=new website();
+require_once "Website\admin.php";
+$gestion=new admin();
 $gestion->build_GestionNutrition();
 ?>

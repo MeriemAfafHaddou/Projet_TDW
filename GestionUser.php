@@ -1,5 +1,5 @@
 <?php 
-require_once "Website\all.php";
-$gestionusers=new website();
+require_once "Website\admin.php";
+$gestionusers=new admin();
 $gestionusers->build_user();
 ?>

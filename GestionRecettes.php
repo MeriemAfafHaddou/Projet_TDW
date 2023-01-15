@@ -1,6 +1,6 @@
 <?php 
-require_once "Website\all.php";
+require_once "Website\admin.php";
 
-$gestion=new website();
+$gestion=new admin();
 $gestion->build_GestionRecettes();
 ?>
