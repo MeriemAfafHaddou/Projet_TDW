@@ -7,5 +7,10 @@ class PageCategorieController{
         $res = $model->get_pagecategorie($id);
         return $res;
     }
+    public function get_Sort($id,$critere){
+        $model = new PageCategorieModel();
+        $res = $model->get_Sort($id,$critere);
+        return $res;
+    }
 }
 ?>

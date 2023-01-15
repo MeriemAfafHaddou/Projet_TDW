@@ -17,7 +17,6 @@ require_once "View/HealthyView.php";
 require_once "View/IdeesView.php";
 require_once "View/LoginView.php";
 require_once "View/InscriptionView.php";
-require_once "View/FilterView.php";
 
 header('Content-type: text/html; charset=UTF-8');
 class website
@@ -91,12 +90,7 @@ class website
         //Construire le menu
         $menu->Menu();
         echo"<br>";
-        //Construire les quatre categories
-        for($i=1;$i<=8;$i++)
-        {
-            $fetes->Fetes($i);
-            echo"<br><br>";
-        }
+        $fetes->Fetes();
         $footer->Footer();
         echo"</body></html>";
     }
@@ -131,29 +125,10 @@ class website
         $menu->Menu();
         echo"<br>
         <center>
-            <h2>HIVER</h1>
+            <h2>Saisons</h1>
         </center>
         ";
-        $saison->Saison(1);
-        echo"<br>
-        <center>
-            <h2>AUTOMNE</h1>
-        </center>
-        ";
-        $saison->Saison(2);
-        echo"<br>
-        <center>
-            <h2>ETE</h1>
-        </center>
-        ";
-        $saison->Saison(3);
-        echo"<br>
-        <center>
-            <h2>PRINTEMPS</h1>
-        </center>
-        ";
-        $saison->Saison(4);
-        
+        $saison->Saison();
         $footer->Footer();
         echo"</body></html>";
     }
@@ -181,7 +156,6 @@ class website
         $menu =new MenuView();
         $page= new PageCategorieView();
         $titre= new TitreView();
-        $filtre=new FilterView();
         echo"<!DOCTYPE html>
         <html>";
         //Appeler le header
@@ -191,7 +165,6 @@ class website
         $menu->Menu();
         echo"<br>";
         $titre->Titre(1);
-        $filtre->filter();
         $page->page(1);
         $footer = new FooterView();
         $footer->Footer();

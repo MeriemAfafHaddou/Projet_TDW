@@ -1,10 +1,10 @@
 <?php
 //on utilise require car le script ne peut pas s'executer s'il y a une erreur de connexion
 require_once "ConnexionBdd.php";
-class FilterModel{
+class SortModel{
     private $db;
     //Methode permettant la recuperation des recettes de la bdd avec leurs cadres pour afficher leurs images
-    public function get_filter($critere){
+    public function get_Sort($critere){
         $this->db = new ConnexionBdd();
         $cnx = $this->db->connexion();
         //requete pour selectionner 6 recettes aleatoires

@@ -35,7 +35,7 @@ class GestionUserView
                     if ($row['user_valid'] == 1){
                         echo "<td><center><img width='30px' height='30px' src='http://drive.google.com/uc?export=view&id=1C20yY4xffMEy3dyxW7NJLfTlmqHvquyK'></center></td>";
                     }else{
-                        echo "<td><form action='POST'><input type='submit' name='validerUser'><img width='28px' height='35px' src='http://drive.google.com/uc?export=view&id=1uBxZg4DFf8oxjSskG1VqjFNVkIPkknM3'></input></form></td>";
+                        echo "<td><center><img width='28px' height='35px' src='http://drive.google.com/uc?export=view&id=1uBxZg4DFf8oxjSskG1VqjFNVkIPkknM3'></center></td>";
                     }
                     
                 echo "</tr>";

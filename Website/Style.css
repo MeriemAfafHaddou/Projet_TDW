@@ -324,10 +324,10 @@ div.recettes{
   margin: 0 40px;
 }
 /*************************************** FILTER *************************************/
- .filter{
-  margin:20px;
+ .Sort{
+  margin:0 40px;
  }
- .filter>select{
+ .Sort>select{
   background-color: #fff;
   display: inline-block;
   margin: 0 10px;
@@ -335,7 +335,7 @@ div.recettes{
   border: black 2px solid;
   border-radius: 20px;
  }
- form.filter>input[name='trier']{
+ form.Sort>input[name='trier']{
   display: inline-block;
   margin: 0 5px;
   padding: 5px 20px;
@@ -343,12 +343,12 @@ div.recettes{
   border-radius: 20px;
   cursor: pointer;
  }
- form.filter>input[name='trier']:hover{
+ form.Sort>input[name='trier']:hover{
   background-color: #FFF1E9;
  }
- .filter>p{
+ .Sort>p{
   display: inline-block;
-  margin: 0 10px;
+  margin: 0 20px;
  }
 
 /************************************* PAGE RECETTE *********************************/
@@ -447,8 +447,15 @@ div.recette_det{
 /********************************** IDEES ***********************************/
 .idees_form{
   margin: 50px;
+
 }
-.idees_form>p{
+.idees_form>center>input[type='text']{
+  padding: 10px;
+  margin: 20px;
+  width: 400px;
+  border-radius: 10px;
+}
+.idees_form>center>p{
   margin: 0 20px;
   text-transform: uppercase;
   color: #707070;
@@ -470,7 +477,7 @@ div.recette_det{
   cursor: pointer;
   margin: 20px;
 }
-.inputGroup{
+#inputGroup{
   background-color: #fff;
     display: block;
     margin: 20px;
@@ -479,20 +486,22 @@ div.recette_det{
     padding :10px 20px;
     width: 100%;
     border-radius: 20px;
+    display:none;
   }
-.inputGroup>*{
+#inputGroup>*{
   display: inline-block;
   color: #3C454C;
 }
-.inputGroup>input{
+#inputGroup>input{
       cursor: pointer;
       padding: 10px;
       border: 10px;
 }
-.liste_ingred{
+#liste_ingred{
   display: grid;
   grid-template-columns: 25% 25% 25%;
   column-gap: 100px;
+  list-style-type:none;
 }
 /*********************************** LOGIN ***********************************/
 .login_container{

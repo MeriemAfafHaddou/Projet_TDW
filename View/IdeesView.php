@@ -9,52 +9,62 @@ class IdeesView
     {
         //Le controleur pour recuperer les donnees de la bdd
         $controller = new IdeesController();
-        //Le cadre vue pour afficher les recettes corresp
         echo "
         <form action='#' method='POST' class='idees_form'>
-        <p>cherchez vos Ingrédients</p>
-        <input type='search' name='ideesearch'>";
-        $res = $controller->form_idees();
-        $liste[]='';
-        echo"<div class='liste_ingred'>
-        <div class='inputGroup'>
-                    <input type='checkbox' name='liste[]'/>
-                    <label>Miel</label>
-                </div>";
+        <center>
+          <p>cherchez vos Ingrédients</p>
+          <input type='text' name='ideesearch' id='ideesearch' onkeyup='myFunction()'>
+        </center>";
+        $res = $controller->get_ingreds();
+        echo"<ul id='liste_ingred'>";
         //Pour chaque cadre recupere de la bdd, on l'affiche
         while($row = $res->fetch(PDO::FETCH_ASSOC)){
-            echo"<div class='inputGroup'>
-                    <input type='checkbox' name='liste[]'/>
+            echo"<li id='inputGroup'>
+                    <input type='checkbox' name='liste[]' value='".$row['nom_ingred']."'/>
                     <label>".$row['nom_ingred']."</label>
-                </div>";
+                </li>";
         }
-        echo"</div>
+        echo"</ul>
         <center><input type='submit' value='Afficher les recettes' name='idees'/></center>
         </form>";
+        echo "
+        <script>
+        function myFunction() {
+            var input, filter, ul, li, la, i, txtValue;
+            input = document.getElementById('ideesearch');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById('liste_ingred');
+            li = ul.getElementsByTagName('li');
+          
+               for (i = 0; i < li.length; i++) {
+              la = li[i].getElementsByTagName('label')[0];
+              txtValue = la.textContent || la.innerText; 
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = 'block';
+              } else {
+                li[i].style.display = 'none';
+              }
+            }
+          }
+          
+        
+        </script>";
         if(isset($_POST['idees'])){
-            if(!empty($_POST['liste'])){
-                $ingreds=$_POST['liste'];
-                
-                foreach($ingreds as $i){
-                    echo $i."<br/>";
+            if(!empty($_POST['liste'])) {
+                $liste = array();
+                foreach($_POST['liste'] as $ingredient) {
+                    array_push($liste,$ingredient);
                 }
+                $res=$controller->get_idees($liste);
+                $cadre=new CadreView();
+                echo "<br>
+                <div class='recettes'>";
+                while($row = $res->fetch(PDO::FETCH_ASSOC)){
+                  $cadre->cadre($row);
+              }
+              echo"</div>";
+
             }
         }
     }
-    
-    public function get_idees($row)
-    {
-        echo "<br>
-        <div class='recettes'>";
-        //Le controleur pour recuperer les donnees de la bdd
-        $controller = new HealthyController();
-        //Le cadre vue pour afficher les recettes corresp
-        $cadre=new CadreView();
-        $res = $controller->get_healthy();
-        //Pour chaque cadre recupere de la bdd, on l'affiche
-        while($row = $res->fetch(PDO::FETCH_ASSOC)){
-            $cadre->cadre($row);
-        }
-        echo"</div>";
-        }
 }
