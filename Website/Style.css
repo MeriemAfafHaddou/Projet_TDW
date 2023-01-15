@@ -106,7 +106,7 @@ table.diapo{
   .cadre{
     margin: 10px 15px;
     padding: 10px;
-    height: 320px;
+    height: 350px;
     border-radius: 30px;
     background: linear-gradient(#fff, #FFF1E9);
     /* box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);  */
@@ -152,7 +152,31 @@ table.diapo{
 
   }
   /*********************************** CATEGORIE *******************************/
-  .container{
+  .container1{
+  display: flex;
+  align-content: space-around;
+  margin: 10px auto;
+  padding: 0 30px;
+  width: 100%;
+  overflow: hidden;
+}
+.container2{
+  display: flex;
+  align-content: space-around;
+  margin: 10px auto;
+  padding: 0 30px;
+  width: 100%;
+  overflow: hidden;
+}
+.container3{
+  display: flex;
+  align-content: space-around;
+  margin: 10px auto;
+  padding: 0 30px;
+  width: 100%;
+  overflow: hidden;
+}
+.container4{
   display: flex;
   align-content: space-around;
   margin: 10px auto;
@@ -172,11 +196,23 @@ table.diapo{
   margin-right: 110px;
   text-align: center;
 }
-.scroll-item{
+.scroll-item1{
   flex: 0 0 30%;
   max-width: 30%;
 }
-button.scroll{
+.scroll-item2{
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+.scroll-item3{
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+.scroll-item4{
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+button.scroll1{
   background-color: white;
   border-radius: 20px;
   cursor: pointer;
@@ -186,7 +222,48 @@ button.scroll{
   padding: 10px;
   width: 100px;
 }
-button.scroll:hover{
+button.scroll1:hover{
+  background-color: #FFF1E9;
+
+}
+button.scroll2{
+  background-color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 0,5px;
+  margin: 0 auto;
+  position: sticky;
+  padding: 10px;
+  width: 100px;
+}
+button.scroll2:hover{
+  background-color: #FFF1E9;
+
+}button.scroll3{
+  background-color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 0,5px;
+  margin: 0 auto;
+  position: sticky;
+  padding: 10px;
+  width: 100px;
+}
+button.scroll3:hover{
+  background-color: #FFF1E9;
+
+}
+button.scroll4{
+  background-color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 0,5px;
+  margin: 0 auto;
+  position: sticky;
+  padding: 10px;
+  width: 100px;
+}
+button.scroll4:hover{
   background-color: #FFF1E9;
 
 }
@@ -298,6 +375,7 @@ div.recettes{
   display: block;
   width: 100%;
   height: 470px;
+  overflow: hidden;
 }
 .infos>div>p{
   display: inline-block;
@@ -437,6 +515,14 @@ div.recette_det{
   padding: 10px 20px;
   width: 300px;
 }
+.login_container>div>form>select{
+  margin: 10px 10px;
+  background: white;
+  border-radius: 20px;
+  height: 40px;
+  padding: 10px 20px;
+  width: 300px;
+}
 .login_container>div>form>label{
   margin: 0 10px;
   font-size: 10pt;
@@ -475,7 +561,7 @@ div.recette_det{
   background-color: #FFF8F4;
 }
 .admintable td, th{
-  padding: 10px;
+  padding: 20px;
   border: none;
 
 }
@@ -492,4 +578,182 @@ input[name='ajouteruser']{
   margin: 0 70px;
   position: static;
   cursor: pointer;
+}
+/******************************* GESTION DES NEWS **************************************/
+.addNews{
+  margin-top: 50px;
+  background-color: #fff;
+  padding: 20px;
+  display: none;
+  position: fixed;
+  left: 45%;
+  top: 5%;
+  transform: translate(-45%, 5%);
+  border-radius: 30px;
+  z-index: 9;
+  backdrop-filter: blur(3px);  
+  filter: drop-shadow(1px 1px 1px #666);
+}
+.addNews>*{
+  margin: 10px 0;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-left: 0;
+  width: 200px;
+}
+.addNews label{
+  display: inline-block;
+  float: left;
+  clear: left;
+  width: 150px;
+  text-align: left;
+}
+input[name='desc_news']{
+  height: 80px;
+  width: 200px;
+}
+.addNews>input[type='submit']{
+  width: 130px;
+  background-color: #000;
+  cursor: pointer;
+  display: inline-block;
+  color: #FFF1E9;
+}
+.addNews>input[type='submit']:hover{
+  background-color: #FFF1E9;
+  color: #000;
+}
+.add-popup{
+  position: relative;
+  text-align: center;
+}
+.form-popup{
+  display: none;
+  position: fixed;
+  left: 45%;
+  top: 5%;
+  transform: translate(-45%, 5%);
+  border-radius: 30px;
+  z-index: 9;
+  backdrop-filter: blur(3px);  
+}
+#exit{
+  font-family: monospace;
+  border: none;
+  background-color: rgb(180, 28, 28);
+  border-radius: 30px;
+  color: white;
+  font-size: 18pt;
+  font-weight: bolder;
+  padding: 5px;
+  vertical-align: middle;
+  float: right;
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+}
+/************************** GESTION DES RECETTES ********************************/
+.addRecette{
+  margin-top: 10px;
+  background-color: #fff;
+  padding: 20px;
+  display: none;
+  position: fixed;
+  left: 45%;
+  top: 1%;
+  transform: translate(-45%, 5%);
+  border-radius: 30px;
+  z-index: 9;
+  backdrop-filter: blur(3px);  
+  filter: drop-shadow(1px 1px 1px #666);
+  
+}
+.addRecette>*{
+  margin: 7px 0;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-left: 0;
+  width: 200px;
+}
+.addRecette label{
+  display: inline-block;
+  float: left;
+  clear: left;
+  width: 150px;
+  text-align: left;
+}
+.addRecette>input[type='submit']{
+  width: 130px;
+  background-color: #000;
+  cursor: pointer;
+  display: inline-block;
+  color: #FFF1E9;
+  float: right;
+}
+.addRecette>input[type='select']{
+  margin: 10px 10px;
+  background: white;
+  border-radius: 20px;
+  height: 40px;
+  padding: 10px 20px;
+  width: 300px;
+}
+.addRecette>input[type='submit']:hover{
+  background-color: #FFF1E9;
+  color: #000;
+}
+/************************************** GESTION NUTRITION *********************************************/
+.addNutrition{
+  margin-top: 10px;
+  background-color: #fff;
+  padding: 20px;
+  display: none;
+  position: fixed;
+  left: 45%;
+  top: 1%;
+  bottom: 20%;
+  transform: translate(-45%, 5%);
+  border-radius: 30px;
+  z-index: 9;
+  backdrop-filter: blur(3px);  
+  filter: drop-shadow(1px 1px 1px #666);
+  overflow-y: scroll;
+  
+}
+.addNutrition>*{
+  margin: 7px 0;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-left: 0;
+  width: 200px;
+}
+.addNutrition label{
+  display: inline-block;
+  float: left;
+  clear: left;
+  width: 150px;
+  text-align: left;
+}
+.addNutrition>input[type='submit']{
+  width: 130px;
+  background-color: #000;
+  cursor: pointer;
+  display: inline-block;
+  color: #FFF1E9;
+  float: right;
+  margin: 20px 0;
+}
+.addNutrition>input[type='select']{
+  margin: 10px 0;
+  background: white;
+  border-radius: 20px;
+  height: 40px;
+  padding: 10px 20px;
+  width: 200px;
+}
+.addNutrition>input[type='submit']:hover{
+  background-color: #FFF1E9;
+  color: #000;
 }

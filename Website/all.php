@@ -16,8 +16,12 @@ require_once "View/RecetteView.php";
 require_once "View/HealthyView.php";
 require_once "View/IdeesView.php";
 require_once "View/LoginView.php";
+require_once "View/InscriptionView.php";
 require_once "View/FilterView.php";
 require_once "View/GestionUserView.php";
+require_once "View/GestionNewsView.php";
+require_once "View/GestionRecettesView.php";
+require_once "View/GestionNutritionView.php";
 header('Content-type: text/html; charset=UTF-8');
 class website
 {
@@ -331,6 +335,22 @@ class website
         $footer->Footer();
         echo"</body></html>";
     }
+    public function build_Inscription(){
+        //Declaration du menu, diapo, categorie, et footer
+        $menu =new MenuView();
+        $inscription=new InscriptionView();
+        echo"<!DOCTYPE html>
+        <html>";
+        //Appeler le header
+        $this->header();
+        echo"<body>";
+        //Construire le menu
+        $menu->Menu();
+        $inscription->register();
+        $footer = new FooterView();
+        $footer->Footer();
+        echo"</body></html>";
+    }
     public function build_user(){
         //Declaration du menu, diapo, categorie, et footer
         $users=new GestionUserView();
@@ -341,7 +361,75 @@ class website
         echo"<body>";
         //Construire le menu
         $users->user();
-        $footer = new FooterView();
+        echo"</body></html>";
+    }
+    public function build_GestionNews(){
+        //Declaration du menu, diapo, categorie, et footer
+        $news=new GestionNewsView();
+        echo"<!DOCTYPE html>
+        <html>";
+        //Appeler le header
+        $this->header();
+        echo"<body>";
+        //Construire le menu
+        $news->news();
+        echo"</body></html>";
+    }
+    public function build_GestionRecettes(){
+        //Declaration du menu, diapo, categorie, et footer
+        $recettes=new GestionRecettesView();
+        echo"<!DOCTYPE html>
+        <html>";
+        //Appeler le header
+        $this->header();
+        echo"<body>";
+        //Construire le menu
+        $recettes->recettes();
+        echo"</body></html>";
+    }
+    public function build_GestionNutrition(){
+        //Declaration du menu, diapo, categorie, et footer
+        $nutrition=new GestionNutritionView();
+        echo"<!DOCTYPE html>
+        <html>";
+        //Appeler le header
+        $this->header();
+        echo"<body>";
+        //Construire le menu
+        $nutrition->Nutrition();
+        echo"</body></html>";
+    }
+    public function build_principale(){
+        //Declaration du menu, diapo, categorie, et footer
+        echo"<!DOCTYPE html>
+        <html>";
+        //Appeler le header
+        $this->header();
+        echo"<body>
+        <h2> Adiministration </h2>
+        <div class='icons'>
+            <a>
+                <img src='http://drive.google.com/uc?export=view&id=1Oq6YayckvLJw3Jpd2GoraNQDPAdrJW9l'>
+                <h3>Gestion des recettes</h3>
+            </a>
+            <a>
+                <img src='http://drive.google.com/uc?export=view&id=1Bv9pLhJ4lOW5YjH3mehC9qeeDbwcmMnr'>
+                <h3>Gestion des News</h3>
+            </a>
+            <a>
+                <img src='http://drive.google.com/uc?export=view&id=1yKCgOOpiwdoia9p1XUwH7tNymwIr056i'>
+                <h3>Gestion des Utilisateurs</h3>
+            </a>
+            <a>
+                <img src='http://drive.google.com/uc?export=view&id=1dFxhGEtli_QDFI_r4hcyS8D3eE2aTd9I'>
+                <h3>Gestion de Nutrition</h3>
+            </a>
+            <a>
+                <img src='http://drive.google.com/uc?export=view&id=1HlBf0wTeFZStqD5holJ3vhTAW7LxRq0V'>
+                <h3>Gestion des parametres</h3>
+            </a>
+        </div>";
+        //Construire le menu
         echo"</body></html>";
     }
 

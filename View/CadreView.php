@@ -17,7 +17,7 @@ class CadreView
                     <tr>
                         <td colspan='3'>
                             <p>".$row['desc_cadre']."</p>
-                            <div class='plus'><a href='http://localhost/ElBenna/Recette.php'>Afficher la suite</a></div>
+                            <div class='plus'><a href='http://localhost/ElBenna/Recette.php?id='>Afficher la suite</a></div>
                         </td>
                     </tr>
                 </table>

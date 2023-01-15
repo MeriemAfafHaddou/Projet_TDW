@@ -1,13 +1,11 @@
 <?php
 //Appeler le modele
-require_once "C:\wamp64\www\ElBenna\Model\LoginModel.php";
-require_once "C:\wamp64\www\ElBenna\View\LoginView.php";
-require_once "Website\all.php";
-class LoginController{
-    public function login($email,$pwd){
-        $model = new LoginModel();
+require_once "C:\wamp64\www\ElBenna\Model\InscriptionModel.php";
+class InscriptionController{
+    public function register($infos){
+        $model = new InscriptionModel();
 
-        if ($model->login($email,$pwd)) {
+        if ($model->register($infos)) {
             echo "
                 <script>
                     alert('Welcome !');

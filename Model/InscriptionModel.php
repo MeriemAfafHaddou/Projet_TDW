@@ -1,21 +1,19 @@
 <?php
 //on utilise require car le script ne peut pas s'executer s'il y a une erreur de connexion
 require_once "ConnexionBdd.php";
-class LoginModel{
+class InscriptionModel{
     private $db;
     //Methode permettant la recuperation des elements du menu de la bdd
-    public function login($mail,$pwd){
+    public function register($infos){
         $this->db = new ConnexionBdd();
         $cnx = $this->db->connexion();
-        $info=[$mail,$pwd];
         //requete pour selectionner tous les elements du menu
-        $stmt = $cnx->prepare("SELECT id_user FROM utilisateur WHERE utilisateur.username=? AND utilisateur.mdp=?");
-        $stmt->execute($info);
+        $stmt = $cnx->prepare("INSERT INTO `utilisateur`
+        (`nom_user`, `prenom_user`,`username`, `sexe`, `email`, `mdp`, `user_valid`)
+        VALUES (?,?,?,?,?,?,?)");
+        $stmt->execute($infos);
         //Ne pas laisser la cnx a la BDD etablie
-        if ($stmt->rowCount() > 0 ){
-            return true;
-        }
-        return false;       
+        return true;       
     }
 }
 ?>

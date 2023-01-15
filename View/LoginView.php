@@ -5,14 +5,7 @@ class LoginView
 {
     private $controller;
     public function login() {
-        if (isset($_POST["login"])) {
-            $email = $_POST["email"];
-            $pwd = $_POST["pwd"];
-            echo"";
-            $controller = new LoginController();
-            
-        } else {
-            echo "
+        echo "
             <div class='login_container'>
                 <div>
                     <center>
@@ -22,17 +15,24 @@ class LoginView
                         <label>Nom d'utilisateur</label><br>
                         <input type='text' name='email' placeholder='Entrer votre nom utilisateur ...'/><br>
                         <label>Mot de passe</label><br>
-                        <input type='text' name='pwd' placeholder='Entrer votre mot de passe ...'/>
+                        <input type='password' name='pwd' placeholder='Entrer votre mot de passe ...'/>
                         <center><input type='submit' value='Se connecter' name='login'></center>
                     </form>
                 </div>
                 <div class='login_img'>
                     <img src='http://drive.google.com/uc?export=view&id=1bre43I5xlswHFOTTLQqjE5HALFdC3uGS'>
-                    <p>Vous n'avez pas de compte? <a href='http://localhost/ElBenna/register.php'>Inscrivez Vous</a></p>
+                    <p>Vous n'avez pas de compte? <a href='http://localhost/ElBenna/Inscription.php'>Inscrivez Vous</a></p>
                 </div>
             </div>
             ";
+        if (isset($_POST["login"])) {
+            $email = $_POST["email"];
+            $pwd = $_POST["pwd"];
+            $controller = new LoginController();
+            $controller->login($email,$pwd);
+
         }
+            
     }
 }
     

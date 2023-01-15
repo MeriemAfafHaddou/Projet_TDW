@@ -10,7 +10,7 @@ class CategorieView
     public function Categorie($cat)
     {
         echo "
-        <div class='container'>";
+        <div class='container".$cat."'>";
         //Le controleur pour recuperer les donnees de la bdd
         $controller = new CategorieController();
         $titre = new TitreController();
@@ -20,7 +20,7 @@ class CategorieView
         $res = $controller->get_categorie($cat);
         //Pour chaque cadre recupere de la bdd, on l'affiche
         while($row = $res->fetch(PDO::FETCH_ASSOC)){
-            echo"<div class='scroll-item'>";
+            echo"<div class='scroll-item".$cat."'>";
             $cadre->cadre($row);
             echo"</div>";
         }
@@ -28,8 +28,8 @@ class CategorieView
         </div>
         <div>
             <center>
-                <button class='scroll' onclick='Prec()'>❮  Precedent</button>
-                <button class='scroll' onclick='Suiv()'>Suivant ❯</button>
+                <button class='scroll".$cat."' onclick='Prec".$cat."()'>❮  Precedent</button>
+                <button class='scroll".$cat."' onclick='Suiv".$cat."()'>Suivant ❯</button>
             </center>
         ";
         while($nom = $r->fetch(PDO::FETCH_ASSOC)){
@@ -37,14 +37,14 @@ class CategorieView
             ";
         }
         echo "<script>
-        function Prec() {
-        var container = document.querySelector('.container');
-        var item = document.querySelector('.scroll-item');
+        function Prec".$cat."() {
+        var container = document.querySelector('.container".$cat."');
+        var item = document.querySelector('.scroll-item".$cat."');
         container.scrollLeft -= item.offsetWidth;
         }
-        function Suiv() {
-            var container = document.querySelector('.container');
-            var item = document.querySelector('.scroll-item');
+        function Suiv".$cat."() {
+            var container = document.querySelector('.container".$cat."');
+            var item = document.querySelector('.scroll-item".$cat."');
             container.scrollLeft += item.offsetWidth;
             }
         </script>

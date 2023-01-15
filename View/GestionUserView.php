@@ -8,7 +8,6 @@ class GestionUserView
     {
         echo "
         <center><h2>Gestion des utilisateurs</h2></center>
-        <input type='button' name='ajouteruser' value='+'/><br><br><br>
         <center>
         <table class='admintable'>
         <tr>
@@ -34,9 +33,9 @@ class GestionUserView
                     <td>".$row['sexe']."</td>
                     <td>".$row['email']."</td>";
                     if ($row['user_valid'] == 1){
-                        echo "<td><img src=''></td>";
+                        echo "<td><center><img width='30px' height='30px' src='http://drive.google.com/uc?export=view&id=1C20yY4xffMEy3dyxW7NJLfTlmqHvquyK'></center></td>";
                     }else{
-                        echo "<td><form action='POST'><input type='submit' name='validerUser'><img src=''></input></form></td>";
+                        echo "<td><form action='POST'><input type='submit' name='validerUser'><img width='28px' height='35px' src='http://drive.google.com/uc?export=view&id=1uBxZg4DFf8oxjSskG1VqjFNVkIPkknM3'></input></form></td>";
                     }
                     
                 echo "</tr>";
