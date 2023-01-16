@@ -38,8 +38,9 @@ class GestionNewsModel{
     public function modifier_news($modif){
         $this->db = new ConnexionBdd();
         $cnx = $this->db->connexion();
+        $id=$modif[0];
         //requete pour selectionner 10 cadres aleatoires appartenant a la categorie ayant l'id $cat
-        $stmt = $cnx->prepare("UPDATE cadre SET id_news=?, titre_cadre=?, desc_cadre=?, img_cadre=? WHERE ");
+        $stmt = $cnx->prepare("UPDATE cadre SET id_news=?, titre_cadre=?, desc_cadre=?, img_cadre=? WHERE id_news=$id");
         $stmt->execute($modif);
         //Ne pas laisser la cnx a la BDD etablie
         $this->db->deconnexion($cnx);

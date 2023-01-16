@@ -7,6 +7,7 @@ class GestionUserView
     public function user()
     {
         echo "
+        <a href='principale.php' id='home'><img src='http://drive.google.com/uc?export=view&id=1x0Id9jSlxs-tjNyVYtUz5ebi1Q2UhXkL'></a>
         <center><h2>Gestion des utilisateurs</h2></center><br>";
         $critere='1=1';
         echo "<br>
@@ -73,7 +74,7 @@ class GestionUserView
                     <td>".$row['sexe']."</td>
                     <td>".$row['email']."</td>";
                     if ($row['user_valid'] == 1){
-                        echo "<td><center><input class='valid' value='✔'></input></center></td>";
+                        echo "<td><center><input name='valid' type='button' value='✔'></input></center></td>";
                     }else{
                         echo "<td>
                                 <form method='POST'>

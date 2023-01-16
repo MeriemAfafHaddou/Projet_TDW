@@ -4,7 +4,7 @@
 h2{
   padding:0;
   font-size: 26pt;
-  margin: 40px 0 0 0;
+  margin: 30px 0 0 0;
   text-transform: uppercase;
   font-family: 'Playfair Display', serif;
   letter-spacing: 4px;
@@ -561,7 +561,23 @@ div.recette_det{
 }
 /******************************* GESTION DES UTILISATEURS **************************************/
 .admintable{
-  border-radius: 10px;
+  border-radius: 30px;
+  width: 90%;
+}
+#home{
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  margin: 30px 90px;
+  background-color: white;
+  border-radius: 30px;
+  height: 45px;
+  width:45px;
+  overflow: hidden;
+}
+#home>img{
+  height: 50px;
+  width: 50px;
 }
 .admintable tr:nth-child(2n+1){
   background-color: #FFF1E9;
@@ -572,7 +588,8 @@ div.recette_det{
 .admintable td, th{
   padding: 8px;
   border: none;
-
+  overflow: hidden;
+  border-radius: 4px;
 }
 input[name='ajouteruser']{
   float: right;
@@ -597,10 +614,10 @@ td>center>input[name='valid']{
   width:30px;
 }
 form>center>input[name='validerUser']{
-  background-color: rgb(147, 147, 147);
+  background-color: rgb(179, 179, 179);
   color: #fff;
   border: none;
-  padding: 7px 20px;
+  padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -669,10 +686,44 @@ input[name='desc_news']{
   transform: translate(-45%, 5%);
   border-radius: 30px;
   z-index: 9;
+}
+#form_container{
   backdrop-filter: blur(3px);  
+  height: 1800px;
+  width: 1800px;
+  position: fixed;
+  top: 0%;
 }
 #modif-popup{
-  display: block;
+  position: fixed;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 30px;
+  z-index: 9;
+  margin: 60px 420px;
+  filter: drop-shadow(1px 1px 1px #666);
+}
+#modif-popup>input[type='submit']{
+  width: 130px;
+  background-color: #000;
+  cursor: pointer;
+  display: inline-block;
+  color: #FFF1E9;
+}
+#modif-popup>*{
+  margin: 10px 0;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-left: 0;
+  width: 200px;
+}
+#myInput{
+  display: inline-block;
+  margin: 0 80px;
+  padding: 5px 20px;
+  background-color: white;
+  border-radius: 20px;
+  cursor: pointer;
 }
 #exit{
   font-family: monospace;
