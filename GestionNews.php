@@ -1,5 +1,10 @@
 <?php 
 require_once "Website\admin.php";
-$gestionnews=new admin();
-$gestionnews->build_GestionNews();
+session_start();
+if(isset($_SESSION['role'])=='admin'){
+    $gestionnews=new admin();
+    $gestionnews->build_GestionNews();
+}else{
+    header("Location: Se connecter.php");
+}
 ?>

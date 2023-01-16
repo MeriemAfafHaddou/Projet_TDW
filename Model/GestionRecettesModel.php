@@ -25,5 +25,25 @@ class GestionRecettesModel{
         $this->db->deconnexion($cnx);
         return $stmt;
     }
+    public function valider_recette($id){
+        $this->db = new ConnexionBdd();
+        $cnx = $this->db->connexion();
+        //requete pour selectionner 10 cadres aleatoires appartenant a la categorie ayant l'id $cat
+        $stmt = $cnx->prepare("UPDATE recette SET recette_valid=1 WHERE id_recette=$id ");
+        $stmt->execute();
+        //Ne pas laisser la cnx a la BDD etablie
+        $this->db->deconnexion($cnx);
+        return $stmt;
+    }
+    public function supprimer_recette($id){
+        $this->db = new ConnexionBdd();
+        $cnx = $this->db->connexion();
+        //requete pour selectionner 10 cadres aleatoires appartenant a la categorie ayant l'id $cat
+        $stmt = $cnx->prepare("DELETE FROM recette WHERE id_recette=$id ");
+        $stmt->execute();
+        //Ne pas laisser la cnx a la BDD etablie
+        $this->db->deconnexion($cnx);
+        return $stmt;
+    }
 }
 ?>

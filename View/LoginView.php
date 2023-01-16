@@ -12,7 +12,7 @@ class LoginView
                         <h2>Se connecter</h2>
                     </center>
                     <form method='post'>
-                        <label>Nom d'utilisateur</label><br>
+                        <label>Email</label><br>
                         <input type='text' name='email' placeholder='Entrer votre email ...'/><br>
                         <label>Mot de passe</label><br>
                         <input type='password' name='pwd' placeholder='Entrer votre mot de passe ...'/>
@@ -30,7 +30,6 @@ class LoginView
             $pwd = $_POST["pwd"];
             $controller = new LoginController();
             $controller->login($email,$pwd);
-
         }
             
     }

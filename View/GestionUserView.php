@@ -69,16 +69,16 @@ class GestionUserView
                     <td>".$row['id_user']."</td>
                     <td>".$row['nom_user']."</td>
                     <td>".$row['prenom_user']."</td>
-                    <td>".$row['username']."</td>
+                    <td>".$row['datenaissance']."</td>
                     <td>".$row['sexe']."</td>
                     <td>".$row['email']."</td>";
                     if ($row['user_valid'] == 1){
-                        echo "<td><center><p class='valid'>valide</p></center></td>";
+                        echo "<td><center><input class='valid' value='✔'></input></center></td>";
                     }else{
                         echo "<td>
                                 <form method='POST'>
                                     <center><input type='hidden' name='id_user' value='".$row['id_user']."'>
-                                    <input type='submit' name='validerUser' value='Valider'/></center>
+                                    <input type='submit' name='validerUser' value='⌛'/></center>
                                 </form>
                             </td>";
                     }                    
@@ -86,7 +86,7 @@ class GestionUserView
                 <td>
                     <form method='POST'>
                         <center><input type='hidden' name='id_user' value='".$row['id_user']."'>
-                        <input type='submit' name='supprimerUser' value='Supprimer'/></center>
+                        <input type='submit' name='supprimerUser' value='✘'/></center>
                     </form>
                 </td>
                 </tr>";

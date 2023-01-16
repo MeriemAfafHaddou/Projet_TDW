@@ -12,5 +12,15 @@ class GestionRecettesController{
         $res = $model->add_recette($recette);
         return $res;
     }
+    public function valider_recette($id){
+        $model = new GestionRecettesModel();
+        $res = $model->valider_recette($id);
+        return $res;
+    }
+    public function supprimer_recette($id){
+        $model = new GestionRecettesModel();
+        $res = $model->supprimer_recette($id);
+        return $res;
+    }
 }
 ?>

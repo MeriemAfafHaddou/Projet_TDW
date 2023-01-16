@@ -109,13 +109,17 @@ class admin{
                     </a>
                 </div>
                 <div>
-                    <a  href='http://localhost/ElBenna/Se connecter.php'>
+                    <form method='POST' class='logout'>
                         <img src='http://drive.google.com/uc?export=view&id=1CQxHLn0zQ9mZFt_NsQmLnB3cqiJeOZkJ'>
-                        <h3>Se déconnecter</h3>
-                    </a>
+                        <input type='submit' value='Se déconnecter' name='logout'/>
+                    </form>
                 </div>
         </center>
         </div>";
+        if(isset($_POST['logout'])){
+            session_destroy();
+            header("Location: Se connecter.php");
+        }
         //Construire le menu
         echo"</body></html>";
     }

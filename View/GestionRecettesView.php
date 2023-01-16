@@ -21,6 +21,9 @@ class GestionRecettesView
             <th>Temmps de cuisson</th>
             <th>Calories</th>
             <th>Difficulté</th>
+            <th>Valider</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
         </tr>";
         //Le controleur pour recuperer les donnees de la bdd
         $controller = new GestionRecettesController();
@@ -37,31 +40,59 @@ class GestionRecettesView
                     <td>".$row['tmp_repos']."</td>
                     <td>".$row['tmp_cuisson']."</td>
                     <td>".$row['nb_calories']."</td>
-                    <td>".$row['difficulte']."</td>";   
+                    <td>".$row['difficulte']."</td>";
+                    if ($row['recette_valid'] == 1){
+                      echo "<td><center><input type='submit' name='valid' value='✔'></center></td>";
+                    }else{
+                        echo "<td>
+                                <form method='POST'>
+                                    <center><input type='hidden' name='id_recette' value='".$row['id_recette']."'>
+                                    <input type='submit' name='validerRecette' value='⌛'/></center>
+                                </form>
+                            </td>";
+                    }
+                    echo "
+                      <td>
+                          <form method='POST'>
+                              <center><input type='hidden' name='id_recette' value='".$row['id_recette']."'>
+                              <input type='submit' name='modifierRecette' value='✎'/></center>
+                          </form>
+                      </td>
+                      <td>
+                          <form method='POST'>
+                              <center><input type='hidden' name='id_recette' value='".$row['id_recette']."'>
+                              <input type='submit' name='supprimerRecette' value='✘'/></center>
+                          </form>
+                      </td>
+                      </tr>";             
                     $identif=$row['id_recette']+1;                 
                 echo "</tr>";
-        }
-        echo"</table></center>";
-        echo"
-                <form class='addRecette' method='POST' class='form-popup' id='popupForm'>
-                <input type='button' id='exit' value='x' onclick='closeForm()'>
-                <h3>Ajouter Une Recette</h3><br>
-                <label>N° de la recette :</label> <input name='id_recette' type='number' value='".$identif."'/><br>
-                <label>Titre de la recette : </label><input type='text' name='titre_recette' placeholder='Entrer le titre de la recette ...'/><br>
-                <label>Catégorie : </label><select name='categorie'>
-                <option>Entrées</option>
-                <option>Plats</option>
-                <option>Desserts</option>
-                <option>Boissons</option>
-                </select><br>
-                <label>Temps de préparation : </label><input type='time' name='tmp_prep' step='1' placeholder='Entrer le temps de préparation...'><br>
-                <label>Temps de repos : </label><input type='time' name='tmp_repos'  step='1' placeholder='Entrer le temps de repos...'><br>
-                <label>Temps de cuisson : </label><input type='time' name='tmp_cuisson'  step='1' placeholder='Entrer le temps de cuisson...'><br>
-                <label>Nombre de calories : </label><input type='number' name='nb_calories' placeholder='Entrer le nombre de calories ...'/><br>
-                <label>Difficulté : </label><input type='number' name='difficulte' placeholder='Entrer la difficulté de la recette ...'/><br>
-                <input type='submit' value='Ajouter' name='ajouterRecette'/><br>
-                </form>";
-
+                }
+                echo"</table></center>";
+                if(isset($_POST['validerRecette'])){
+                  $id=$_POST['id_recette'];
+                  $valid=$controller->valider_recette($id);
+                }
+                if(isset($_POST['supprimerRecette'])){
+                    $id=$_POST['id_recette'];
+                    $valid=$controller->supprimer_recette($id);
+                }
+        echo "<form class='addRecette' method='POST' class='form-popup' id='popupForm'>
+        <h3>Ajouter Une Recette</h3><br>
+        <label>Titre de la recette : </label><input type='text' name='titre_recette' placeholder='Entrer le titre de la recette ...'/><br>
+        <label>Catégorie : </label><select name='categorie'>
+        <option>Entrées</option>
+        <option>Plats</option>
+        <option>Desserts</option>
+        <option>Boissons</option>
+        </select><br>
+        <label>Temps de préparation : </label><input type='time' name='tmp_prep' step='1' placeholder='Entrer le temps de préparation...'><br>
+        <label>Temps de repos : </label><input type='time' name='tmp_repos'  step='1' placeholder='Entrer le temps de repos...'><br>
+        <label>Temps de cuisson : </label><input type='time' name='tmp_cuisson'  step='1' placeholder='Entrer le temps de cuisson...'><br>
+        <label>Nombre de calories : </label><input type='number' name='nb_calories' placeholder='Entrer le nombre de calories ...'/><br>
+        <label>Difficulté : </label><input type='number' name='difficulte' placeholder='Entrer la difficulté de la recette ...'/><br>
+        <input type='submit' value='Ajouter' name='ajouterRecette'/><br>
+        </form>";
         echo"
         <script>
         function openForm() {
