@@ -118,7 +118,6 @@ class admin{
         </div>";
         if(isset($_POST['logout'])){
             session_destroy();
-            header("Location: Se connecter.php");
         }
         //Construire le menu
         echo"</body></html>";
