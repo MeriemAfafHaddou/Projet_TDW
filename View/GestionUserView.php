@@ -11,18 +11,48 @@ class GestionUserView
         <center><h2>Gestion des utilisateurs</h2></center><br>";
         $critere='1=1';
         echo "<br>
+        <input type='text' id='myInput' onkeyup='myFunction()' placeholder='Rechercher ...'>
         <form class='Sort' method='POST'>
         <p>Trier par : </p>
         <select onchange='this.form.submit()' name='triliste'>
             <option value='none'>---</option>
             <option value='Nom'>Nom</option>
             <option value='Prénom'>Prénom</option>
-            <option value='Nom utilisateur'>Nom utilisateur</option>
             <option value='Sexe'>Sexe</option>
             <option value='Email'>Email</option>
         </select>
-        </form><br>
+        </form><br><br>
         ";
+
+        //Script de recherche 
+        echo"
+        <script>
+        function myFunction() {
+          // Declare variables
+          var input, filter, table, tr, td1, td2, td3, i, txtValue;
+          input = document.getElementById('myInput');
+          filter = input.value.toUpperCase();
+          table = document.getElementById('myTable');
+          tr = table.getElementsByTagName('tr');
+        
+          // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+            td1 = tr[i].getElementsByTagName('td')[2];
+            td2 = tr[i].getElementsByTagName('td')[3];
+            td3 = tr[i].getElementsByTagName('td')[5];
+            if (td1 || td2 || td3) {
+              txtValue1 = td1.textContent || td1.innerText;
+              txtValue2 = td2.textContent || td2.innerText;
+              txtValue3 = td3.textContent || td3.innerText;
+              if ((txtValue1.toUpperCase().indexOf(filter) > -1) || (txtValue2.toUpperCase().indexOf(filter) > -1) || (txtValue3.toUpperCase().indexOf(filter) > -1)) {
+                tr[i].style.display = '';
+              } else {
+                tr[i].style.display = 'none';
+              }
+            }
+          }
+        }
+        </script>";
         if(isset($_POST["triliste"])){
             if(!empty($_POST['triliste'])) {
                 if($_POST['triliste']=='Nom'){
@@ -36,12 +66,6 @@ class GestionUserView
                         }else{
                             if($_POST['triliste']=='Email'){
                                 $critere = 'email';
-                            }else{
-                                if($_POST['triliste']=='Nom utilisateur'){
-                                    $critere = 'username';
-                                }else{
-                                    
-                                }
                             }
                         }
                     }
@@ -49,7 +73,7 @@ class GestionUserView
             }
         }
         echo "<center>
-        <table class='admintable'>
+        <table class='admintable' id='myTable'>
         <tr>
             <th></th>
             <th>Nom</th>

@@ -325,7 +325,8 @@ div.recettes{
 }
 /*************************************** FILTER *************************************/
  .Sort{
-  margin:0 40px;
+  margin:0 70px;
+  float: right;
  }
  .Sort>select{
   background-color: #fff;
