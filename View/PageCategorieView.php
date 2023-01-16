@@ -20,6 +20,8 @@ class PageCategorieView
             <option value='Temps de cuisson'>Temps de cuisson</option>
             <option value='Notation'>notation</option>
             <option value='Difficulté'>difficulte</option>
+            <option value='Nombre de calories'>Nombre de calories</option>
+
         </select>
         </form>
         ";
@@ -37,7 +39,9 @@ class PageCategorieView
                             if($_POST['triliste']=='Difficulté'){
                                 $critere = 'difficulte';
                             }else{
-                                
+                                if($_POST['triliste']=='Nombre de calories'){
+                                    $critere = 'nb_calories';
+                                }
                             }
                         }
                     }

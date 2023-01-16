@@ -96,7 +96,9 @@ class RecetteView
             while ($row3 = $res3->fetch(PDO::FETCH_ASSOC)){
                 echo "<li>".$row3['instruction']."<li><br>";
             };
-        echo "</ol></div>
+        echo "</ol>
+        <iframe width='100%' height='400px' src='".$row['video_cadre']."' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+        </div>
             ";
         }
         echo"</div>";

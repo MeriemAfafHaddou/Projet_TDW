@@ -13,7 +13,7 @@ class LoginView
                     </center>
                     <form method='post'>
                         <label>Nom d'utilisateur</label><br>
-                        <input type='text' name='email' placeholder='Entrer votre nom utilisateur ...'/><br>
+                        <input type='text' name='email' placeholder='Entrer votre email ...'/><br>
                         <label>Mot de passe</label><br>
                         <input type='password' name='pwd' placeholder='Entrer votre mot de passe ...'/>
                         <center><input type='submit' value='Se connecter' name='login'></center>

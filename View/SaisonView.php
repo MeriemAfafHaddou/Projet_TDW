@@ -41,7 +41,6 @@ class SaisonView
                 }
             }
         }
-        $critere='1=1';
         $filtre='1=1';
         echo "<br>
         <form class='Sort' method='POST'>

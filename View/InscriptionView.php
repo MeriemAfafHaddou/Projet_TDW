@@ -18,7 +18,7 @@ class InscriptionView
                         <label>Prénom</label><br>
                         <input type='text' name='prenom' placeholder='Entrer votre prénom ...'/><br>
                         <label>Nom d'utilisateur</label><br>
-                        <input type='text' name='username' placeholder='Entrer votre nom d'utilisateur ...'/><br>
+                        <input type='date' name='DateNaissance' placeholder='Entrer votre date de naissance ...'/><br>
                         <label>Sexe</label><br>
                         <select name='sexe' placeholder='Séléctionner votre sexe ...'><br>
                             <option>Homme</option>
@@ -41,7 +41,7 @@ class InscriptionView
             $infos=[
                 $nom=$_POST["nom"],
                 $prenom=$_POST["prenom"],
-                $username=$_POST["username"],
+                $datenaissance=$_POST["DateNaissance"],
                 $sexe=$_POST["sexe"],
                 $email = $_POST["email"],
                 $pwd = $_POST["pwd"],

@@ -23,8 +23,21 @@ class NutritionView
                         <p>Energie</p>
                         <p>".$row['energie']."Kcal</p>
                         <hr> 
-                    </div>
-                    <div>
+                    </div>";
+                    if($row['healthy']==1){
+                        echo"<div>
+                                <p>Healthy</p>
+                                <p>Oui</p>
+                                <hr> 
+                            </div>";
+                    }else{
+                        echo"<div>
+                                <p>Healthy</p>
+                                <p>Non</p>
+                                <hr> 
+                            </div>";
+                    }
+                    echo "<div>
                         <p>Proteine</p>
                         <p>".$row['proteines']."g</p>
                         <hr>

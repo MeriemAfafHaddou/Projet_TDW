@@ -9,7 +9,7 @@ class LoginModel{
         $cnx = $this->db->connexion();
         $info=[$mail,$pwd];
         //requete pour selectionner tous les elements du menu
-        $stmt = $cnx->prepare("SELECT id_user FROM utilisateur WHERE utilisateur.username=? AND utilisateur.mdp=?");
+        $stmt = $cnx->prepare("SELECT id_user FROM utilisateur WHERE utilisateur.email=? AND utilisateur.mdp=?");
         $stmt->execute($info);
         //Ne pas laisser la cnx a la BDD etablie
         if ($stmt->rowCount() > 0 ){
