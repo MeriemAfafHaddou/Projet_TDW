@@ -15,13 +15,14 @@ class CadreView
                         </th>
                         <th><img src='".$row['img_cadre']."'/></th>
                     </tr>
+                    <br>
                     <tr>
                         <td colspan='3'>
-                            <p>".$row['desc_cadre']."</p>
-                            <form method='POST' class='plus'>
+                            <p>".$row['desc_cadre']."</p><br>
+                            <form method='POST'>
                                 <div class='plus'>
                                     <input type='hidden' name='recette_id' value='".$row['id_recette']."'>
-                                    <input type='submit' name='afficherplus' value='Afficher la suite'>
+                                    <a href='Recette.php?id=".$row['id_recette']."'>Afficher la suite</a>
                                 </div>
                             </form>
                         </td>
@@ -29,10 +30,5 @@ class CadreView
                 </table>
             </div>
         ";
-        if(isset($_post['afficherplus'])){
-            $id=$_POST['recette_id'];
-            $recette=new website();
-            $recette->build_recette($id);
-        }
     }
 }

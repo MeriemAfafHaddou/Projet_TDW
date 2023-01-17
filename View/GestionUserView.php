@@ -7,9 +7,11 @@ class GestionUserView
     public function user()
     {
         echo "
-        <a href='principale.php' id='home'><img src='http://drive.google.com/uc?export=view&id=1x0Id9jSlxs-tjNyVYtUz5ebi1Q2UhXkL'></a>
-        <center><h2>Gestion des utilisateurs</h2></center><br>";
-        $critere='1=1';
+        <ul class='navbar'>
+          <a href='principale.php' id='home'><img src='http://drive.google.com/uc?export=view&id=1x0Id9jSlxs-tjNyVYtUz5ebi1Q2UhXkL'></a>
+          <center><h2>Gestion des recettes</h2></center><br>
+        </ul><br><br><br>
+        <br><br>";        $critere='1=1';
         echo "<br>
         <input type='text' id='myInput' onkeyup='myFunction()' placeholder='Rechercher ...'>
         <form class='Sort' method='POST'>

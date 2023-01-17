@@ -9,7 +9,7 @@ class IngredientModel{
         $cnx = $this->db->connexion();
         //requete pour selectionner tous les ingredients necessaires dans la recette d'identifiant $id
         $stmt = $cnx->prepare("SELECT * FROM recette JOIN necessiter on recette.id_recette=necessiter.id_recette
-         JOIN ingredient on ingredient.id_ingred=necessiter.id_ingred WHERE recette.id_recette=$id");
+         JOIN ingredient on ingredient.id_ingred=necessiter.id_ingred WHERE recette.id_recette='$id'");
         $stmt->execute();
         //Ne pas laisser la cnx a la BDD etablie
         $this->db->deconnexion($cnx);

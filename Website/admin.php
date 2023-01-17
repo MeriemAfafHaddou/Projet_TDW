@@ -13,9 +13,9 @@ class admin{
         <title>Administration</title>
         <meta name='description' content='' />
         <link href='Website/Style.css' rel='stylesheet' type='text/css'/>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'></script>  
         <style>@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');</style>
         <style>@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');</style>
-        <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js'></script>
         </head>";
     }
     public function build_user(){

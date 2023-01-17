@@ -6,7 +6,7 @@ require_once "C:\wamp64\www\ElBenna\Controller\EtapeController.php";
 class RecetteView
 {
     //Pour creer une vue de categorie, il faut donner son identifiant
-    public function Recette()
+    public function Recette($id)
     {
         echo "<br>
         <div class='recette'>";
@@ -14,12 +14,16 @@ class RecetteView
         $recette = new RecetteController();
         $ingredient = new IngredientController();
         $etape = new EtapeController();
-        $id=1;
         $res1 = $recette->get_recette($id);
         $res2 = $ingredient->get_ingredient($id);
         $res3 = $etape->get_etape($id);
         //Pour chaque cadre recupere de la bdd, on l'affiche
         while($row = $res1->fetch(PDO::FETCH_ASSOC)){
+            if($row['img_cadre']=NULL){
+                $img=$row['img_cadre'];
+            }else{
+                $img=$row['img_recette'];
+            }
             echo"
             <center>
                 <h2>".$row['nom_recette']."</h2>
@@ -54,7 +58,7 @@ class RecetteView
                 </div>
             <div>
             <div class='infos-container'>
-                <img class='image' src='".$row['img_cadre']."'>
+                <img class='image' src='".$img."'>
                 <div class='infos'>
                     <div>
                         <p><b>Details supplémentaires</b></p>
@@ -85,7 +89,7 @@ class RecetteView
             <h2>Ingrédients</h2> 
             <div class='recette_det'>";
             while ($row2 = $res2->fetch(PDO::FETCH_ASSOC)){
-                    echo "<div><input type='checkbox'>".$row2['nom_ingred']."</input><br></div>";
+                    echo "<div><input type='checkbox'>".$row2['quantite']." ".$row2['unite_mesure']." de ".$row2['nom_ingred']."</input><br></div>";
                 };               
             echo "</div><br>
             <hr><br>
@@ -94,10 +98,12 @@ class RecetteView
             <ol class='recette_det'>
             ";
             while ($row3 = $res3->fetch(PDO::FETCH_ASSOC)){
-                echo "<li>".$row3['instruction']."<li><br>";
+                echo "<li>".$row3['ordre_etape']." . ".$row3['instruction']."<li><br>";
             };
         echo "</ol>
-        <iframe width='100%' height='400px' src='".$row['video_cadre']."' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+        <hr>
+        <p class='video'> Ou bien regardez la vidéo suivante :</p><br><br>
+        <center><iframe width='100%' height='400px' src='".$row['lien_video']."' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></center>
         </div>
             ";
         }

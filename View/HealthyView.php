@@ -45,7 +45,7 @@ class HealthyView
         }
         //Le cadre vue pour afficher les recettes corresp
         $cadre=new CadreView();
-        echo "<div class='recettes'>";
+        echo "<br><br><div class='recettes'>";
         $res = $controller->get_calories($cal,$critere);
         //Pour chaque cadre recupere de la bdd, on l'affiche
         while($row = $res->fetch(PDO::FETCH_ASSOC)){
@@ -89,7 +89,7 @@ class HealthyView
                 }
             }
         }
-        echo "<br>
+        echo "<br><br>
         <div class='recettes'>";
         //Le controleur pour recuperer les donnees de la bdd
         $controller = new HealthyController();

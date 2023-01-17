@@ -8,7 +8,9 @@ class RecetteModel{
         $this->db = new ConnexionBdd();
         $cnx = $this->db->connexion();
         //requete pour selectionner la recette d'identifiant $id
-        $stmt = $cnx->prepare("SELECT * FROM recette INNER JOIN cadre ON recette.id_recette=cadre.id_recette WHERE recette.id_recette=$id");
+        $stmt = $cnx->prepare("SELECT * FROM recette 
+        JOIN cadre ON recette.id_recette=cadre.id_recette 
+        WHERE recette.id_recette='$id'");
         $stmt->execute();
         //Ne pas laisser la cnx a la BDD etablie
         $this->db->deconnexion($cnx);

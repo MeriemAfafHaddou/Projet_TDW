@@ -6,10 +6,13 @@ class GestionNewsView
     //Pour creer une vue de categorie, il faut donner son identifiant
     public function news()
     {
-        echo "
+      echo "
+      <ul class='navbar'>
         <a href='principale.php' id='home'><img src='http://drive.google.com/uc?export=view&id=1x0Id9jSlxs-tjNyVYtUz5ebi1Q2UhXkL'></a>
-        <center><h2>Gestion des News</h2></center>
-        <input type='button' name='ajouteruser' value='+' onclick='openForm()'/><br><br>
+        <center><h2>Gestion des recettes</h2></center><br>
+      </ul><br><br><br>
+      <input type='button' name='ajouteruser' value='+' onclick='openForm()'/>
+        <br><br>
         <input type='text' id='myInput' onkeyup='myFunction()' placeholder='Rechercher ...'><br><br>
         <center>
         <table class='admintable' id='myTable'>

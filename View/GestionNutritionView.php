@@ -8,11 +8,13 @@ class GestionNutritionView
     {
       $critere='1=1';
       //Home, titre, bouton ajouter
-        echo " 
+      echo "
+      <ul class='navbar'>
         <a href='principale.php' id='home'><img src='http://drive.google.com/uc?export=view&id=1x0Id9jSlxs-tjNyVYtUz5ebi1Q2UhXkL'></a>
-        <center><h2>Gestion de Nutrition</h2></center>
-        <input type='button' name='ajouteruser' value='+' onclick='openForm()'/><br><br><br>
-        ";
+        <center><h2>Gestion des recettes</h2></center><br>
+      </ul><br><br><br>
+      <input type='button' name='ajouteruser' value='+' onclick='openForm()'/>
+      <br><br>";
         //le tri, la recherche
         echo "<br>
         <input type='text' id='myInput' onkeyup='myFunction()' placeholder='Rechercher ...'>

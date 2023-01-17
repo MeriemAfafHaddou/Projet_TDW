@@ -42,7 +42,7 @@ class SaisonView
             }
         }
         $filtre='1=1';
-        echo "<br>
+        echo "
         <form class='Sort' method='POST'>
         <p>Filtrer par : </p>
         <select onchange='this.form.submit()' name='filtrerliste'>
@@ -84,7 +84,7 @@ class SaisonView
                 }
             }
         }
-        echo "<br>
+        echo "<br><br>
         <div class='recettes'>";
         //Le controleur pour recuperer les donnees de la bdd
         $controller = new SaisonController();

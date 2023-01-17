@@ -8,7 +8,10 @@ class EtapeModel{
         $this->db = new ConnexionBdd();
         $cnx = $this->db->connexion();
         //requete pour selectionner toutes les etapes necessaires pour la recette d'identifiant $id
-        $stmt = $cnx->prepare("SELECT * FROM etape ORDER BY ordre_etape");
+        $stmt = $cnx->prepare("SELECT * FROM etape
+        JOIN suivre ON etape.id_etape=suivre.id_etape
+        WHERE suivre.id_recette='$id'
+        ORDER BY ordre_etape");
         $stmt->execute();
         //Ne pas laisser la cnx a la BDD etablie
         $this->db->deconnexion($cnx);

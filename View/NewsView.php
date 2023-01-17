@@ -31,7 +31,7 @@ class NewsView
                 }
             }
         }
-        echo "<br>
+        echo "<br><br>
         <div class='recettes'>";
         //Le controleur pour recuperer les donnees de la bdd
         $controller = new NewsController();

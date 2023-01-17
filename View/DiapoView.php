@@ -35,7 +35,6 @@ class DiapoView
         echo"<script type='text/javascript'>
             var slideIndex0 = 0;
             AfficherDiapo();
-            
             function AfficherDiapo() {
             var i;
             var x = document.getElementsByClassName('diapo');

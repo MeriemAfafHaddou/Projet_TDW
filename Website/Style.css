@@ -21,7 +21,7 @@ ul.navbar{
     align-content: space-between;
     width: 100%;
     background: white;
-    z-index: 10000;
+    z-index: 80;
 }
 ul.navbar>li{
     display: inline;
@@ -136,12 +136,8 @@ table.diapo{
     filter: drop-shadow(10%);
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2); 
   }
-  .plus{
-    
-  }
-  .plus>input[type='submit']{
-    margin: 0px auto;
-    background-color: transparent;
+  .plus>a{
+    margin: 10px auto;
     color: #000;
     text-decoration: underline;
     font-weight: bold;
@@ -149,7 +145,8 @@ table.diapo{
     padding: 10px 20px;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 10pt;
+    font-size: 12pt;
+    overflow: hidden;
   }
   /*********************************** CATEGORIE *******************************/
   .container1{
@@ -426,6 +423,13 @@ div.recette_det{
 .recette>h2{
   margin: 30px 0 0 90px;
 }
+p.video{
+  margin: 10px 40px;
+}
+iframe{
+  width: 70%;
+  border-radius: 20px;
+}
 /******************************* HEALTHY *************************************/
 .healthy{
   margin: 40px;
@@ -487,7 +491,6 @@ div.recette_det{
     padding :10px 20px;
     width: 100%;
     border-radius: 20px;
-    display:none;
   }
 #inputGroup>*{
   display: inline-block;
@@ -562,8 +565,10 @@ div.recette_det{
 }
 /******************************* GESTION DES UTILISATEURS **************************************/
 .admintable{
-  border-radius: 30px;
   width: 90%;
+}
+.admintable a{
+  color: #000;
 }
 #home{
   position: fixed;
@@ -587,7 +592,7 @@ div.recette_det{
   background-color: #FFF8F4;
 }
 .admintable td, th{
-  padding: 8px;
+  padding: 10px;
   border: none;
   overflow: hidden;
   border-radius: 4px;
@@ -602,30 +607,29 @@ input[name='ajouteruser']{
   color: white;
   font-size: 20pt;
   font-weight: bolder;
-  margin: 0 70px;
-  position: static;
+  margin: 50px 70px 0px 30px;
   cursor: pointer;
 }
 td>center>input[name='valid']{
-  background-color: green;
-  color: #fff;
-  border: none;
+  background-color: transparent;
+  color: #000;
+  border: 1px #000 solid;
   padding: 5px 10px;
   border-radius: 10px;
   width:30px;
 }
 form>center>input[name='validerUser']{
-  background-color: rgb(179, 179, 179);
-  color: #fff;
-  border: none;
+  background-color: transparent;
+  color: #000;
+  border: 1px #000 solid;
   padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
 }
 form>center>input[name='supprimerUser']{
-  background-color: rgb(164, 21, 21);
-  color: #fff;
-  border: none;
+  background-color: transparent;
+  color: #000;
+  border: 1px #000 solid;
   padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
@@ -642,7 +646,7 @@ form>center>input[name='supprimerUser']{
   top: 5%;
   transform: translate(-45%, 5%);
   border-radius: 30px;
-  z-index: 9;
+  z-index: 100;
   backdrop-filter: blur(3px);  
   filter: drop-shadow(1px 1px 1px #666);
 }
@@ -686,7 +690,7 @@ input[name='desc_news']{
   top: 5%;
   transform: translate(-45%, 5%);
   border-radius: 30px;
-  z-index: 9;
+  z-index: 100;
 }
 #form_container{
   backdrop-filter: blur(3px);  
@@ -694,6 +698,7 @@ input[name='desc_news']{
   width: 1800px;
   position: fixed;
   top: 0%;
+  z-index: 90;
 }
 #modif-popup{
   position: fixed;
@@ -701,7 +706,7 @@ input[name='desc_news']{
   background-color: #fff;
   border-radius: 30px;
   z-index: 9;
-  margin: 60px 420px;
+  margin: 70px 420px;
   filter: drop-shadow(1px 1px 1px #666);
 }
 #modif-popup>input[type='submit']{
@@ -744,17 +749,17 @@ input[name='desc_news']{
   overflow: hidden;
 }
 form>center>input[name='supprimerNews']{
-  background-color: rgb(164, 21, 21);
-  color: #fff;
-  border: none;
+  background-color: transparent;
+  color: #000;
+  border: 1px #000 solid;
   padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
 }
 form>center>input[name='modifierNews']{
-  background-color: rgb(179, 179, 179);
-  color: #fff;
-  border: none;
+  background-color: transparent;
+  color: #000;
+  border: 1px #000 solid;
   padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
@@ -768,33 +773,34 @@ form>center>input[name='modifierNews']{
   position: fixed;
   left: 45%;
   top: 1%;
+  height: 450px;
+  width: fit-content;
+  overflow-y: scroll;
   transform: translate(-45%, 5%);
   border-radius: 30px;
-  z-index: 9;
-  backdrop-filter: blur(3px);  
+  z-index: 100;
   filter: drop-shadow(1px 1px 1px #666);
-  
 }
 form>center>input[name='validerRecette']{
-  background-color: rgb(179, 179, 179);
-  color: #fff;
-  border: none;
+  background-color: transparent;
+  color: #000;
+  border: 1px #000 solid;
   padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
 }
 form>center>input[name='supprimerRecette']{
-  background-color: rgb(164, 21, 21);
-  color: #fff;
-  border: none;
+  background-color: transparent;
+  color: #000;
+  border: 1px #000 solid;
   padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
 }
 form>center>input[name='modifierRecette']{
-  background-color: rgb(179, 179, 179);
-  color: #fff;
-  border: none;
+  background-color: transparent;
+  color: #000;
+  border: 1px #000 solid;
   padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
@@ -806,11 +812,11 @@ form>center>input[name='modifierRecette']{
   margin-left: 0;
   width: 200px;
 }
-.addRecette label{
+.addRecette>label{
   display: inline-block;
   float: left;
   clear: left;
-  width: 150px;
+  width: 190px;
   text-align: left;
 }
 .addRecette>input[type='submit']{
@@ -833,6 +839,28 @@ form>center>input[name='modifierRecette']{
   background-color: #FFF1E9;
   color: #000;
 }
+#ingreds>li{
+  display: none;
+}
+#check-ingred{
+  background-color: #fff;
+    display: block;
+    margin: 10px;
+    position: relative;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    width: 160px;
+    border-radius: 20px;
+    padding: 5px 10px;
+  }
+#check-ingred>*{
+  display: inline-block;
+  color: #3C454C;
+  font-size: 11pt;
+}
+#check-ingred>input{
+      cursor: pointer;
+}
+
 /************************************** GESTION NUTRITION *********************************************/
 .addNutrition{
   margin-top: 10px;
@@ -887,17 +915,17 @@ form>center>input[name='modifierRecette']{
   color: #000;
 }
 form>center>input[name='valider']{
-  background-color: rgb(179, 179, 179);
-  color: #fff;
-  border: none;
+  background-color: transparent;
+  color: #000;
+  border: 1px #000 solid;
   padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
 }
 form>center>input[name='supprimer']{
-  background-color: rgb(164, 21, 21);
-  color: #fff;
-  border: none;
+  background-color: transparent;
+  color: #000;
+  border: 1px #000 solid;
   padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
@@ -918,7 +946,7 @@ form>center>input[name='modifier']{
   overflow-y: scroll;
   z-index: 9;
   height: 400px;
-  margin: 60px 420px;
+  margin: 90px 420px;
   filter: drop-shadow(1px 1px 1px #666);
 }
 #popupModifier>input[type='submit']{

@@ -44,9 +44,8 @@ class FetesView
                 }
             }
         }
-        $critere='1=1';
         $filtre='1=1';
-        echo "<br>
+        echo "
         <form class='Sort' method='POST'>
         <p>Filtrer par : </p>
         <select onchange='this.form.submit()' name='filtrerliste'>
@@ -90,7 +89,7 @@ class FetesView
         }
         //Le cadre vue pour afficher les recettes corresp
         $cadre=new CadreView();
-        echo "<br>
+        echo "<br><br>
         <div class='recettes'>";
         $res = $controller->get_fetes($filtre,$critere);
         //Pour chaque cadre recupere de la bdd, on l'affiche

@@ -48,7 +48,7 @@ class PageCategorieView
                 }
             }
         }
-        echo "<br>
+        echo "<br><br>
         <div class='recettes'>";
         //Le cadre vue pour afficher les recettes corresp
         $cadre=new CadreView();
