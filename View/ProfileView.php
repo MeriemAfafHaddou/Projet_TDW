@@ -1,3 +1,16 @@
+<script>
+        function ajouterEtape(){
+            var tableRow = document.getElementById("etapes");
+            var row = document.createElement("tr");
+            var cell1 = document.createElement("td");
+            var cell2 = document.createElement("td");
+             cell1.innerHTML = "<input type='text' name='etape[]' placeholder='Entrer une étape'>";
+             cell2.innerHTML = "";
+             row.appendChild(cell1);
+             row.appendChild(cell2);
+             tableRow.appendChild(row);
+        }
+        </script>
 <?php
 require_once "./Controller/ProfileController.php";
 require_once "./Controller/IdeesController.php";
@@ -8,7 +21,8 @@ class ProfileView{
         $recettecontroller=new GestionRecettesController();
         $res=$controller->get_profile($id);
         $row=$res->fetch(PDO::FETCH_ASSOC);
-        if($_SESSION['role']=='user'){
+        if(isset($_SESSION['role'])){
+            if($_SESSION['role']=='user'){
             echo"
             <center>
                 <table class='profile'>
@@ -46,7 +60,7 @@ class ProfileView{
             //Ajouter recette, modifier photo, modifier mot de passe
             echo "
             <form class='addRecette' method='POST' class='form-popup' id='popupForm3'>
-            <input type='button' id='exit' value='x' onclick='closeForm3()'>
+            <input type='button' id='exit' value='x' onclick='closeForm()'>
             <h3>Ajouter Une Recette</h3><br>
             <label>Id de la recette : </label><input type='number' name='id_recette' placeholder='Entrer le numero de la recette ...'/><br>
             <label>Titre de la recette : </label><input type='text' name='titre_recette' placeholder='Entrer le titre de la recette ...'/><br>
@@ -65,15 +79,7 @@ class ProfileView{
             <label>Difficulté : </label><input type='number' name='difficulte' placeholder='Entrer la difficulté de la recette ...'/><br>
             <label>Lien vers l'image : </label><input type='text' name='img' placeholder='Entrer le lien image de la recette ...'/><br>
             <label>Lien vers la video : </label><input type='text' name='video' placeholder='Entrer le lien video de la recette ...'/><br>
-            <label>Ajouter vos ingrédients</label><input type='text' name='ingredsearch' id='ingredsearch' onkeyup='searchFunction()'><br>
-            <label>Ajouter les etapes</label>
-            <table id='etapes'>
-                    <tr>
-                      <td><input type='text' name='etape[]' placeholder='Entrer une étape' class='etape_controle'></td>
-                      <td><button name='ajouter' id='ajouter' class='btn'>+</button></td>
-                    </tr>
-            </table>
-            ";
+            <label>Ajouter vos ingrédients</label><input type='text' name='ingredsearch' id='ingredsearch' onkeyup='searchFunction()'><br>";
             $ingreds = new IdeesController();
             $res = $ingreds->get_ingreds();
             echo"<ul id='ingreds'>";
@@ -85,87 +91,94 @@ class ProfileView{
                     </li>";
             }
             echo"</ul>
+            <label>Ajouter les etapes</label>
+            <table id='etapes'>
+                    <tr>
+                      <td><input type='text' name='etape[]' placeholder='Entrer une étape' class='etape_controle'></td>
+                      <td><input type='button' value='+' name='ajouter' id='ajouter' class='btn' onclick='ajouterEtape()'></input></td>
+                    </tr>
+            </table>       
             <input type='submit' id='submit' value='Ajouter' name='ajouterRecette'/><br>
             </form>";
+            if(isset($_POST['etape'])){
+              $number = count($_POST["etape"]);  
+              $etapes=array();
+              if($number > 0)  
+              {  
+                  for($i=0; $i<$number; $i++)  
+                  {  
+                        if(trim($_POST["etape"][$i] != ''))  
+                        {  
+                            array_push($etapes,$_POST["etape"][$i]);
+                        }  
+                  }  
+              }  
+            }
+            
             //Fonction pour la recherche des ingredients a inserer
             echo "
             <script>
-                function searchFunction() {
-                    var input, filter, ul, li, la, i, txtValue;
-                    input = document.getElementById('ingredsearch');
-                    filter = input.value.toUpperCase();
-                    ul = document.getElementById('ingreds');
-                    li = ul.getElementsByTagName('li');
-                
-                    for (i = 0; i < li.length; i++) {
-                    la = li[i].getElementsByTagName('label')[0];
-                    txtValue = la.textContent || la.innerText; 
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        li[i].style.display = 'block';
-                    } else {
-                        li[i].style.display = 'none';
-                    }
-                    }
-                }
-            </script>";
-            if(isset($_POST['ajouterRecette'])){
-                //La categorie selectionnée
-                if($_POST['categorie']=='Entrées'){
-                  $categ=1;
-                }else{
-                  if($_POST['categorie']=='Plats'){
-                    $categ=2;
-                  }else{
-                    if($_POST['categorie']=='Desserts'){
-                      $categ=3;
-                    }else{
-                      if($_POST['categorie']=='Boissons'){
-                        $categ=4;
-                      }
-                    }
+            function searchFunction() {
+                var input, filter, ul, li, la, i, txtValue;
+                input = document.getElementById('ingredsearch');
+                filter = input.value.toUpperCase();
+                ul = document.getElementById('ingreds');
+                li = ul.getElementsByTagName('li');
+              
+                   for (i = 0; i < li.length; i++) {
+                  la = li[i].getElementsByTagName('label')[0];
+                  txtValue = la.textContent || la.innerText; 
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = 'block';
+                  } else {
+                    li[i].style.display = 'none';
                   }
                 }
-                //La recette
-                $recette=[
-                    $categ,
-                    $_POST['id_recette'],
-                    $_POST['titre_recette'],
-                    $_POST['tmp_prep'],
-                    $_POST['tmp_repos'],
-                    $_POST['tmp_cuisson'],
-                    $_POST['nb_calories'],
-                    $_POST['difficulte'],
-                    $_POST['img'],
-                    $_POST['video']
-                ];
-                // Les ingredients 
-                $liste = array();
-                if(!empty($_POST['liste'])) {
-                    foreach($_POST['liste'] as $ingredient) {
-                        array_push($liste,$ingredient);
-                    }
-                }
-                 // Les etapes
-                if(isset($_POST['etape'])){
-                    $number = count($_POST["etape"]);  
-                    $etapes=array();
-                    if($number > 0)  
-                    {  
-                        for($i=0; $i<$number; $i++)  
-                        {  
-                            if(trim($_POST["etape"][$i] != ''))  
-                            {  
-                                array_push($etapes,$_POST["etape"][$i]);
-                            }  
-                        }  
-                    }  
-                }
-                $id=$_POST['id_recette'];
-                $recettecontroller->add_recette($recette);
-                $recettecontroller->ajouter_ingreds($id,$liste);
-                $recettecontroller->ajouter_etapes($id,$etapes);        
-            }
+              }
+              
             
+            </script>";
+          //Ajouter recette
+          if(isset($_POST['ajouterRecette'])){
+            if($_POST['categorie']=='Entrées'){
+              $categ=1;
+            }else{
+              if($_POST['categorie']=='Plats'){
+                $categ=2;
+              }else{
+                if($_POST['categorie']=='Desserts'){
+                  $categ=3;
+                }else{
+                  if($_POST['categorie']=='Boissons'){
+                    $categ=4;
+                  }
+                }
+              }
+            }
+            $liste = array();
+            if(!empty($_POST['liste'])) {
+              foreach($_POST['liste'] as $ingredient) {
+                  array_push($liste,$ingredient);
+              }
+            }
+            $recette=[
+                $categ,
+                $_POST['id_recette'],
+                $_POST['titre_recette'],
+                $_POST['tmp_prep'],
+                $_POST['tmp_repos'],
+                $_POST['tmp_cuisson'],
+                $_POST['nb_calories'],
+                $_POST['difficulte'],
+                $_POST['img'],
+                $_POST['video']
+            ];
+            $id=$_POST['id_recette'];
+            $recettecontroller->add_recette($recette);
+            $recettecontroller->ajouter_ingreds($id,$liste);
+            $recettecontroller->ajouter_etapes($id,$etapes);
+        }
+    
            
             echo"
                 <form class='addNews' method='POST' class='form-popup' id='popupForm1'>
@@ -241,6 +254,9 @@ class ProfileView{
         }
 
 
+    }else{
+        header("location:Se connecter.php");
     }
+}
 
 }

@@ -3,6 +3,7 @@ require_once "View/GestionUserView.php";
 require_once "View/GestionNewsView.php";
 require_once "View/GestionRecettesView.php";
 require_once "View/GestionNutritionView.php";
+require_once "View/GestionParametresView.php";
 header('Content-type: text/html; charset=UTF-8');
 class admin{
     //La fonction permettant de generer Le header de la page
@@ -14,7 +15,6 @@ class admin{
         <meta name='description' content='' />
         <link href='Website/Style.css' rel='stylesheet' type='text/css'/>
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'></script>  
-        <style>@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');</style>
         <style>@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');</style>
         </head>";
     }
@@ -122,7 +122,18 @@ class admin{
         //Construire le menu
         echo"</body></html>";
     }
-
+    public function build_parametres(){
+        //Declaration du menu, diapo, categorie, et footer
+        $parametres=new GestionParametresView();
+        echo"<!DOCTYPE html>
+        <html>";
+        //Appeler le header
+        $this->header();
+        echo"<body>";
+        //Construire le menu
+        $parametres->Parametres();
+        echo"</body></html>";
+    }
 
 
 

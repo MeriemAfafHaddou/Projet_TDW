@@ -9,9 +9,10 @@ class GestionUserView
         echo "
         <ul class='navbar'>
           <a href='principale.php' id='home'><img src='http://drive.google.com/uc?export=view&id=1x0Id9jSlxs-tjNyVYtUz5ebi1Q2UhXkL'></a>
-          <center><h2>Gestion des recettes</h2></center><br>
+          <center><h2>Gestion des utilisateurs</h2></center><br>
         </ul><br><br><br>
-        <br><br>";        $critere='1=1';
+        <br><br>";       
+        $critere='1=1';
         echo "<br>
         <input type='text' id='myInput' onkeyup='myFunction()' placeholder='Rechercher ...'>
         <form class='Sort' method='POST'>
@@ -94,7 +95,7 @@ class GestionUserView
         while($row = $res->fetch(PDO::FETCH_ASSOC)){
             echo"<tr>
                     <td>".$row['id_user']."</td>
-                    <td>".$row['nom_user']."</td>
+                    <td><a href='http://localhost/ElBenna/Profile.php?id=".$row['id_user']."'>".$row['nom_user']."</a></td>
                     <td>".$row['prenom_user']."</td>
                     <td>".$row['datenaissance']."</td>
                     <td>".$row['sexe']."</td>

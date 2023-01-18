@@ -1,12 +1,16 @@
 <script>
-  $(document).ready(function(){
-    var i=1;
-    $('#ajouter').click(function(){
-          i++;
-          $('#etapes').append('<tr id="row'+i+'"><td><input type="text" name="etape[]" placeholder="Entrer une étape" class="etape_controle" /></td><td></td></tr>');   
-        });
-  });
-</script>";
+        function ajouterEtape(){
+            var tableRow = document.getElementById("etapes");
+            var row = document.createElement("tr");
+            var cell1 = document.createElement("td");
+            var cell2 = document.createElement("td");
+             cell1.innerHTML = "<input type='text' name='etape[]' placeholder='Entrer une étape'>";
+             cell2.innerHTML = "";
+             row.appendChild(cell1);
+             row.appendChild(cell2);
+             tableRow.appendChild(row);
+        }
+        </script>
 <?php
 //Nous aurons besoin d'utiliser les fichiers suivants
 require_once "C:\wamp64\www\ElBenna\Controller\GestionRecettesController.php";
@@ -129,7 +133,7 @@ class GestionRecettesView
         while($row = $res->fetch(PDO::FETCH_ASSOC)){
             echo"<tr>
                     <td>".$row['id_recette']."</td>
-                    <td>".$row['nom_recette']."</td>
+                    <td><a href='http://localhost/ElBenna/Recette.php?id=".$row['id_recette']."'>".$row['nom_recette']."</td>
                     <td>".$row['nom_categ']."</td>
                     <td>".$row['notation']."</td>
                     <td>".$row['tmp_prep']."</td>
@@ -196,16 +200,7 @@ class GestionRecettesView
         <label>Difficulté : </label><input type='number' name='difficulte' placeholder='Entrer la difficulté de la recette ...'/><br>
         <label>Lien vers l'image : </label><input type='text' name='img' placeholder='Entrer le lien image de la recette ...'/><br>
         <label>Lien vers la video : </label><input type='text' name='video' placeholder='Entrer le lien video de la recette ...'/><br>
-        <label>Ajouter vos ingrédients</label><input type='text' name='ingredsearch' id='ingredsearch' onkeyup='searchFunction()'><br>
-        <label>Ajouter les etapes</label>
-        <table id='etapes'>
-                <tr>
-                  <td><input type='text' name='etape[]' placeholder='Entrer une étape' class='etape_controle'></td>
-                  <td><button name='ajouter' id='ajouter' class='btn'>+</button></td>
-                </tr>
-        </table>
-        ";
-       
+        <label>Ajouter vos ingrédients</label><input type='text' name='ingredsearch' id='ingredsearch' onkeyup='searchFunction()'><br>";
         $ingreds = new IdeesController();
         $res = $ingreds->get_ingreds();
         echo"<ul id='ingreds'>";
@@ -217,6 +212,13 @@ class GestionRecettesView
                 </li>";
         }
         echo"</ul>
+        <label>Ajouter les etapes</label>
+        <table id='etapes'>
+                <tr>
+                  <td><input type='text' name='etape[]' placeholder='Entrer une étape' class='etape_controle'></td>
+                  <td><input type='button' value='+' name='ajouter' id='ajouter' class='btn' onclick='ajouterEtape()'></input></td>
+                </tr>
+        </table>       
         <input type='submit' id='submit' value='Ajouter' name='ajouterRecette'/><br>
         </form>";
         if(isset($_POST['etape'])){
@@ -363,6 +365,9 @@ class GestionRecettesView
                     <label>Temps de cuisson : </label><input type='time' name='tmp_cuisson'  step='1' value='".$row['tmp_cuisson']."' placeholder='Entrer le temps de cuisson...'><br>
                     <label>Nombre de calories : </label><input type='number' name='nb_calories' value='".$row['nb_calories']."' placeholder='Entrer le nombre de calories ...'/><br>
                     <label>Difficulté : </label><input type='number' name='difficulte' value='".$row['difficulte']."' placeholder='Entrer la difficulté de la recette ...'/><br>
+                    <label>Lien vers l'image : </label><input type='text' name='img' value='".$row['img_recette']."' placeholder='Entrer le lien image de la recette ...'/><br>
+                    <label>Lien vers la video : </label><input type='text' name='video' value='".$row['lien_video']."' placeholder='Entrer le lien video de la recette ...'/><br>
+                    
                     <input type='submit' value='Modifier' name='modifierButton'/><br>
                     </form>
                   </div>";

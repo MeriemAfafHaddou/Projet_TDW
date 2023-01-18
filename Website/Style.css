@@ -649,6 +649,8 @@ form>center>input[name='supprimerUser']{
   z-index: 100;
   backdrop-filter: blur(3px);  
   filter: drop-shadow(1px 1px 1px #666);
+  overflow-y: scroll;
+  height: 300px;
 }
 .addNews>*{
   margin: 10px 0;
@@ -839,6 +841,19 @@ form>center>input[name='modifierRecette']{
   background-color: #FFF1E9;
   color: #000;
 }
+#etapes{
+  padding: 0;
+  margin: 0;
+}
+#etapes>tbody>tr>td>input{
+  background: transparent;
+  border: #000 solid;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+#etapes>tbody>tr>td>input[type='text']{
+  width: 200px;
+}
 #ingreds>li{
   display: none;
 }
@@ -1008,9 +1023,10 @@ form>center>input[name='modifier']{
   width: 90%;
 }
 .profile img{
-  height: 200px;
-  width: 200px;
-  border-radius: 100px;
+  height: 100px;
+  width: 100px;
+  border-radius: 70px;
+  padding: 20px;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3); 
   overflow: hidden;
 }
@@ -1041,4 +1057,65 @@ form>center>input[name='modifier']{
 .actions>input:hover, .actions>form>input:hover{
   background-color: #FFF1E9;
 
+}
+/************************** PARAMETRES *****************************/
+.parametres{
+  display: grid;
+  margin: 100px;
+  grid-template-columns: 500px 500px;
+  column-gap: 50px;
+}
+.parametres>center>div{
+  margin: 10px 0;
+  border-radius: 40px;
+  width: 350px;
+  padding: 30px;
+}
+.parametres>center>div:hover{
+  background-color: #fff6f1;
+}
+.parametres>center>div>a{
+  width: 100%;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+.parametres>center>div>a>img{
+  height: 180px;
+  width: 180px;
+}
+.parametres>center>div>form>input{
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  font-size: 14pt;
+  font-weight: bold;
+  color: #000;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.principale>div>form>img{
+  height: 100px;
+  width: 100px;
+}
+#titres>li{
+  display: none;
+}
+#check-titre{
+  background-color: #fff;
+    display: block;
+    margin: 10px;
+    position: relative;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    width: 160px;
+    border-radius: 20px;
+    padding: 5px 10px;
+  }
+#check-titre>*{
+  display: inline-block;
+  color: #3C454C;
+  font-size: 11pt;
+}
+#check-titre>input{
+      cursor: pointer;
 }
