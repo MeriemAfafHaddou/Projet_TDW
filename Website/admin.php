@@ -117,7 +117,7 @@ class admin{
         </center>
         </div>";
         if(isset($_POST['logout'])){
-            session_destroy();
+            session_unset();
         }
         //Construire le menu
         echo"</body></html>";

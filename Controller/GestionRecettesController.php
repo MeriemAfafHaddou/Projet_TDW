@@ -16,6 +16,13 @@ class GestionRecettesController{
     public function add_recette($recette){
         $model = new GestionRecettesModel();
         $res = $model->add_recette($recette);
+        if($res){
+            echo "
+                <script>
+                    alert('Recette Ajoutée avec succès.');
+                </script>
+                ";
+        }
         return $res;
     }
     public function valider_recette($id){
@@ -36,6 +43,11 @@ class GestionRecettesController{
     public function ajouter_ingreds($id,$liste){
         $model= new GestionRecettesModel();
         $res=$model->ajouter_ingreds($id,$liste);
+        return $res;
+    }
+    public function ajouter_etapes($id,$etapes){
+        $model= new GestionRecettesModel();
+        $res=$model->ajouter_etapes($id,$etapes);
         return $res;
     }
 }

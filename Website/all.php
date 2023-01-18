@@ -17,7 +17,7 @@ require_once "View/HealthyView.php";
 require_once "View/IdeesView.php";
 require_once "View/LoginView.php";
 require_once "View/InscriptionView.php";
-
+require_once "View/ProfileView.php";
 header('Content-type: text/html; charset=UTF-8');
 class website
 {
@@ -321,6 +321,21 @@ class website
         $footer->Footer();
         echo"</body></html>";
     }
-
+    public function build_Profile($id){
+        //Declaration du menu, diapo, categorie, et footer
+        $menu =new MenuView();
+        $profile=new ProfileView();
+        echo"<!DOCTYPE html>
+        <html>";
+        //Appeler le header
+        $this->header();
+        echo"<body>";
+        //Construire le menu
+        $menu->Menu();
+        $profile->Profile($id);
+        $footer = new FooterView();
+        $footer->Footer();
+        echo"</body></html>";
+    }
 }
 ?>

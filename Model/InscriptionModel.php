@@ -9,11 +9,13 @@ class InscriptionModel{
         $cnx = $this->db->connexion();
         //requete pour selectionner tous les elements du menu
         $stmt = $cnx->prepare("INSERT INTO `utilisateur`
-        (`nom_user`, `prenom_user`,`username`, `sexe`, `email`, `mdp`, `user_valid`)
+        (`nom_user`, `prenom_user`,`datenaissance`, `sexe`, `email`, `mdp`, `user_valid`)
         VALUES (?,?,?,?,?,?,?)");
         $stmt->execute($infos);
+        $stmt2=$cnx->prepare("SELECT * FROM utilisateur ORDER BY id_user DESC LIMIT 1");
+        $stmt2->execute();
         //Ne pas laisser la cnx a la BDD etablie
-        return true;       
+        return $stmt2;       
     }
 }
 ?>

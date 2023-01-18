@@ -941,7 +941,7 @@ form>center>input[name='modifier']{
 #popupModifier{
   position: fixed;
   padding: 20px;
-  background-color: #fff;
+  background-color: #FFF1E9;
   border-radius: 30px;
   overflow-y: scroll;
   z-index: 9;
@@ -949,6 +949,7 @@ form>center>input[name='modifier']{
   margin: 90px 420px;
   filter: drop-shadow(1px 1px 1px #666);
 }
+
 #popupModifier>input[type='submit']{
   width: 130px;
   background-color: #000;
@@ -1000,4 +1001,44 @@ form>center>input[name='modifier']{
 .principale>div>form>img{
   height: 100px;
   width: 100px;
+}
+/******************************** PROFILE *******************************/
+.profile{
+  margin: 100px;
+  width: 90%;
+}
+.profile img{
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3); 
+  overflow: hidden;
+}
+.profile h3{
+  width: 250px;
+  margin: 10px 0;
+}
+.profile label{
+  margin: 0 5px;
+  width: 140px;
+  display: inline-block;
+}
+.profile>tbody>tr>td>input, .profile>tbody>tr>td>form>input{
+  background-color: transparent;
+  border: #000 solid;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin:10px;
+  width: 250px;
+  display: inline-block;
+  text-align: start;
+  cursor: pointer;
+}
+.profile>tbody>tr>td{
+  padding: 0 20px;
+}
+
+.actions>input:hover, .actions>form>input:hover{
+  background-color: #FFF1E9;
+
 }

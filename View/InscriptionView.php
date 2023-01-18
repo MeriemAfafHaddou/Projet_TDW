@@ -48,10 +48,7 @@ class InscriptionView
                 $valid
             ];
             $controller = new InscriptionController();
-            if($controller->register($infos)){
-                $accueil= new website();
-                $accueil->build_accueil();
-            }
+            $controller->register($infos);
         }
             
     }

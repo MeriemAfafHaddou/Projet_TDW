@@ -18,7 +18,7 @@ class LoginController{
                     header("Location: Principale.php");
                 }else{
                     $_SESSION['role']='user';
-                    header("Location: Accueil.php");
+                    header("Location: Profile.php?id=".$_SESSION['id']."");
                 }
                 exit();
             // login success         

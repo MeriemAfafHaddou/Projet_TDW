@@ -8,6 +8,7 @@ class LoginModel{
         $this->db = new ConnexionBdd();
         $cnx = $this->db->connexion();
         $info=[$mail,$pwd];
+        
         //requete pour selectionner tous les elements du menu
         $stmt = $cnx->prepare("SELECT * FROM utilisateur WHERE utilisateur.email=? AND utilisateur.mdp=?");
         $stmt->execute($info);

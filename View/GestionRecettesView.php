@@ -1,3 +1,12 @@
+<script>
+  $(document).ready(function(){
+    var i=1;
+    $('#ajouter').click(function(){
+          i++;
+          $('#etapes').append('<tr id="row'+i+'"><td><input type="text" name="etape[]" placeholder="Entrer une étape" class="etape_controle" /></td><td></td></tr>');   
+        });
+  });
+</script>";
 <?php
 //Nous aurons besoin d'utiliser les fichiers suivants
 require_once "C:\wamp64\www\ElBenna\Controller\GestionRecettesController.php";
@@ -192,31 +201,11 @@ class GestionRecettesView
         <table id='etapes'>
                 <tr>
                   <td><input type='text' name='etape[]' placeholder='Entrer une étape' class='etape_controle'></td>
-                  <td><button type='button' name='ajouter' id='ajouter' class='btn'>+</td>
+                  <td><button name='ajouter' id='ajouter' class='btn'>+</button></td>
                 </tr>
         </table>
         ";
-        //Script pour ajouter des etapes
-        echo"
-        $(document).ready(function(){  
-          var i=1;  
-          $('#ajouter').click(function(){  
-               i++;  
-               $('#etapes').append('<tr id='row'+i+''><td><input type='text' name='etape[]' placeholder='Entrer une étape' class='etape_controle' /></td><td></td></tr>');  
-          });  
-          $('#submit').click(function(){            
-               $.ajax({  
-                    url:'GestionRecettesView.php',  
-                    method:'POST',  
-                    data:$('#popupForm').serialize(),  
-                    success:function(data)  
-                    {  
-                         alert(data);  
-                         $('#popupForm')[0].reset();  
-                    }  
-               });  
-          });  
-     });  ";
+       
         $ingreds = new IdeesController();
         $res = $ingreds->get_ingreds();
         echo"<ul id='ingreds'>";
@@ -230,6 +219,21 @@ class GestionRecettesView
         echo"</ul>
         <input type='submit' id='submit' value='Ajouter' name='ajouterRecette'/><br>
         </form>";
+        if(isset($_POST['etape'])){
+          $number = count($_POST["etape"]);  
+          $etapes=array();
+          if($number > 0)  
+          {  
+              for($i=0; $i<$number; $i++)  
+              {  
+                    if(trim($_POST["etape"][$i] != ''))  
+                    {  
+                        array_push($etapes,$_POST["etape"][$i]);
+                    }  
+              }  
+          }  
+        }
+        
         //Fonction pour la recherche des ingredients a inserer
         echo "
         <script>
@@ -301,12 +305,14 @@ class GestionRecettesView
             $_POST['tmp_repos'],
             $_POST['tmp_cuisson'],
             $_POST['nb_calories'],
-            $_POST['image'],
+            $_POST['difficulte'],
+            $_POST['img'],
             $_POST['video']
         ];
         $id=$_POST['id_recette'];
         $controller->add_recette($recette);
         $controller->ajouter_ingreds($id,$liste);
+        $controller->ajouter_etapes($id,$etapes);
     }
     //Modifier recette
     $modif=array();
@@ -393,4 +399,4 @@ class GestionRecettesView
         }
 
     }
-}
+}?>
