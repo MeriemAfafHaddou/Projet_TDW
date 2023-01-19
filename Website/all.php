@@ -18,6 +18,8 @@ require_once "View/IdeesView.php";
 require_once "View/LoginView.php";
 require_once "View/InscriptionView.php";
 require_once "View/ProfileView.php";
+require_once "View/FavorisView.php";
+
 header('Content-type: text/html; charset=UTF-8');
 class website
 {
@@ -333,6 +335,22 @@ class website
         //Construire le menu
         $menu->Menu();
         $profile->Profile($id);
+        $footer = new FooterView();
+        $footer->Footer();
+        echo"</body></html>";
+    }
+    public function build_fav($id){
+        //Declaration du menu, diapo, categorie, et footer
+        $menu =new MenuView();
+        $fav=new FavorisView();
+        echo"<!DOCTYPE html>
+        <html>";
+        //Appeler le header
+        $this->header();
+        echo"<body>";
+        //Construire le menu
+        $menu->Menu();
+        $fav->Favoris($id);
         $footer = new FooterView();
         $footer->Footer();
         echo"</body></html>";

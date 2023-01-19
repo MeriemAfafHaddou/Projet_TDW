@@ -10,6 +10,17 @@
              row.appendChild(cell2);
              tableRow.appendChild(row);
         }
+        function modifierEtape(){
+            var tableRow = document.getElementById("etapes2");
+            var row = document.createElement("tr");
+            var cell1 = document.createElement("td");
+            var cell2 = document.createElement("td");
+             cell1.innerHTML = "<input type='text' name='etapeModif[]' placeholder='Entrer une étape'>";
+             cell2.innerHTML = "";
+             row.appendChild(cell1);
+             row.appendChild(cell2);
+             tableRow.appendChild(row);
+        }
         </script>
 <?php
 //Nous aurons besoin d'utiliser les fichiers suivants
@@ -185,6 +196,7 @@ class GestionRecettesView
         <h3>Ajouter Une Recette</h3><br>
         <label>Id de la recette : </label><input type='number' name='id_recette' value='".$identif."' placeholder='Entrer le numero de la recette ...'/><br>
         <label>Titre de la recette : </label><input type='text' name='titre_recette' placeholder='Entrer le titre de la recette ...'/><br>
+        <label>Description de la recette : </label><input type='text' maxlength='1000' name='description' placeholder='Entrer la description de la recette ...'/><br>
         <label>Catégorie : </label><select name='categorie'>
         <option>Entrées</option>
         <option>Plats</option>
@@ -303,6 +315,7 @@ class GestionRecettesView
             $categ,
             $_POST['id_recette'],
             $_POST['titre_recette'],
+            $_POST['description'],
             $_POST['tmp_prep'],
             $_POST['tmp_repos'],
             $_POST['tmp_cuisson'],
@@ -317,6 +330,7 @@ class GestionRecettesView
         $controller->ajouter_etapes($id,$etapes);
     }
     //Modifier recette
+    $controller2=new GestionRecettesController();
     $modif=array();
         if(isset($_POST['modifierRecette'])){
           $id=$_POST['id_recette'];
@@ -328,9 +342,10 @@ class GestionRecettesView
                     <input type='button' id='exit' value='x' onclick='closeModifier()'>
                     <center>
                       <h3>Modifier une recette</h3>
-                    </center><br>
+                    </center>
                     <label>Id de la recette : </label><input type='number' name='id_recette' value='".$row['id_recette']."' placeholder='Entrer le numero de la recette ...'/><br>
                     <label>Titre de la recette : </label><input type='text' name='titre_recette' value='".$row['nom_recette']."' placeholder='Entrer le titre de la recette ...'/><br>
+                    <label>Description de la recette : </label><input type='text' maxlength='1000' value='".$row['desc_cadre']."' name='description' placeholder='Entrer la description de la recette ...'/><br>
                     <label>Catégorie : </label><select name='categorie'>";
                     switch($row['id_categ']){
                       case 1:
@@ -367,12 +382,106 @@ class GestionRecettesView
                     <label>Difficulté : </label><input type='number' name='difficulte' value='".$row['difficulte']."' placeholder='Entrer la difficulté de la recette ...'/><br>
                     <label>Lien vers l'image : </label><input type='text' name='img' value='".$row['img_recette']."' placeholder='Entrer le lien image de la recette ...'/><br>
                     <label>Lien vers la video : </label><input type='text' name='video' value='".$row['lien_video']."' placeholder='Entrer le lien video de la recette ...'/><br>
-                    
+                    <label>Modifier vos ingrédients</label><input type='text' name='ingredsearch' id='ingredsearch2' onkeyup='searchFunctionModif()'><br>";
+                    echo"<ul id='ingreds2'>";
+
+                    $resultat1 = $controller2->get_all();
+                    $resultat2=$controller2->get_ingreds($id);     
+                    $all=array();
+                    $checked=array();
+                    while($row = $resultat1->fetch(PDO::FETCH_ASSOC)){
+                      array_push($all,$row['nom_ingred']);
+                    }
+                    while($row = $resultat2->fetch(PDO::FETCH_ASSOC)){
+                      array_push($checked,$row['nom_ingred']);
+                    }
+                    $nonchecked=array_diff($all,$checked);
+                    foreach($all as $ingred){
+                      if(in_array($ingred,$checked)){
+                        echo"<li id='check-ingred'>
+                              <input type='checkbox' name='ingredModif[]' checked value='".$ingred."'/>
+                              <label>".$ingred."</label>
+                              </li>";
+                      }else{
+                        echo"<li id='check-ingred' style='display:none;'>
+                                <input type='checkbox' name='ingredModif[]' value='".$ingred."'/>
+                                <label>".$ingred."</label>
+                                </li>";
+                      }
+                    }
+                    //Pour chaque cadre recupere de la bdd, on l'affiche
+                    $resultat3=$controller2->get_etapes($id); 
+                    echo"</ul>
+                    <label>Modifier les etapes</label>
+                    <table id='etapes2'>";
+                    $int=1;
+                    while($row = $resultat3->fetch(PDO::FETCH_ASSOC)){
+                      echo"
+                      <tr>
+                      <td><input type='text' name='etapeModif[]' placeholder='Entrer une étape' value='".$row['instruction']."' class='etape_controle'></td>";
+                      if($int==1){
+                        echo"<td><input type='button' value='+' name='ajouter' id='ajouter' class='btn' onclick='modifierEtape()'></input></td>
+                        ";
+                      }
+                      $int=$int+1;
+                      echo"</tr>";
+                    }
+
+                    echo"</table>       
+            
                     <input type='submit' value='Modifier' name='modifierButton'/><br>
                     </form>
                   </div>";
-             
+                  
+                  
         }
+        $etapes_modif=array();
+        if(isset($_POST['etapeModif'])){
+          $number = count($_POST["etapeModif"]);  
+          if($number > 0)  
+          {  
+              for($i=0; $i<$number; $i++)  
+              {  
+                    if(trim($_POST["etapeModif"][$i] != ''))  
+                    {  
+                        array_push($etapes_modif,$_POST["etapeModif"][$i]);
+                    }  
+              }  
+          }  
+        }else{
+          $resultat3=$controller2->get_etapes($id); 
+          while($row = $resultat3->fetch(PDO::FETCH_ASSOC)){
+            array_push($etapes_modif,$row['instruction']);
+        }
+        }
+        $ingred_modif = array();
+                  if(!empty($_POST['ingredModif'])) {
+                    foreach($_POST['ingredModif'] as $ingredient) {
+                        array_push($ingred_modif,$ingredient);
+                    }
+                  }
+        echo "
+        <script>
+        function searchFunctionModif() {
+            var input, filter, ul, li, la, i, txtValue;
+            input = document.getElementById('ingredsearch2');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById('ingreds2');
+            li = ul.getElementsByTagName('li');
+          
+               for (i = 0; i < li.length; i++) {
+              la = li[i].getElementsByTagName('label')[0];
+              txtValue = la.textContent || la.innerText; 
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = 'block';
+              } else {
+                li[i].style.display = 'none';
+              }
+            }
+          }
+          
+        
+        </script>";
         
         if(isset($_POST['modifierButton'])){
           if($_POST['categorie']=='Entrées'){
@@ -394,13 +503,22 @@ class GestionRecettesView
             $categ,
             $_POST['id_recette'],
             $_POST['titre_recette'],
+            $_POST['description'],
             $_POST['tmp_prep'],
             $_POST['tmp_repos'],
             $_POST['tmp_cuisson'],
             $_POST['nb_calories'],
             $_POST['difficulte'],
+            $_POST['img'],
+            $_POST['video'],
+
           ];
-          $controller->modifier_recette($modif);
+          var_dump($etapes_modif);
+          $id=$_POST['id_recette'];
+          $controller->supprimer_recette($id);
+          $controller->add_recette($modif);
+          $controller->ajouter_ingreds($id,$ingred_modif);
+          $controller->ajouter_etapes($id,$etapes_modif);
         }
 
     }

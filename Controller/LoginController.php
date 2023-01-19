@@ -9,6 +9,7 @@ class LoginController{
         $res=$model->login($email,$pwd);
         $row = $res->fetch(PDO::FETCH_ASSOC);
         if ($res->rowCount()==1) {
+            if($row['user_valid']=='1'){
                 $_SESSION['id'] = $row['id_user'];
                 $_SESSION['nom']=$row['nom_user'];
                 $_SESSION['prenom']=$row['prenom_user'];
@@ -29,6 +30,14 @@ class LoginController{
 
             exit();
         }
+        }else{
+            echo"
+            <script>
+                alert('Oops! Vous n etes pas encore validés ... Essayez plus tard');
+            </script>
+            ";
+        }
+                
     }
 }
 ?>

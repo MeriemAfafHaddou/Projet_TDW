@@ -207,7 +207,7 @@ class GestionNutritionView
                     <input type='button' id='exit' value='x' onclick='closeModifier()'>
                     <h3>Modifier Un Ingrédient</h3><br>
                     <label>N° de l'ingrédient :</label> <input name='id_ingred' type='text' value='".$row['id_ingred']."'/><br>
-                    <label>Nom de l'ingrédient : </label><input type='text' name='nom_ingred' value='".$row['nom_ingred']."' placeholder='Entrer le nom de l'ingrédient ...'/><br>
+                    <label>Nom de l'ingrédient : </label><input type='text' name='nom_ingred' value='".$row['nom_ingred']."' placeholder='Entrer le nom ...'/><br>
                   <label>Healthy : </label><select name='healthy'>";
                   switch($row['healthy']){
                     case '1':
@@ -345,7 +345,7 @@ class GestionNutritionView
                 <input type='button' id='exit' value='x' onclick='closeForm()'>
                 <h3>Ajouter Un Ingrédient</h3><br>
                 <label>N° de l'ingrédient :</label> <input name='id_ingred' type='number' value='".$identif."'/><br>
-                <label>Nom de l'ingrédient : </label><input type='text' name='nom_ingred' placeholder='Entrer le nom de l'ingrédient ...'/><br>
+                <label>Nom de l'ingrédient : </label><input type='text' name='nom_ingred' placeholder='Entrer le nom ...'/><br>
                 <label>Healthy : </label><select name='healthy'>
                 <option>Oui</option>
                 <option>Non</option>
@@ -363,7 +363,7 @@ class GestionNutritionView
                 <label>Glucides : </label><input type='number'  step='0.01' name='glucides' placeholder='Entrer la valeur des glucides ...'/><br>
                 <label>Lipides : </label><input type='number' step='0.01'  name='lipides' placeholder='Entrer la valeur des lipides ...'/><br>
                 <label>Sodium : </label><input type='number'  step='0.01' name='sodium' placeholder='Entrer la valeur du sodium ...'/><br>
-                <label>Eau : </label><input type='number' step='0.01' name='eau' placeholder='Entrer la valeur de l'eau ...'/><br>
+                <label>Eau : </label><input type='number' step='0.01' name='eau' placeholder='Entrer la valeur de eau ...'/><br>
                 <label>Fibres : </label><input type='number' step='0.01' name='fibres' placeholder='Entrer la valeur des fibres ...'/><br>
                 <label>Minereaux : </label><input type='number' step='0.01' name='minereaux' placeholder='Entrer la valeur des minereaux ...'/><br>
                 <label>vitamines : </label><input type='number' step='0.01' name='vitamines' placeholder='Entrer la valeur des vitamines ...'/><br>

@@ -14,8 +14,15 @@ class MenuView
         //Afficher tous les elements du menu
         while($row = $res->fetch(PDO::FETCH_ASSOC)){
             if(isset($_SESSION['role'])){
-                if(($row['titre_menu']=='Se connecter') && ($_SESSION['role']=='user')){
+                if($row['titre_menu']=='Se connecter'){
+                    if($_SESSION['role']=='user'){
                     echo "<li> <a href='http://localhost/ElBenna/profile.php?id=".$_SESSION['id']."'>".$_SESSION['nom']." ".$_SESSION['prenom']."</a></li>";
+                    }
+                    else{
+                        echo "<li> <a href='http://localhost/ElBenna/Principale.php'>Administrateur</a></li>";
+                    }
+
+                    
                 }else{
                     echo "<li> <a href='http://localhost/ElBenna/".$row['titre_menu'].".php'>".$row['titre_menu']."</a></li>";
                 }

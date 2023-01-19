@@ -9,7 +9,7 @@ class PageCategorieModel{
         $this->db = new ConnexionBdd();
         $cnx = $this->db->connexion();
         //requete pour selectionner 6 recettes aleatoires
-        $stmt = $cnx->prepare("SELECT * FROM cadre JOIN recette ON recette.id_recette=cadre.id_recette WHERE cadre.id_categ=$id
+        $stmt = $cnx->prepare("SELECT * FROM cadre JOIN recette ON recette.id_recette=cadre.id_recette WHERE cadre.id_categ=$id AND recette_valid=1
         ORDER BY $critere");
         $stmt->execute();
         //Ne pas laisser la cnx a la BDD etablie

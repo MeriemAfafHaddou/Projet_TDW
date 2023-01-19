@@ -44,6 +44,7 @@ class ProfileView{
                         <td class='actions'>
                             <h3>Actions</h3>
                             <input type='button' value='+ Ajouter une nouvelle recette' onclick='openForm3()'/><br>
+                            <a href='Favoris.php?id=".$_SESSION['id']."'><input type='button' value='♥ Mes favoris'/></a><br>
                             <input type='button' value='✎ Modifier la photo de profil' onclick='openForm1()'/><br>
                             <input type='button' value='✎ Modifier le mot de passe' onclick='openForm2()'/><br>
                             <form method='post'><input type='submit' name='logout' value='→ Se déconnecter'/><br></form>
@@ -54,16 +55,17 @@ class ProfileView{
 
             ";
             if(isset($_POST['logout'])){
-                session_unset();
+                session_destroy();
                 header("Location: Se connecter.php");
             }
             //Ajouter recette, modifier photo, modifier mot de passe
             echo "
             <form class='addRecette' method='POST' class='form-popup' id='popupForm3'>
-            <input type='button' id='exit' value='x' onclick='closeForm()'>
+            <input type='button' id='exit' value='x' onclick='closeForm3()'>
             <h3>Ajouter Une Recette</h3><br>
             <label>Id de la recette : </label><input type='number' name='id_recette' placeholder='Entrer le numero de la recette ...'/><br>
             <label>Titre de la recette : </label><input type='text' name='titre_recette' placeholder='Entrer le titre de la recette ...'/><br>
+            <label>Description de la recette : </label><input type='text' maxlength='1000' name='description' placeholder='Entrer la description de la recette ...'/><br>
             <label>Catégorie : </label><select name='categorie'>
             <option>Entrées</option>
             <option>Plats</option>
@@ -165,6 +167,7 @@ class ProfileView{
                 $categ,
                 $_POST['id_recette'],
                 $_POST['titre_recette'],
+                $_POST['description'],
                 $_POST['tmp_prep'],
                 $_POST['tmp_repos'],
                 $_POST['tmp_cuisson'],

@@ -2,6 +2,8 @@
 //Nous aurons besoin d'utiliser les fichiers suivants
 require_once "C:\wamp64\www\ElBenna\Controller\RecetteController.php";
 require_once "C:\wamp64\www\ElBenna\Controller\IngredientController.php";
+require_once "C:\wamp64\www\ElBenna\Controller\FavorisController.php";
+
 require_once "C:\wamp64\www\ElBenna\Controller\EtapeController.php";
 class RecetteView
 {
@@ -50,8 +52,39 @@ class RecetteView
                             <b>Categorie</b>
                             <p>".$row['id_categ']."</p>
                         </div>
-                    </div>
-                </div>
+                    </div>";
+                if(isset($_SESSION['role'])){
+                    if($_SESSION['role']=='user'){
+                        $fav=new FavorisController();
+                        if($fav->isFavoris($id, $_SESSION['id'])){
+                            echo"
+                                <div class='defavoris'>
+                                <form method='POST'>
+                                    <input type='submit' value='Supprimer des favoris' name='defavoris'>
+                                </form>
+                                </div>
+                            ";
+                        }else{
+                            echo"
+                            <div class='favoris'>
+                            <form method='POST'>
+                                <input type='submit' value='Ajouter aux favoris' name='favoris'>
+                            </form>
+                            </div>
+                            ";
+                        }
+                        
+                        if(isset($_POST['favoris'])){
+                            $fav->add_favoris($_SESSION['id'],$id);
+                        }
+                        
+                        if(isset($_POST['defavoris'])){
+                            $fav->remove_favoris($_SESSION['id'],$id);
+                        }
+
+                    }
+                }
+                echo"</div>
                 <div>
                     <img src=''/>
                     <img src=''/>

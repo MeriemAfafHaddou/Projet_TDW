@@ -13,6 +13,21 @@ class GestionRecettesController{
         $res = $model->get_rec($id);
         return $res;
     }
+    public function get_etapes($id){
+        $model = new GestionRecettesModel();
+        $res = $model->get_etapes($id);
+        return $res;
+    }
+    public function get_ingreds($id){
+        $model = new GestionRecettesModel();
+        $res = $model->get_ingreds($id);
+        return $res;
+    }
+    public function get_all(){
+        $model = new GestionRecettesModel();
+        $res = $model->get_all();
+        return $res;
+    }
     public function add_recette($recette){
         $model = new GestionRecettesModel();
         $res = $model->add_recette($recette);
@@ -43,6 +58,11 @@ class GestionRecettesController{
     public function ajouter_ingreds($id,$liste){
         $model= new GestionRecettesModel();
         $res=$model->ajouter_ingreds($id,$liste);
+        return $res;
+    }
+    public function modifier_ingreds($id,$ingred_modif){
+        $model= new GestionRecettesModel();
+        $res=$model->modifier_ingreds($id,$ingred_modif);
         return $res;
     }
     public function ajouter_etapes($id,$etapes){

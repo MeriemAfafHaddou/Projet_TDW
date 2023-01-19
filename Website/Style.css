@@ -946,9 +946,9 @@ form>center>input[name='supprimer']{
   cursor: pointer;
 }
 form>center>input[name='modifier']{
-  background-color: rgb(179, 179, 179);
-  color: #fff;
-  border: none;
+  background-color: transparent;
+  color: #000;
+  border: solid #000 1px;
   padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
@@ -956,7 +956,7 @@ form>center>input[name='modifier']{
 #popupModifier{
   position: fixed;
   padding: 20px;
-  background-color: #FFF1E9;
+  background-color: #fff;
   border-radius: 30px;
   overflow-y: scroll;
   z-index: 9;
@@ -964,7 +964,12 @@ form>center>input[name='modifier']{
   margin: 90px 420px;
   filter: drop-shadow(1px 1px 1px #666);
 }
-
+#popupModifier>label{
+  width: 170px;
+  display: inline-block;
+  margin: 0;
+  padding: 0px;
+}
 #popupModifier>input[type='submit']{
   width: 130px;
   background-color: #000;
@@ -1039,7 +1044,7 @@ form>center>input[name='modifier']{
   width: 140px;
   display: inline-block;
 }
-.profile>tbody>tr>td>input, .profile>tbody>tr>td>form>input{
+.profile>tbody>tr>td>input, .profile>tbody>tr>td>form>input, .profile>tbody>tr>td>a>input{
   background-color: transparent;
   border: #000 solid;
   border-radius: 20px;
@@ -1054,7 +1059,7 @@ form>center>input[name='modifier']{
   padding: 0 20px;
 }
 
-.actions>input:hover, .actions>form>input:hover{
+.actions>input:hover, .actions>form>input:hover, .profile>tbody>tr>td>a>input:hover{
   background-color: #FFF1E9;
 
 }
@@ -1118,4 +1123,33 @@ form>center>input[name='modifier']{
 }
 #check-titre>input{
       cursor: pointer;
+}
+#unchecked{
+  display: none;
+}
+.favoris{
+  float: right;
+  display: block;
+
+}
+.favoris input{
+  background-color: transparent;
+  border-radius: 20px;
+  padding: 5px 10px;
+  border: 1px solid #f85f5f;
+  color: #f85f5f;
+  cursor: pointer;
+  font-size: 12pt;
+}
+.defavoris{
+  float: right;
+}
+.defavoris input{
+  background-color: #f85f5f;
+  border-radius: 20px;
+  padding: 5px 10px;
+  border: #fff;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 12pt;
 }

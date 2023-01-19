@@ -11,7 +11,8 @@ class NutritionModel{
         $stmt = $cnx->prepare("SELECT * FROM ingredient JOIN infos_nutritionnelles 
         ON infos_nutritionnelles.id_infos=ingredient.id_infos
         JOIN appartenir ON appartenir.id_ingred=ingredient.id_ingred
-        JOIN saison ON saison.id_saison=appartenir.id_saison");
+        JOIN saison ON saison.id_saison=appartenir.id_saison
+        WHERE ingred_valid=1");
         $stmt->execute();
         //Ne pas laisser la cnx a la BDD etablie
         $this->db->deconnexion($cnx);
