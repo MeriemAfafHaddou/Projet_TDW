@@ -15,6 +15,13 @@ class GestionUserController{
     public function supprimer_user($id){
         $model = new GestionUserModel();
         $res = $model->supprimer_user($id);
+        if($res){
+            echo "
+                <script>
+                    alert('Utilisateur supprimé avec succès.');
+                </script>
+            ";
+        }
         return $res;
     }
 }

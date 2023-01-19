@@ -58,6 +58,10 @@ table.diapo{
   padding:20px 20px 0 20px;
   vertical-align: bottom;
 }
+.diapo a{
+  color: #000;
+  text-decoration: none;
+}
 .diapo img{
   object-fit: cover;
   height: 400px;
@@ -852,6 +856,15 @@ form>center>input[name='modifierRecette']{
   padding: 5px 10px;
 }
 #etapes>tbody>tr>td>input[type='text']{
+  width: 200px;
+}
+#etapes>tr>td>input{
+  background: transparent;
+  border: #000 solid;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+#etapes>tr>td>input[type='text']{
   width: 200px;
 }
 #ingreds>li{

@@ -10,7 +10,6 @@ class GestionRecettesModel{
         //requete pour selectionner 10 cadres aleatoires appartenant a la categorie ayant l'id $cat
         $stmt = $cnx->prepare("SELECT * FROM recette 
         INNER JOIN categorie ON recette.id_categ=categorie.id_categ 
-        WHERE recette.recette_valid=1
          ORDER BY recette.$critere");
         $stmt->execute();
         //Ne pas laisser la cnx a la BDD etablie

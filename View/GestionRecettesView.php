@@ -449,10 +449,15 @@ class GestionRecettesView
               }  
           }  
         }else{
-          $resultat3=$controller2->get_etapes($id); 
-          while($row = $resultat3->fetch(PDO::FETCH_ASSOC)){
-            array_push($etapes_modif,$row['instruction']);
-        }
+          if(isset($_POST['id_recette'])){
+            $id=$_POST['id_recette'];
+            $resultat3=$controller2->get_etapes($id); 
+            while($row = $resultat3->fetch(PDO::FETCH_ASSOC)){
+              array_push($etapes_modif,$row['instruction']);
+          }
+
+          }
+          
         }
         $ingred_modif = array();
                   if(!empty($_POST['ingredModif'])) {

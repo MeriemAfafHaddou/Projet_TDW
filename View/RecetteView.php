@@ -60,7 +60,7 @@ class RecetteView
                             echo"
                                 <div class='defavoris'>
                                 <form method='POST'>
-                                    <input type='submit' value='Supprimer des favoris' name='defavoris'>
+                                    <input type='submit' value='Supprimer des favoris' name='defavoris' autocomplete='off'>
                                 </form>
                                 </div>
                             ";
@@ -68,7 +68,7 @@ class RecetteView
                             echo"
                             <div class='favoris'>
                             <form method='POST'>
-                                <input type='submit' value='Ajouter aux favoris' name='favoris'>
+                                <input type='submit' value='Ajouter aux favoris' name='favoris' autocomplete='off'>
                             </form>
                             </div>
                             ";

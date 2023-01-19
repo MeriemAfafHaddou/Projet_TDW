@@ -5,6 +5,13 @@ class FetesController{
     public function get_fetes($filtre,$critere){
         $model = new FetesModel();
         $res = $model->get_fetes($filtre,$critere);
+        if($res){
+            echo "
+                <script>
+                    alert('Recette Ajoutée aux favoris.');
+                </script>
+            ";
+        }
         return $res;
     }
 }

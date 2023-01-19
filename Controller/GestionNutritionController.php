@@ -10,6 +10,13 @@ class GestionNutritionController{
     public function add_Nutrition($nutrition){
         $model = new GestionNutritionModel();
         $res = $model->add_Nutrition($nutrition);
+        if($res){
+            echo "
+                <script>
+                    alert('ingrédient ajouté avec succès.');
+                </script>
+            ";
+        }
         return $res;
     }
     public function get_ingredient($id){
@@ -25,6 +32,13 @@ class GestionNutritionController{
     public function supprimer_ingred($id){
         $model = new GestionNutritionModel();
         $res = $model->supprimer_ingred($id);
+        if($res){
+            echo "
+                <script>
+                    alert('Ingredient supprimé avec succès.');
+                </script>
+            ";
+        }
         return $res;
     }
     public function modifier_nutrition($modif){

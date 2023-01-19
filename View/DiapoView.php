@@ -15,7 +15,9 @@ class DiapoView
             echo"
             <table class='diapo'>
             <tr>
-                <td><h2>".$row['titre_cadre']."</h2></td>
+                <td><a href='Recette.php?id=".$row['id_recette']."'>
+                    <h2>".$row['titre_cadre']."</h2>
+                </a></td>
                 <td rowspan='3'><img src='".$row['img_cadre']."'></td>
                 
             </tr>

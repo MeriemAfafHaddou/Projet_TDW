@@ -48,11 +48,25 @@ class GestionRecettesController{
     public function modifier_recette($modif){
         $model = new GestionRecettesModel();
         $res = $model->modifier_recette($modif);
+        if($res){
+            echo "
+                <script>
+                    alert('Recette modifiée avec succès.');
+                </script>
+            ";
+        }
         return $res;
     }
     public function supprimer_recette($id){
         $model = new GestionRecettesModel();
         $res = $model->supprimer_recette($id);
+        if($res){
+            echo "
+                <script>
+                    alert('Recette supprimée avec succès.');
+                </script>
+            ";
+        }
         return $res;
     }
     public function ajouter_ingreds($id,$liste){
