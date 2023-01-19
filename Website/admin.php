@@ -79,31 +79,31 @@ class admin{
         <center>
             <div class='principale'>
                 <div>
-                    <a href='http://localhost/ElBenna/GestionRecettes.php'>
+                    <a href='GestionRecettes.php'>
                         <img src='http://drive.google.com/uc?export=view&id=1Oq6YayckvLJw3Jpd2GoraNQDPAdrJW9l'>
                         <h3>Gestion des recettes</h3>
                     </a>
                 </div>
                 <div>
-                    <a href='http://localhost/ElBenna/GestionNews.php'>
+                    <a href='GestionNews.php'>
                         <img src='http://drive.google.com/uc?export=view&id=1Bv9pLhJ4lOW5YjH3mehC9qeeDbwcmMnr'>
                         <h3>Gestion des News</h3>
                     </a>
                 </div>
                 <div>
-                    <a href='http://localhost/ElBenna/GestionUser.php'>
+                    <a href='GestionUser.php'>
                         <img src='http://drive.google.com/uc?export=view&id=1yKCgOOpiwdoia9p1XUwH7tNymwIr056i'>
                         <h3>Gestion des Utilisateurs</h3>
                     </a>
                 </div>
                 <div>
-                    <a  href='http://localhost/ElBenna/GestionNutrition.php'>
+                    <a  href='GestionNutrition.php'>
                         <img src='http://drive.google.com/uc?export=view&id=1dFxhGEtli_QDFI_r4hcyS8D3eE2aTd9I'>
                         <h3>Gestion de Nutrition</h3>
                     </a>
                 </div>
                 <div>
-                    <a  href='http://localhost/ElBenna/parametres.php'>
+                    <a  href='parametres.php'>
                         <img src='http://drive.google.com/uc?export=view&id=1FN9Z-TT6MHbNPzEt9eNm6ZKaIISOXIaF'>
                         <h3>Gestion des parametres</h3>
                     </a>

@@ -1,6 +1,6 @@
 <?php
 //Appeler le modele
-require_once "C:\wamp64\www\ElBenna\Model\InscriptionModel.php";
+require_once ".\Model\InscriptionModel.php";
 class InscriptionController{
     public function register($infos){
         $model = new InscriptionModel();

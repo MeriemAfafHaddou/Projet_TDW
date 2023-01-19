@@ -1,6 +1,6 @@
 <?php
 //Appeler le modele
-require_once "C:\wamp64\www\ElBenna\Model\SortModel.php";
+require_once ".\Model\SortModel.php";
 class SortController{
     public function get_Sort($critere){
         $model = new SortModel();

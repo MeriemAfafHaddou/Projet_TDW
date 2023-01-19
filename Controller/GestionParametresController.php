@@ -1,6 +1,6 @@
 <?php
 //Appeler le modele
-require_once "C:\wamp64\www\ElBenna\Model\GestionParametresModel.php";
+require_once ".\Model\GestionParametresModel.php";
 class GestionParametresController{
     public function get_titres(){
         $model = new GestionParametresModel();

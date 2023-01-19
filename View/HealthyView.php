@@ -1,7 +1,7 @@
 <?php
 //Nous aurons besoin d'utiliser les fichiers suivants
-require_once "C:\wamp64\www\ElBenna\Controller\HealthyController.php";
-require_once "C:\wamp64\www\ElBenna\View\CadreView.php";
+require_once ".\Controller\HealthyController.php";
+require_once ".\View\CadreView.php";
 class HealthyView
 {
     //Pour creer une vue de categorie, il faut donner son identifiant

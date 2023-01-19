@@ -1,6 +1,6 @@
 <?php
 //Appeler le modele
-require_once "C:\wamp64\www\ElBenna\Model\GestionRecettesModel.php";
+require_once ".\Model\GestionRecettesModel.php";
 class GestionRecettesController{
     public function get_recettes($critere){
         $model = new GestionRecettesModel();

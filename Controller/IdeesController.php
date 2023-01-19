@@ -1,7 +1,7 @@
 <?php
 //Appeler le modele
-require_once "C:\wamp64\www\ElBenna\Model\IdeesModel.php";
-require_once "C:\wamp64\www\ElBenna\View\CadreView.php";
+require_once ".\Model\IdeesModel.php";
+require_once ".\View\CadreView.php";
 class IdeesController{
     public function get_ingreds(){
         $model = new IdeesModel();

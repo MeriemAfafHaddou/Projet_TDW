@@ -1,6 +1,6 @@
 <?php
 //Appeler le modele
-require_once "C:\wamp64\www\ElBenna\Model\GestionUserModel.php";
+require_once ".\Model\GestionUserModel.php";
 class GestionUserController{
     public function get_user($critere){
         $model = new GestionUserModel();

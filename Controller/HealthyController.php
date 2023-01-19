@@ -1,6 +1,6 @@
 <?php
 //Appeler le modele
-require_once "C:\wamp64\www\ElBenna\Model\HealthyModel.php";
+require_once ".\Model\HealthyModel.php";
 class HealthyController{
     public function get_calories($cal,$critere){
         $model = new HealthyModel();

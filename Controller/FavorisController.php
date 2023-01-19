@@ -1,6 +1,6 @@
 <?php
 //Appeler le modele
-require_once "C:\wamp64\www\ElBenna\Model\FavorisModel.php";
+require_once ".\Model\FavorisModel.php";
 class FavorisController{
     public function get_favoris($id,$critere){
         $model = new FavorisModel();

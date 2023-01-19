@@ -1,12 +1,12 @@
 <?php
 //Nous autons besoin des fichiers suivants
-require_once "C:\wamp64\www\Elbenna\Controller\MenuController.php";
+require_once ".\Controller\MenuController.php";
 class MenuView
 {
     public function Menu()
     {
         echo "<ul class='navbar'>
-        <li><a href='http://localhost/ElBenna/Accueil.php'><img src='http://drive.google.com/uc?export=view&id=1CC303a-AS_es92-E_e7UL_RXLaMnyqN1'></a></li>
+        <li><a href='Accueil.php'><img src='http://drive.google.com/uc?export=view&id=1CC303a-AS_es92-E_e7UL_RXLaMnyqN1'></a></li>
         ";
         //On cree un controleur pour pouvir recuperer les donnees de la bdd
         $controller = new MenuController();
@@ -16,18 +16,18 @@ class MenuView
             if(isset($_SESSION['role'])){
                 if($row['titre_menu']=='Se connecter'){
                     if($_SESSION['role']=='user'){
-                    echo "<li> <a href='http://localhost/ElBenna/profile.php?id=".$_SESSION['id']."'>".$_SESSION['nom']." ".$_SESSION['prenom']."</a></li>";
+                    echo "<li> <a href='profile.php?id=".$_SESSION['id']."'>".$_SESSION['nom']." ".$_SESSION['prenom']."</a></li>";
                     }
                     else{
-                        echo "<li> <a href='http://localhost/ElBenna/Principale.php'>Administrateur</a></li>";
+                        echo "<li> <a href='Principale.php'>Administrateur</a></li>";
                     }
 
                     
                 }else{
-                    echo "<li> <a href='http://localhost/ElBenna/".$row['titre_menu'].".php'>".$row['titre_menu']."</a></li>";
+                    echo "<li> <a href='".$row['titre_menu'].".php'>".$row['titre_menu']."</a></li>";
                 }
             }else{
-                echo "<li> <a href='http://localhost/ElBenna/".$row['titre_menu'].".php'>".$row['titre_menu']."</a></li>";
+                echo "<li> <a href='".$row['titre_menu'].".php'>".$row['titre_menu']."</a></li>";
             }
             
         }

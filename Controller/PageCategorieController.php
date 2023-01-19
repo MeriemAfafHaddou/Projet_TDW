@@ -1,6 +1,6 @@
 <?php
 //Appeler le modele
-require_once "C:\wamp64\www\ElBenna\Model\PageCategorieModel.php";
+require_once ".\Model\PageCategorieModel.php";
 class PageCategorieController{
     public function get_pagecategorie($id){
         $model = new PageCategorieModel();

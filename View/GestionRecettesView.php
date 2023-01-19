@@ -24,8 +24,8 @@
         </script>
 <?php
 //Nous aurons besoin d'utiliser les fichiers suivants
-require_once "C:\wamp64\www\ElBenna\Controller\GestionRecettesController.php";
-require_once "C:\wamp64\www\ElBenna\Controller\IdeesController.php";
+require_once ".\Controller\GestionRecettesController.php";
+require_once ".\Controller\IdeesController.php";
 class GestionRecettesView
 {
     //Pour creer une vue de categorie, il faut donner son identifiant
@@ -144,7 +144,7 @@ class GestionRecettesView
         while($row = $res->fetch(PDO::FETCH_ASSOC)){
             echo"<tr>
                     <td>".$row['id_recette']."</td>
-                    <td><a href='http://localhost/ElBenna/Recette.php?id=".$row['id_recette']."'>".$row['nom_recette']."</td>
+                    <td><a href='Recette.php?id=".$row['id_recette']."'>".$row['nom_recette']."</td>
                     <td>".$row['nom_categ']."</td>
                     <td>".$row['notation']."</td>
                     <td>".$row['tmp_prep']."</td>

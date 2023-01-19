@@ -1,6 +1,6 @@
 <?php
 //Nous aurons besoin d'utiliser les fichiers suivants
-require_once "C:\wamp64\www\ElBenna\Controller\InscriptionController.php";
+require_once ".\Controller\InscriptionController.php";
 require_once "./Website/all.php";
 class InscriptionView
 {

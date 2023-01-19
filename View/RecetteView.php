@@ -1,10 +1,10 @@
 <?php
 //Nous aurons besoin d'utiliser les fichiers suivants
-require_once "C:\wamp64\www\ElBenna\Controller\RecetteController.php";
-require_once "C:\wamp64\www\ElBenna\Controller\IngredientController.php";
-require_once "C:\wamp64\www\ElBenna\Controller\FavorisController.php";
+require_once ".\Controller\RecetteController.php";
+require_once ".\Controller\IngredientController.php";
+require_once ".\Controller\FavorisController.php";
 
-require_once "C:\wamp64\www\ElBenna\Controller\EtapeController.php";
+require_once ".\Controller\EtapeController.php";
 class RecetteView
 {
     //Pour creer une vue de categorie, il faut donner son identifiant

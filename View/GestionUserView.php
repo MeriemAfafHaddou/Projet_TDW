@@ -1,6 +1,6 @@
 <?php
 //Nous aurons besoin d'utiliser les fichiers suivants
-require_once "C:\wamp64\www\ElBenna\Controller\GestionUserController.php";
+require_once ".\Controller\GestionUserController.php";
 class GestionUserView
 {
     //Pour creer une vue de categorie, il faut donner son identifiant
@@ -95,7 +95,7 @@ class GestionUserView
         while($row = $res->fetch(PDO::FETCH_ASSOC)){
             echo"<tr>
                     <td>".$row['id_user']."</td>
-                    <td><a href='http://localhost/ElBenna/Profile.php?id=".$row['id_user']."'>".$row['nom_user']."</a></td>
+                    <td><a href='Profile.php?id=".$row['id_user']."'>".$row['nom_user']."</a></td>
                     <td>".$row['prenom_user']."</td>
                     <td>".$row['datenaissance']."</td>
                     <td>".$row['sexe']."</td>

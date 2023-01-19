@@ -1,6 +1,6 @@
 <?php
 //Nous autons besoin des fichiers suivants
-require_once "C:\wamp64\www\Elbenna\Controller\MenuController.php";
+require_once ".\Controller\MenuController.php";
 class FooterView
 {
     public function Footer()

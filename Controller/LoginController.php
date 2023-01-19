@@ -1,7 +1,7 @@
 <?php
 //Appeler le modele
-require_once "C:\wamp64\www\ElBenna\Model\LoginModel.php";
-require_once "C:\wamp64\www\ElBenna\View\LoginView.php";
+require_once ".\Model\LoginModel.php";
+require_once ".\View\LoginView.php";
 require_once "Website\all.php";
 class LoginController{
     public function login($email,$pwd){

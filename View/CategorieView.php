@@ -1,8 +1,8 @@
 <?php
 //Nous aurons besoin d'utiliser les fichiers suivants
-require_once "C:\wamp64\www\ElBenna\Controller\CategorieController.php";
-require_once "C:\wamp64\www\ElBenna\Controller\TitreController.php";
-require_once "C:\wamp64\www\ElBenna\View\CadreView.php";
+require_once ".\Controller\CategorieController.php";
+require_once ".\Controller\TitreController.php";
+require_once ".\View\CadreView.php";
 
 class CategorieView
 {
@@ -33,7 +33,7 @@ class CategorieView
             </center>
         ";
         while($nom = $r->fetch(PDO::FETCH_ASSOC)){
-            echo"<a class='autres' href='http://localhost/ElBenna/".$nom['nom_categ'].".php'>D'autres ".$nom['nom_categ']." ?</a></div>
+            echo"<a class='autres' href='".$nom['nom_categ'].".php'>D'autres ".$nom['nom_categ']." ?</a></div>
             ";
         }
         echo "<script>

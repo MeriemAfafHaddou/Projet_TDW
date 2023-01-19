@@ -1,6 +1,6 @@
 <?php
 //Appeler le modele
-require_once "C:\wamp64\www\ElBenna\Model\GestionNutritionModel.php";
+require_once ".\Model\GestionNutritionModel.php";
 class GestionNutritionController{
     public function get_Nutrition($critere){
         $model = new GestionNutritionModel();

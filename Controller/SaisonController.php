@@ -1,6 +1,6 @@
 <?php
 //Appeler le modele
-require_once "C:\wamp64\www\ElBenna\Model\SaisonModel.php";
+require_once ".\Model\SaisonModel.php";
 class SaisonController{
     public function get_saison($filtre,$critere){
         $model = new SaisonModel();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 16 jan. 2023 à 18:14
+-- Généré le : jeu. 19 jan. 2023 à 14:27
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -41,13 +41,27 @@ CREATE TABLE IF NOT EXISTS `appartenir` (
 
 INSERT INTO `appartenir` (`id_ingred`, `id_saison`) VALUES
 (1, 5),
+(2, 6),
+(3, 5),
+(4, 5),
 (5, 5),
 (6, 3),
+(7, 6),
+(8, 5),
+(9, 2),
+(10, 6),
+(11, 6),
+(12, 6),
+(13, 6),
+(14, 6),
+(15, 6),
 (16, 1),
 (17, 3),
 (18, 1),
 (19, 4),
-(20, 2);
+(20, 2),
+(21, 5),
+(22, 5);
 
 -- --------------------------------------------------------
 
@@ -65,63 +79,61 @@ CREATE TABLE IF NOT EXISTS `cadre` (
   `img_cadre` varchar(200) DEFAULT NULL,
   `video_cadre` varchar(50) DEFAULT NULL,
   `desc_cadre` varchar(5000) DEFAULT NULL,
+  `diapo` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_cadre`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=56 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=120 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `cadre`
 --
 
-INSERT INTO `cadre` (`id_cadre`, `id_categ`, `id_recette`, `id_news`, `titre_cadre`, `img_cadre`, `video_cadre`, `desc_cadre`) VALUES
-(1, 1, 1, NULL, 'Hrira Oranaise', 'http://drive.google.com/uc?export=view&id=1LWc0kWeirPvdKTDLNf4AoIXCjc0kMYJN', NULL, 'Cette hrira oranaise est la soupe la plus préparée dans la région d’Oran. Elle est lisse, légère, très savoureuse et bien parfumée d’odeurs de carvi et à la coriandre fraîche. Si vous aimez les soupes odorantes et vitaminées, alors restez avec moi car sa préparation est très facile.'),
-(2, 1, 2, NULL, 'Bourek', 'http://drive.google.com/uc?export=view&id=1M1tM9P7iKkV8sstT6SBIgTPC2LuPXunJ\n', NULL, 'Le Bourek est la fameuse entrée algérienne qui ne quitte jamais les tables de l\'Iftar en Ramadhan.'),
-(3, 1, 3, NULL, 'Bricks', 'http://drive.google.com/uc?export=view&id=1MjV5DqRDMMld9iVDhSUxEAJOslaQsn6L', NULL, 'C\'est une sorte de chausson originaire du Maghreb, préparé à partir d\'une feuille de pâte très fine portant le même nom, à base de farine et de semoule de blé, façonnée généralement en un triangle fourré et frit.'),
-(4, 1, 4, NULL, 'Chorba Frik', 'http://drive.google.com/uc?export=view&id=1Eh2HBj4Nk3vOKy5nujl15ualE9A2D64j', NULL, 'La chorba frik, également appelée djari hmar, de son nom original dchicha ou tchicha, est une soupe à base de blé vert concassé et de viande, de la cuisine algérienne. Elle est consommée notamment durant le mois du ramadan.'),
-(11, 2, 11, NULL, 'Berkoukes', 'http://drive.google.com/uc?export=view&id=1RyStSTFo8aKI_jwjriy5AmvXCFDGHtW6', NULL, 'C\'est un plat traditionnel du Maghreb, préparé à base de pâtes en forme de gros grains de couscous, de légumes de saison et de viande.'),
-(12, 2, 12, 4, 'Chakhchoukha', 'http://drive.google.com/uc?export=view&id=1AVceRHbuH44Ly_1H25uHzkQmwCUjLfnA', NULL, 'La chakhchoukha est un mets de fête se composant de pâte de semoule émiettée, cuite à la poêle, arrosée de sauce tomate rouge à la viande, épicée, de pois chiches et, dans quelques régions, de courgettes, de carottes et de navets, de fèves ou encore de pommes de terre. '),
-(13, 2, 13, NULL, 'Couscous', 'http://drive.google.com/uc?export=view&id=1uKZNfc4Ee9itoTnfxzxY873r_T5zj65U', NULL, 'Le couscous est d\'une part une semoule de blé dur préparée à l\'huile d\'olive et d\'autre part, une spécialité culinaire issue de la cuisine berbère, à base de couscous, de légumes, d\'épices, d\'huile d\'olive et de viande ou de poisson.'),
-(21, 3, 21, NULL, 'Baklawa', 'http://drive.google.com/uc?export=view&id=11-yIWI3tTffTBfCCPCmmECcA1ueaXd6K', NULL, 'Le baklava, baclava, baclawa ou baklawa pour la variante maghrébine, est un dessert traditionnel commun aux peuples des anciens empires ottoman et perse. On le retrouve dans les Balkans, dans le Caucase, au Maghreb et au Moyen-Orient.'),
-(22, 3, 22, NULL, 'Chamia', 'http://drive.google.com/uc?export=view&id=1RNGXC-KnWU0cRXFxtWBFOZIN_10hZIc5', NULL, 'La chamia est une pâtisserie classique de la cuisine algérienne, servie au ramadan et à base de semoule, de sirop et d\'amandes. Appelé aussi kalb el louz, il fait le bonheur des jeûneurs comme de leur entourage. En effet, c\'est une pâtisserie farcie aux amandes et au sirop qui se partage.'),
-(23, 3, 23, NULL, 'Cheesecake', 'http://drive.google.com/uc?export=view&id=1tJFEM751tXDi_8rrCNWIeSXQ4kWUFgTp', NULL, 'Le cheesecake, appelé tarte au fromage en Alsace-Moselle, est une spécialité à base de fromage, le plus souvent du fromage frais ou caillé ou fromage blanc. Il est généralement sucré, mais peut être aussi salé.'),
-(31, 4, 31, NULL, 'Chocolat Chaud', 'http://drive.google.com/uc?export=view&id=1UGEGw2m_jQj0Fg1WdsS9jsgXHx4eTBjP', NULL, 'Le chocolat chaud est une boisson chaude à base d\'eau ou de lait constituée de chocolat, ou de cacao en poudre, et de sucre. Lorsqu\'il est uniquement à base de lait, il s\'agit de la version chaude du lait au chocolat.'),
-(32, 4, 32, NULL, 'Citronnade', 'http://drive.google.com/uc?export=view&id=1YT7HAarQHNv5BaQlsuevvo1GMHikPM05', NULL, 'La citronnade menthe est une boisson fraîche et désaltérante composée d\'eau, citrons jaunes et vert, feuilles de menthe et sirop de canne ou miel. Elle est servie traditionnellement à l\'Afrique du Nord (Maroc, Algérie, Tunisie), au Proche-Orient (Jordanie, Palestine, Liban, Syrie) et en Turquie'),
-(33, 4, 33, NULL, 'Iced Coffee', 'http://drive.google.com/uc?export=view&id=1wyC0tL0-SifgBfAOceBb-XtYbmi9Dpey', NULL, 'Le café glacé est une recette répandue de boisson au café d\'origine Algérienne, à base de café froid ou chaud servi glacé, variante des café frappé, affogato, café liégeois, Ice cappuccino, ou thé glacé'),
-(5, 1, 5, NULL, 'Maakouda', 'http://drive.google.com/uc?export=view&id=1h5i6SwVV04KhJDO8XUVGtbhTeBwtSRDh', NULL, 'La maaqouda, maqouda ou maakouda est un mets préparé et consommé en Algérie, au Maroc et en Tunisie, essentiellement pendant le mois de ramadan. Il s\'agit d\'une sorte de beignet de pommes de terre qui peut aussi se décliner avec du thon, de la viande hachée ou du fromage. '),
-(6, 1, 6, NULL, 'Hmiss', 'http://drive.google.com/uc?export=view&id=1GPCGvmDVFbFH7MHFw0w7A9IRYcWaNWkN', NULL, 'est une salade algérienne à base de poivrons et de tomates grillés, hachés, mélangés et assaisonnés d\'huile d\'olive.'),
-(7, 1, 7, NULL, 'Chaussons', 'http://drive.google.com/uc?export=view&id=1Q7Ov3WVMpypV6yFozqh45h4ohvFn2iyB', NULL, 'Le chausson est un mets constitué d\'une pâte (souvent pâte feuilletée) enrobant une garniture de viande, de légumes ou pâtissière.'),
-(8, 1, 8, NULL, 'Batbouts', 'http://drive.google.com/uc?export=view&id=1nTFldTIMui_qFG34bZAL5JC_0cu-TyjA', NULL, 'Les batbouts, ce sont des petits pains sans matières grasses cuits à la poêle.\r\nIls sont très faciles à faire et délicieux.\r\nOn en consomme beaucoup pendant la période de Ramadan : en tartines, en accompagnement d’un tajine, farcis…'),
-(9, 1, 9, NULL, 'Croquettes de poulet', 'http://drive.google.com/uc?export=view&id=1lvHSk75DyM4gBKpQO7JKQ6p7giOL6Zfk', NULL, 'C\'est une entrée cuisinée composée d\'une pâte de chair et de peau de poulet finement hachées, qui est ensuite roulée dans une pâte à beignets ou une panure avant cuisson.'),
-(10, 1, 10, NULL, 'Chermoula', 'http://drive.google.com/uc?export=view&id=1GXdGciSDMxGzX_HUJRRmaE5NIsJMFqYd', NULL, 'Les carottes à la chermoula, salade fraîche et épicées aux saveur d\'Afrique du Nord pour un voyage culinaire végétarien et bien gourmand.\r\nCette salade de carottes à la chermoula est délicieuse en entrée ou en accompagnement d’un poisson ou d’une viande grillé. \r\n'),
-(14, 2, 14, NULL, 'Lham Hlou', 'http://drive.google.com/uc?export=view&id=1B7mWQfjIk3DjXd6cY2A_96tCTfxPSAws', NULL, 'Le lham hlou, lham lahlou, ou tadjine lahlou, qui veut dire « viande sucrée » ou « tadjne doux », est un plat sucré originaire d\'Algérie, fait à base de viande et de pruneaux principalement, avec éventuellement des abricots et décoré de raisins secs et d\'amandes dans un sirop de sucre et d\'eau de fleur d\'oranger.'),
-(15, 2, 15, NULL, 'M\'hajeb', 'http://drive.google.com/uc?export=view&id=1zvJngPU1sKwgHtcsYu4DCoAjX1I1pNQA', NULL, 'est une recette traditionnelle de la cuisine algérienne, très populaire dans tous les wilaya d\'Algérie, y compris dans celle du sud comme Ouargla et Ghardaia, Tamanrasset. Elle constitue un des mets indispensables proposés dans les fast food algériens.'),
-(16, 2, 16, NULL, 'Mthewem', 'http://drive.google.com/uc?export=view&id=1iDz7dhRL2rsM8atQszUFnxpW_RcELvGh', NULL, 'Le mtewem ou tajine mtewem est un plat algérien, et plus précisément algérois, fait à base de boulettes de viande hachée, de morceaux de poulet ou de viande d\'agneau et d\'amandes.'),
-(17, 2, 17, NULL, 'Roulé de poulet', 'http://drive.google.com/uc?export=view&id=1eB8Y75eJ1Y1Ln43lFUy5I3nbEnI9tHnK', NULL, 'A base de blancs de poulet ou de dinde, ce roulé est excellent comme plat familial à partager. Vous pouvez le garnir de champignons et mozzarella comme dans la vidéo ci-dessous, ou choisir d’autres ingrédients. Pour les fêtes, un peu de truffe pourrait être parfait, mais imaginez des versions plus exotiques avec du curry, des épices, ou pourquoi pas même des petits cubes d’ananas dans la farce ! '),
-(18, 2, 18, NULL, 'Rechta', 'http://drive.google.com/uc?export=view&id=1Rsi8FCvEPcPGi1ZX7YP_th81GNWVQlK7', NULL, 'La rechta est un plat Algérien, typique de l\'est du Maghreb. Elle est en particulier le plat symbolique de la cuisine algéroise.'),
-(19, 2, 19, NULL, 'Seffa', 'http://drive.google.com/uc?export=view&id=1FkJoRRV5n05YeOhKnwghdDMJ05QISFbz', NULL, 'La seffa, plat marocain et algérien à base de semoule, est un couscous sucré à la cannelle et aux amandes. Au Maroc, il peut aussi être fait avec du riz ou des vermicelles. Ce plat se mange généralement en fin de repas avant le dessert.'),
-(20, 2, 20, NULL, 'Tajine d\'olives', 'http://drive.google.com/uc?export=view&id=1XBfhQ8mrZJtvoRf0rh9ddtNx3JVjpvzh', NULL, 'Le tajine de poulet aux olives est un plat traditionnel d\'Algérie et du Maroc, dans lequel mijotent des morceaux de poulet et des olives dans une sauce assaisonnée aux épices, aux oignons et au citron confit'),
-(24, 3, 24, NULL, 'Makrout', 'http://drive.google.com/uc?export=view&id=1nFzOBJ9KgIDDuW7QWwTqaxYOQLEvpqzr', NULL, 'C\'est une pâtisserie maghrébine, à base de semoule de blé et de pâte de dattes, reconnaissable à sa forme en losange. C\'est une pâtisserie très populaire au Maghreb'),
-(25, 3, 25, NULL, 'Mhalbi', 'http://drive.google.com/uc?export=view&id=1n_qBxqURVa-GeXlmQJuRKx6sCFw-jWN-', NULL, 'C\'est un flan au lait parfumé à la fleur d\'oranger. Il est généralement servi avec du sirop de sucre et des morceaux de pistaches. Certaines recettes incorporent de l\'eau de rose, de l\'amande amère ou du miel.\r\n\r\nGénéralement associé à la cuisine libanaise, son origine remonterait aux Sassanides. Il se retrouve donc dans de nombreuses cuisines du Moyen-Orient (Turquie par exemple).'),
-(26, 3, 26, NULL, 'Zlabia', 'http://drive.google.com/uc?export=view&id=1fbLokzLIlPpyh0-1Gzpp4oHMrkNncAtM', NULL, 'La zlabia, ou zelabia, parfois sous la forme jalebi, est une confiserie de la cuisine orientale traditionnelle. Intermédiaire entre un gâteau et une confiserie, elle est préparée au Maghreb principalement, principalement lors du mois de ramadan.'),
-(27, 3, 27, NULL, 'Samsa', 'http://drive.google.com/uc?export=view&id=14Fn1_cQ26f3Q6yK0-gQ1PwptEFQGpZib', NULL, 'La samsa est une pâtisserie de forme triangulaire aux amandes et au miel, préparée surtout pour l\'Aïd el-Fitr. Elle est consommée aussi bien en Algérie qu\'en Tunisie. La ville d\'Alger est connue pour ses pâtisseries, notamment la samsa.'),
-(28, 3, 28, NULL, 'San Sebastian', 'http://drive.google.com/uc?export=view&id=1ptk2Ix-cjQNpGaBxriJyaEa2ZeuMBIz8', NULL, 'Une délicieuse recette du fameux cheesecake San Sebastian, une variante du classique américain sans fond tout droit venue du Pays basque.'),
-(29, 3, 29, NULL, 'Tiramisu', 'http://drive.google.com/uc?export=view&id=119MzrlnoY-e-Xh7NxQfS7vkULIcNihmd', NULL, 'Dessert à base de lait d’origine italienne mondialement connu, composé de café, mascarpone, sucre, œufs, boudoirs et de marsala, d’amaretto ou de kalhua, mais avec de nombreuses variantes possibles.'),
-(30, 3, 30, NULL, 'Verrine', 'http://drive.google.com/uc?export=view&id=1p1IC9MbhhNATRi2yitB6vZ_zH4dvo4W0', NULL, ' Utilisé en pâtisserie, pour la première fois au milieu des années 1990, la verrine s\'est rapidement imposée pour toute une gamme de mets, allant des amuse-gueule aux apéritifs dînatoires, du sucré au salé, des préparations les plus simples aux plus inventives, le tout dans un mélange original de saveurs et de couleurs.'),
-(34, 4, 34, NULL, 'Jus d\'orange', 'http://drive.google.com/uc?export=view&id=1HZoQ6iG8xWhMGCe8hQgS7S7Ai-zEozTy', NULL, 'Le jus d\'orange est une boisson préparée à partir d\'oranges pressées.'),
-(35, 4, 35, NULL, 'Mocaccino ', 'http://drive.google.com/uc?export=view&id=12WOxb49gZsFOndDArnKn8vaApnBuPyRc', NULL, 'Un caffè moka, également appelé mocaccino, est une boisson chaude à saveur de chocolat qui est une variante d\'un caffè latte, généralement servie dans un verre plutôt que dans une tasse. Les autres orthographes couramment utilisées sont mochaccino et aussi mochachino.'),
-(36, 4, 36, NULL, 'Café arabe', 'http://drive.google.com/uc?export=view&id=1BZwFEktygVlYtY1sm7ojsv7ay8mZjarJ', NULL, 'Ça désigne la boisson décoctée aux graines d\'arabica fortement présente dans les arts de la table des cultures du Moyen-Orient et notamment en Arabie.'),
-(37, 4, 37, NULL, 'Mojito', 'http://drive.google.com/uc?export=view&id=1evm1Eg8te5PNKxA3FQI4b7q4GLZLPFXp', NULL, 'Cocktail à base d\'eau gazeuse, de citron vert, de sucre et de feuilles de menthe.\r\n'),
-(38, 4, 38, NULL, 'Smoothie aux fruits', 'http://drive.google.com/uc?export=view&id=1G3a1ibd8Y6LrxLZtx0uiRw6Zt5m9MuGg', NULL, 'Un smoothie est une recette traditionnelle de boisson crémeuse mixée, de la cuisine des États-Unis, à base de jus de fruits entiers, ou de légumes frais, parfois mélangés à des jus de fruits, produits laitiers, céréales, glace pilée, ou compléments alimentaires'),
-(39, 4, 39, NULL, 'Jus de pastèque', 'http://drive.google.com/uc?export=view&id=1YINcIW3I4BI9TMJvVcJST06fzIVhSdN0', NULL, 'Un remède hydratant, diurétique et qui permet de lutter contre la fatigue. A utiliser aussi dans la prévention de crampes musculaires chez le sportif.'),
-(40, 4, 40, NULL, 'Jus de fraise', 'http://drive.google.com/uc?export=view&id=1CV5I3ww1HGMQ2Ay4N8hz1YTcqLiH9FCI', NULL, 'Le jus de fraise est une boisson préparée à partir de fraises. Sa couleur et sa saveur le rendent particulièrement bien adapté pour les cocktails; que ce soit sous forme de jus ou de coulis.'),
-(41, NULL, NULL, 1, 'Livre de Cyril Lignac', 'http://drive.google.com/uc?export=view&id=18JlNVpe8k0KI-r0vgN6ujZk06h21JCJu', NULL, 'Cyril Lignac cartonne depuis le confinement dans l\'émission «Tous en cuisine» sur M6 et la diffusion a même été prolongée jusqu\'à fin mai pour faire durer le plaisir. Le chef dévoile à l\'avance la liste de ses ingrédients et les téléspectateurs peuvent concocter de bons petits plats et desserts en même temps que lui, c\'est un concept qui plaît ! L\'aventure continuera également en librairie, puisqu\'il sort un livre de cuisine intitulé «Faits maison n°1». Il regroupe des recettes du quotidien et de saison faciles à reproduire chez soi.'),
-(42, NULL, NULL, 2, 'Etre chef d\'un soir?', 'http://drive.google.com/uc?export=view&id=1_awY8pzyLIMCr30denW_PsoTp3_eiwHB', NULL, 'Le restaurant de la Samaritaine, situé au cœur de la capitale, propose aux passionnés de gastronomie, amateurs ou experts, de louer sa cuisine professionnelle et ultra-moderne pour un soir, en profitant de l\'aide d\'un commis de cuisine et d\'un plongeur.'),
-(43, NULL, NULL, 3, 'Les cours de pâtisserie', 'http://drive.google.com/uc?export=view&id=1qeSytALWJufTW0FfKM3-y53zdwEFHuYn', NULL, 'Les lives du chef Philippe Conticini reviennent en cette rentrée 2022. Rendez-vous chaque mercredi à 12h sur les réseaux sociaux du chef pâtissier pour découvrir de nouveaux secrets gourmands pour préparer des desserts et gâteaux de folie. '),
-(44, NULL, NULL, NULL, 'Bourek', 'http://drive.google.com/uc?export=view&id=1M1tM9P7iKkV8sstT6SBIgTPC2LuPXunJ', NULL, 'Le Bourek est la fameuse entrée algérienne qui ne quitte jamais les tables de l\'Iftar en Ramadhan.'),
-(45, NULL, NULL, NULL, 'Bourek', 'http://drive.google.com/uc?export=view&id=1M1tM9P7iKkV8sstT6SBIgTPC2LuPXunJ', NULL, 'Le Bourek est la fameuse entrée algérienne qui ne quitte jamais les tables de l\'Iftar en Ramadhan.'),
-(46, NULL, NULL, NULL, 'Bourek', 'http://drive.google.com/uc?export=view&id=1M1tM9P7iKkV8sstT6SBIgTPC2LuPXunJ', NULL, 'Le Bourek est la fameuse entrée algérienne qui ne quitte jamais les tables de l\'Iftar en Ramadhan.'),
-(47, NULL, NULL, NULL, 'Bourek', 'http://drive.google.com/uc?export=view&id=1M1tM9P7iKkV8sstT6SBIgTPC2LuPXunJ', NULL, 'Le Bourek est la fameuse entrée algérienne qui ne quitte jamais les tables de l\'Iftar en Ramadhan.'),
-(48, NULL, NULL, NULL, 'Bourek', 'http://drive.google.com/uc?export=view&id=1M1tM9P7iKkV8sstT6SBIgTPC2LuPXunJ', NULL, 'Le Bourek est la fameuse entrée algérienne qui ne quitte jamais les tables de l\'Iftar en Ramadhan.'),
-(52, NULL, NULL, 5, 'Bourek', 'http://drive.google.com/uc?export=view&id=1M1tM9P7iKkV8sstT6SBIgTPC2LuPXunJ', NULL, 'Le Bourek est la fameuse entrée algérienne qui ne quitte jamais les tables de l\'Iftar en Ramadhan.');
+INSERT INTO `cadre` (`id_cadre`, `id_categ`, `id_recette`, `id_news`, `titre_cadre`, `img_cadre`, `video_cadre`, `desc_cadre`, `diapo`) VALUES
+(114, 1, 41, NULL, 'Chakchouka', '2', NULL, 'La chakchouka est une poêlée de poivrons, tomates, oignons et les œufs. Elle est d origine algérienne. ', 0),
+(113, 1, 1, NULL, 'Hrira Oranaise', '4', NULL, 'Cette hrira oranaise est la soupe la plus préparée dans la région d’Oran. Elle est lisse, légère, très savoureuse et bien parfumée d’odeurs de carvi et à la coriandre fraîche. Si vous aimez les soupes odorantes et vitaminées, alors restez avec moi car sa préparation est très facile.', 0),
+(3, 1, 3, NULL, 'Bricks', 'http://drive.google.com/uc?export=view&id=1MjV5DqRDMMld9iVDhSUxEAJOslaQsn6L', NULL, 'C\'est une sorte de chausson originaire du Maghreb, préparé à partir d\'une feuille de pâte très fine portant le même nom, à base de farine et de semoule de blé, façonnée généralement en un triangle fourré et frit.', 0),
+(4, 1, 4, NULL, 'Chorba Frik', 'http://drive.google.com/uc?export=view&id=1Eh2HBj4Nk3vOKy5nujl15ualE9A2D64j', NULL, 'La chorba frik, également appelée djari hmar, de son nom original dchicha ou tchicha, est une soupe à base de blé vert concassé et de viande, de la cuisine algérienne. Elle est consommée notamment durant le mois du ramadan.', 0),
+(11, 2, 11, NULL, 'Berkoukes', 'http://drive.google.com/uc?export=view&id=1RyStSTFo8aKI_jwjriy5AmvXCFDGHtW6', NULL, 'C\'est un plat traditionnel du Maghreb, préparé à base de pâtes en forme de gros grains de couscous, de légumes de saison et de viande.', 0),
+(12, 2, 12, NULL, 'Chakhchoukha', 'http://drive.google.com/uc?export=view&id=1AVceRHbuH44Ly_1H25uHzkQmwCUjLfnA', NULL, 'La chakhchoukha est un mets de fête se composant de pâte de semoule émiettée, cuite à la poêle, arrosée de sauce tomate rouge à la viande, épicée, de pois chiches et, dans quelques régions, de courgettes, de carottes et de navets, de fèves ou encore de pommes de terre. ', 0),
+(13, 2, 13, NULL, 'Couscous', 'http://drive.google.com/uc?export=view&id=1uKZNfc4Ee9itoTnfxzxY873r_T5zj65U', NULL, 'Le couscous est d\'une part une semoule de blé dur préparée à l\'huile d\'olive et d\'autre part, une spécialité culinaire issue de la cuisine berbère, à base de couscous, de légumes, d\'épices, d\'huile d\'olive et de viande ou de poisson.', 0),
+(21, 3, 21, NULL, 'Baklawa', 'http://drive.google.com/uc?export=view&id=11-yIWI3tTffTBfCCPCmmECcA1ueaXd6K', NULL, 'Le baklava, baclava, baclawa ou baklawa pour la variante maghrébine, est un dessert traditionnel commun aux peuples des anciens empires ottoman et perse. On le retrouve dans les Balkans, dans le Caucase, au Maghreb et au Moyen-Orient.', 0),
+(22, 3, 22, NULL, 'Chamia', 'http://drive.google.com/uc?export=view&id=1RNGXC-KnWU0cRXFxtWBFOZIN_10hZIc5', NULL, 'La chamia est une pâtisserie classique de la cuisine algérienne, servie au ramadan et à base de semoule, de sirop et d\'amandes. Appelé aussi kalb el louz, il fait le bonheur des jeûneurs comme de leur entourage. En effet, c\'est une pâtisserie farcie aux amandes et au sirop qui se partage.', 0),
+(23, 3, 23, NULL, 'Cheesecake', 'http://drive.google.com/uc?export=view&id=1tJFEM751tXDi_8rrCNWIeSXQ4kWUFgTp', NULL, 'Le cheesecake, appelé tarte au fromage en Alsace-Moselle, est une spécialité à base de fromage, le plus souvent du fromage frais ou caillé ou fromage blanc. Il est généralement sucré, mais peut être aussi salé.', 0),
+(31, 4, 31, NULL, 'Chocolat Chaud', 'http://drive.google.com/uc?export=view&id=1UGEGw2m_jQj0Fg1WdsS9jsgXHx4eTBjP', NULL, 'Le chocolat chaud est une boisson chaude à base d\'eau ou de lait constituée de chocolat, ou de cacao en poudre, et de sucre. Lorsqu\'il est uniquement à base de lait, il s\'agit de la version chaude du lait au chocolat.', 0),
+(32, 4, 32, NULL, 'Citronnade', 'http://drive.google.com/uc?export=view&id=1YT7HAarQHNv5BaQlsuevvo1GMHikPM05', NULL, 'La citronnade menthe est une boisson fraîche et désaltérante composée d\'eau, citrons jaunes et vert, feuilles de menthe et sirop de canne ou miel. Elle est servie traditionnellement à l\'Afrique du Nord (Maroc, Algérie, Tunisie), au Proche-Orient (Jordanie, Palestine, Liban, Syrie) et en Turquie', 0),
+(33, 4, 33, NULL, 'Iced Coffee', 'http://drive.google.com/uc?export=view&id=1wyC0tL0-SifgBfAOceBb-XtYbmi9Dpey', NULL, 'Le café glacé est une recette répandue de boisson au café d\'origine Algérienne, à base de café froid ou chaud servi glacé, variante des café frappé, affogato, café liégeois, Ice cappuccino, ou thé glacé', 0),
+(5, 1, 5, NULL, 'Maakouda', 'http://drive.google.com/uc?export=view&id=1h5i6SwVV04KhJDO8XUVGtbhTeBwtSRDh', NULL, 'La maaqouda, maqouda ou maakouda est un mets préparé et consommé en Algérie, au Maroc et en Tunisie, essentiellement pendant le mois de ramadan. Il s\'agit d\'une sorte de beignet de pommes de terre qui peut aussi se décliner avec du thon, de la viande hachée ou du fromage. ', 0),
+(6, 1, 6, NULL, 'Hmiss', 'http://drive.google.com/uc?export=view&id=1GPCGvmDVFbFH7MHFw0w7A9IRYcWaNWkN', NULL, 'est une salade algérienne à base de poivrons et de tomates grillés, hachés, mélangés et assaisonnés d\'huile d\'olive.', 0),
+(7, 1, 7, NULL, 'Chaussons', 'http://drive.google.com/uc?export=view&id=1Q7Ov3WVMpypV6yFozqh45h4ohvFn2iyB', NULL, 'Le chausson est un mets constitué d\'une pâte (souvent pâte feuilletée) enrobant une garniture de viande, de légumes ou pâtissière.', 0),
+(8, 1, 8, NULL, 'Batbouts', 'http://drive.google.com/uc?export=view&id=1nTFldTIMui_qFG34bZAL5JC_0cu-TyjA', NULL, 'Les batbouts, ce sont des petits pains sans matières grasses cuits à la poêle.\r\nIls sont très faciles à faire et délicieux.\r\nOn en consomme beaucoup pendant la période de Ramadan : en tartines, en accompagnement d’un tajine, farcis…', 0),
+(9, 1, 9, NULL, 'Croquettes de poulet', 'http://drive.google.com/uc?export=view&id=1lvHSk75DyM4gBKpQO7JKQ6p7giOL6Zfk', NULL, 'C\'est une entrée cuisinée composée d\'une pâte de chair et de peau de poulet finement hachées, qui est ensuite roulée dans une pâte à beignets ou une panure avant cuisson.', 0),
+(10, 1, 10, NULL, 'Chermoula', 'http://drive.google.com/uc?export=view&id=1GXdGciSDMxGzX_HUJRRmaE5NIsJMFqYd', NULL, 'Les carottes à la chermoula, salade fraîche et épicées aux saveur d\'Afrique du Nord pour un voyage culinaire végétarien et bien gourmand.\r\nCette salade de carottes à la chermoula est délicieuse en entrée ou en accompagnement d’un poisson ou d’une viande grillé. \r\n', 0),
+(14, 2, 14, NULL, 'Lham Hlou', 'http://drive.google.com/uc?export=view&id=1B7mWQfjIk3DjXd6cY2A_96tCTfxPSAws', NULL, 'Le lham hlou, lham lahlou, ou tadjine lahlou, qui veut dire « viande sucrée » ou « tadjne doux », est un plat sucré originaire d\'Algérie, fait à base de viande et de pruneaux principalement, avec éventuellement des abricots et décoré de raisins secs et d\'amandes dans un sirop de sucre et d\'eau de fleur d\'oranger.', 0),
+(15, 2, 15, NULL, 'M\'hajeb', 'http://drive.google.com/uc?export=view&id=1zvJngPU1sKwgHtcsYu4DCoAjX1I1pNQA', NULL, 'est une recette traditionnelle de la cuisine algérienne, très populaire dans tous les wilaya d\'Algérie, y compris dans celle du sud comme Ouargla et Ghardaia, Tamanrasset. Elle constitue un des mets indispensables proposés dans les fast food algériens.', 0),
+(16, 2, 16, NULL, 'Mthewem', 'http://drive.google.com/uc?export=view&id=1iDz7dhRL2rsM8atQszUFnxpW_RcELvGh', NULL, 'Le mtewem ou tajine mtewem est un plat algérien, et plus précisément algérois, fait à base de boulettes de viande hachée, de morceaux de poulet ou de viande d\'agneau et d\'amandes.', 0),
+(17, 2, 17, NULL, 'Roulé de poulet', 'http://drive.google.com/uc?export=view&id=1eB8Y75eJ1Y1Ln43lFUy5I3nbEnI9tHnK', NULL, 'A base de blancs de poulet ou de dinde, ce roulé est excellent comme plat familial à partager. Vous pouvez le garnir de champignons et mozzarella comme dans la vidéo ci-dessous, ou choisir d’autres ingrédients. Pour les fêtes, un peu de truffe pourrait être parfait, mais imaginez des versions plus exotiques avec du curry, des épices, ou pourquoi pas même des petits cubes d’ananas dans la farce ! ', 0),
+(18, 2, 18, NULL, 'Rechta', 'http://drive.google.com/uc?export=view&id=1Rsi8FCvEPcPGi1ZX7YP_th81GNWVQlK7', NULL, 'La rechta est un plat Algérien, typique de l\'est du Maghreb. Elle est en particulier le plat symbolique de la cuisine algéroise.', 0),
+(19, 2, 19, NULL, 'Seffa', 'http://drive.google.com/uc?export=view&id=1FkJoRRV5n05YeOhKnwghdDMJ05QISFbz', NULL, 'La seffa, plat marocain et algérien à base de semoule, est un couscous sucré à la cannelle et aux amandes. Au Maroc, il peut aussi être fait avec du riz ou des vermicelles. Ce plat se mange généralement en fin de repas avant le dessert.', 0),
+(20, 2, 20, NULL, 'Tajine d\'olives', 'http://drive.google.com/uc?export=view&id=1XBfhQ8mrZJtvoRf0rh9ddtNx3JVjpvzh', NULL, 'Le tajine de poulet aux olives est un plat traditionnel d\'Algérie et du Maroc, dans lequel mijotent des morceaux de poulet et des olives dans une sauce assaisonnée aux épices, aux oignons et au citron confit', 0),
+(24, 3, 24, NULL, 'Makrout', 'http://drive.google.com/uc?export=view&id=1nFzOBJ9KgIDDuW7QWwTqaxYOQLEvpqzr', NULL, 'C\'est une pâtisserie maghrébine, à base de semoule de blé et de pâte de dattes, reconnaissable à sa forme en losange. C\'est une pâtisserie très populaire au Maghreb', 0),
+(25, 3, 25, 4, 'Mhalbi', 'http://drive.google.com/uc?export=view&id=1n_qBxqURVa-GeXlmQJuRKx6sCFw-jWN-', NULL, 'C\'est un flan au lait parfumé à la fleur d\'oranger. Il est généralement servi avec du sirop de sucre et des morceaux de pistaches. Certaines recettes incorporent de l\'eau de rose, de l\'amande amère ou du miel.\r\n\r\nGénéralement associé à la cuisine libanaise, son origine remonterait aux Sassanides. Il se retrouve donc dans de nombreuses cuisines du Moyen-Orient (Turquie par exemple).', 0),
+(26, 3, 26, NULL, 'Zlabia', 'http://drive.google.com/uc?export=view&id=1fbLokzLIlPpyh0-1Gzpp4oHMrkNncAtM', NULL, 'La zlabia, ou zelabia, parfois sous la forme jalebi, est une confiserie de la cuisine orientale traditionnelle. Intermédiaire entre un gâteau et une confiserie, elle est préparée au Maghreb principalement, principalement lors du mois de ramadan.', 0),
+(27, 3, 27, 6, 'Samsa', 'http://drive.google.com/uc?export=view&id=14Fn1_cQ26f3Q6yK0-gQ1PwptEFQGpZib', NULL, 'La samsa est une pâtisserie de forme triangulaire aux amandes et au miel, préparée surtout pour l\'Aïd el-Fitr. Elle est consommée aussi bien en Algérie qu\'en Tunisie. La ville d\'Alger est connue pour ses pâtisseries, notamment la samsa.', 0),
+(28, 3, 28, NULL, 'San Sebastian', 'http://drive.google.com/uc?export=view&id=1ptk2Ix-cjQNpGaBxriJyaEa2ZeuMBIz8', NULL, 'Une délicieuse recette du fameux cheesecake San Sebastian, une variante du classique américain sans fond tout droit venue du Pays basque.', 0),
+(29, 3, 29, NULL, 'Tiramisu', 'http://drive.google.com/uc?export=view&id=119MzrlnoY-e-Xh7NxQfS7vkULIcNihmd', NULL, 'Dessert à base de lait d’origine italienne mondialement connu, composé de café, mascarpone, sucre, œufs, boudoirs et de marsala, d’amaretto ou de kalhua, mais avec de nombreuses variantes possibles.', 0),
+(30, 3, 30, NULL, 'Verrine', 'http://drive.google.com/uc?export=view&id=1p1IC9MbhhNATRi2yitB6vZ_zH4dvo4W0', NULL, ' Utilisé en pâtisserie, pour la première fois au milieu des années 1990, la verrine s\'est rapidement imposée pour toute une gamme de mets, allant des amuse-gueule aux apéritifs dînatoires, du sucré au salé, des préparations les plus simples aux plus inventives, le tout dans un mélange original de saveurs et de couleurs.', 0),
+(34, 4, 34, NULL, 'Jus d\'orange', 'http://drive.google.com/uc?export=view&id=1HZoQ6iG8xWhMGCe8hQgS7S7Ai-zEozTy', NULL, 'Le jus d\'orange est une boisson préparée à partir d\'oranges pressées.', 0),
+(35, 4, 35, NULL, 'Mocaccino ', 'http://drive.google.com/uc?export=view&id=12WOxb49gZsFOndDArnKn8vaApnBuPyRc', NULL, 'Un caffè moka, également appelé mocaccino, est une boisson chaude à saveur de chocolat qui est une variante d\'un caffè latte, généralement servie dans un verre plutôt que dans une tasse. Les autres orthographes couramment utilisées sont mochaccino et aussi mochachino.', 0),
+(36, 4, 36, NULL, 'Café arabe', 'http://drive.google.com/uc?export=view&id=1BZwFEktygVlYtY1sm7ojsv7ay8mZjarJ', NULL, 'Ça désigne la boisson décoctée aux graines d\'arabica fortement présente dans les arts de la table des cultures du Moyen-Orient et notamment en Arabie.', 0),
+(37, 4, 37, NULL, 'Mojito', 'http://drive.google.com/uc?export=view&id=1evm1Eg8te5PNKxA3FQI4b7q4GLZLPFXp', NULL, 'Cocktail à base d\'eau gazeuse, de citron vert, de sucre et de feuilles de menthe.\r\n', 0),
+(38, 4, 38, NULL, 'Smoothie aux fruits', 'http://drive.google.com/uc?export=view&id=1G3a1ibd8Y6LrxLZtx0uiRw6Zt5m9MuGg', NULL, 'Un smoothie est une recette traditionnelle de boisson crémeuse mixée, de la cuisine des États-Unis, à base de jus de fruits entiers, ou de légumes frais, parfois mélangés à des jus de fruits, produits laitiers, céréales, glace pilée, ou compléments alimentaires', 0),
+(39, 4, 39, NULL, 'Jus de pastèque', 'http://drive.google.com/uc?export=view&id=1YINcIW3I4BI9TMJvVcJST06fzIVhSdN0', NULL, 'Un remède hydratant, diurétique et qui permet de lutter contre la fatigue. A utiliser aussi dans la prévention de crampes musculaires chez le sportif.', 0),
+(40, 4, 40, NULL, 'Jus de fraise', 'http://drive.google.com/uc?export=view&id=1CV5I3ww1HGMQ2Ay4N8hz1YTcqLiH9FCI', NULL, 'Le jus de fraise est une boisson préparée à partir de fraises. Sa couleur et sa saveur le rendent particulièrement bien adapté pour les cocktails; que ce soit sous forme de jus ou de coulis.', 0),
+(41, NULL, NULL, 1, 'Saint-Jacques poêlées', 'http://drive.google.com/uc?export=view&id=1M1tM9P7iKkV8sstT6SBIgTPC2LuPXunJ', NULL, 'Mohamed Cheik, Top Chef 2021, partage son étonnante recette facile au maïs sur ses réseaux sociaux !', 0),
+(57, NULL, NULL, 5, 'Recettes d\'été', 'http://drive.google.com/uc?export=view&id=1M1tM9P7iKkV8sstT6SBIgTPC2LuPXunJ', NULL, 'En etant dans la saison estivale, on pense toujours à des recettes faciles, rapides, et légères. Et c\'est ce qu\'on vous propose dans cet article.', 0),
+(42, NULL, NULL, 2, 'Etre chef d\'un soir?', 'http://drive.google.com/uc?export=view&id=1_awY8pzyLIMCr30denW_PsoTp3_eiwHB', NULL, 'Le restaurant de la Samaritaine, situé au cœur de la capitale, propose aux passionnés de gastronomie, amateurs ou experts, de louer sa cuisine professionnelle et ultra-moderne pour un soir, en profitant de l\'aide d\'un commis de cuisine et d\'un plongeur.', 0),
+(43, NULL, NULL, 3, 'Les cours de pâtisserie', 'http://drive.google.com/uc?export=view&id=1qeSytALWJufTW0FfKM3-y53zdwEFHuYn', NULL, 'Les lives du chef Philippe Conticini reviennent en cette rentrée 2022. Rendez-vous chaque mercredi à 12h sur les réseaux sociaux du chef pâtissier pour découvrir de nouveaux secrets gourmands pour préparer des desserts et gâteaux de folie ! ', 0),
+(116, 1, 2, NULL, 'Bourek', '4', NULL, 'Le Bourek est la fameuse entrée algérienne qui ne quitte jamais les tables de l', 0),
+(117, NULL, NULL, 7, '8 nouveautés food à découvrir', 'http://drive.google.com/uc?export=view&id=1M1tM9P7iKkV8sstT6SBIgTPC2LuPXunJ', NULL, 'L univers de la gastronomie est infini, et tant mieux! Livres, produits, adresses... Les gourmets peuvent piocher quelques idées pour satisfaire leur passion.', 0);
 
 -- --------------------------------------------------------
 
@@ -195,26 +207,64 @@ CREATE TABLE IF NOT EXISTS `etape` (
   `id_etape` int(11) NOT NULL AUTO_INCREMENT,
   `ordre_etape` int(11) DEFAULT NULL,
   `instruction` text,
-  `id_categ` int(11) NOT NULL,
   PRIMARY KEY (`id_etape`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=84 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `etape`
 --
 
-INSERT INTO `etape` (`id_etape`, `ordre_etape`, `instruction`, `id_categ`) VALUES
-(1, 1, 'Mettre la levure, semoule, farine et eau.', 0),
-(2, 2, 'Bien mélanger, couvrir avec un torchon, et laisser reposer', 0),
-(3, 3, 'Dans une cocote faire revenir avec l\'huile, la viande et l’oignon', 0),
-(4, 4, 'Ajouter le reste des ingrédients et les épices', 0),
-(5, 5, 'Couvrir d’eau, fermer la cocote et laisser cuire', 0),
-(6, 6, 'Une fois votre soupe cuite, retirez la viande', 0),
-(7, 7, 'Mixez le reste à l’aide d’un mixeur plongeant', 0),
-(8, 8, 'Prendre votre levain et bien le fouetter pour l’aérer', 0),
-(9, 9, 'Ajouter petit à petit le levain à votre soupe tout en mélangeant', 0),
-(10, 10, 'Il ne faut pas cesser de remuer car cette étape est très importante.\r\nVous n\'êtes pas obligé de tout mettre, arrêtez dès que votre hrira a la bonne consistance', 0),
-(11, 11, 'Avant de servir, vous pouvez ajouter de la coriandre ciselée', 0);
+INSERT INTO `etape` (`id_etape`, `ordre_etape`, `instruction`) VALUES
+(2, 2, 'Dans une cocote faire revenir avec l\'huile, la viande et l’oignon'),
+(3, 3, 'Ajouter le reste des ingrédients et les épices'),
+(4, 4, 'Couvrir d’eau, fermer la cocote et laisser cuire'),
+(5, 5, 'Une fois votre soupe cuite, retirez la viande'),
+(6, 6, 'Mixez le reste à l’aide d’un mixeur plongeant'),
+(7, 7, 'Prendre votre levain et bien le fouetter pour l’aérer'),
+(8, 8, 'Ajouter petit à petit le levain à votre soupe tout en mélangeant'),
+(9, 9, 'Il ne faut pas cesser de remuer car cette étape est très importante.\r\nVous n\'êtes pas obligé de tout mettre, arrêtez dès que votre hrira a la bonne consistance'),
+(10, 10, 'Avant de servir, vous pouvez ajouter de la coriandre ciselée'),
+(1, 1, 'Melangez la farine, la levure avec une eau tiede.'),
+(83, 3, 'etape3'),
+(82, 2, 'etape2'),
+(81, 1, 'etape1'),
+(80, 5, 'Faites chauffer un peu de huile dans une poêle, et faites frire le bourek de tous les cotes. '),
+(79, 4, 'Puis, pliez et enroulez le bourek en serrant bien.'),
+(77, 2, 'Une fois la cuisson terminée, rajoutez du fromage.'),
+(78, 3, 'Ouvrez les feuilles de brick, mettez la farce en intérieur.'),
+(76, 1, 'Dans une poêle, mettez les oignons avec du huile, et ajoutez la viande, le sel et le poivre noir.'),
+(75, 5, 'Faites chauffer un peu de huile dans une poêle, et faites frire le bourek de tous les cotes. '),
+(74, 4, 'Puis, pliez et enroulez le bourek en serrant bien.'),
+(73, 3, 'Ouvrez les feuilles de brick, mettez la farce en intérieur.'),
+(72, 2, 'Une fois la cuisson terminée, rajoutez du fromage.'),
+(71, 1, 'Dans une poêle, mettez les oignons avec du huile, et ajoutez la viande, le sel et le poivre noir.'),
+(11, 11, 'BON APPETIT !');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `favoris`
+--
+
+DROP TABLE IF EXISTS `favoris`;
+CREATE TABLE IF NOT EXISTS `favoris` (
+  `id_recette` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  PRIMARY KEY (`id_recette`)
+) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `favoris`
+--
+
+INSERT INTO `favoris` (`id_recette`, `id_user`) VALUES
+(1, 1),
+(3, 1),
+(10, 1),
+(18, 1),
+(19, 1),
+(31, 1),
+(34, 1);
 
 -- --------------------------------------------------------
 
@@ -272,7 +322,7 @@ INSERT INTO `image` (`id_img`, `type`, `lien_img`) VALUES
 DROP TABLE IF EXISTS `infos_nutritionnelles`;
 CREATE TABLE IF NOT EXISTS `infos_nutritionnelles` (
   `id_infos` int(11) NOT NULL AUTO_INCREMENT,
-  `energie` float(10,0) DEFAULT '0',
+  `energie` int(11) DEFAULT '0',
   `proteines` decimal(15,2) DEFAULT '0.00',
   `glucides` decimal(15,2) DEFAULT '0.00',
   `lipides` decimal(15,2) DEFAULT '0.00',
@@ -282,7 +332,7 @@ CREATE TABLE IF NOT EXISTS `infos_nutritionnelles` (
   `minereaux` decimal(15,2) DEFAULT '0.00',
   `vitamines` decimal(15,2) DEFAULT '0.00',
   PRIMARY KEY (`id_infos`)
-) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `infos_nutritionnelles`
@@ -299,7 +349,7 @@ INSERT INTO `infos_nutritionnelles` (`id_infos`, `energie`, `proteines`, `glucid
 (8, 346, '12.40', '13.00', '17.80', '0.00', '8.88', '41.90', '5.07', '1.00'),
 (9, 139, '8.86', '21.10', '1.09', '0.00', '63.90', '4.80', '0.09', '0.01'),
 (10, 0, '0.00', '0.00', '0.00', '98.00', '0.03', NULL, '1.69', NULL),
-(11, NULL, '41.00', '11.00', '6.00', '0.00', NULL, '29.00', NULL, NULL),
+(11, 325, '41.00', '11.00', '6.00', '0.00', '5.08', '29.00', '0.04', '0.03'),
 (12, 343, '11.70', '69.30', '0.80', '0.00', '13.90', '3.90', '0.39', '0.00'),
 (13, 0, '0.00', '0.00', '0.00', '0.00', '100.00', '0.00', '0.00', '0.00'),
 (14, 304, '10.90', '44.50', '3.30', '0.00', '10.50', '26.50', '4.00', '0.26'),
@@ -308,7 +358,10 @@ INSERT INTO `infos_nutritionnelles` (`id_infos`, `energie`, `proteines`, `glucid
 (17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (19, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(20, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(20, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(21, 572, '9.30', '33.30', '41.90', '3.00', '1.00', '13.00', '3.00', '1.00'),
+(40, 36, '3.00', '3.48', '0.63', '0.00', '85.50', '4.00', '1.00', '1.00'),
+(29, 36, '3.00', '3.48', '0.63', '0.00', '85.50', '4.00', '1.00', '1.00');
 
 -- --------------------------------------------------------
 
@@ -323,35 +376,41 @@ CREATE TABLE IF NOT EXISTS `ingredient` (
   `nom_ingred` varchar(50) DEFAULT NULL,
   `healthy` tinyint(4) DEFAULT NULL,
   `img_ingred` varchar(500) DEFAULT NULL,
+  `ingred_valid` int(11) DEFAULT '0',
   PRIMARY KEY (`id_infos`,`id_ingred`),
   UNIQUE KEY `id_infos` (`id_infos`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `ingredient`
 --
 
-INSERT INTO `ingredient` (`id_infos`, `id_ingred`, `nom_ingred`, `healthy`, `img_ingred`) VALUES
-(1, 1, 'tomate', 1, 'http://drive.google.com/uc?export=view&id=1ZPyENlf-ivzgsIYtXnGnNRwOFF77obp7'),
-(2, 2, 'Viande d\'agneau', 1, NULL),
-(3, 3, 'Oignon', 1, NULL),
-(4, 4, 'Pomme de terre', 1, NULL),
-(5, 5, 'carotte', 1, 'http://drive.google.com/uc?export=view&id=1K3aAYKAjzV2GYM4lmd_28WVXb8R7LCw5'),
-(6, 6, 'Courgette', 1, 'http://drive.google.com/uc?export=view&id=1FoZ0wN0gRAWtL-oCs9zBDDJ9cqxAnNfv'),
-(7, 7, 'Huile de tournesol', 0, NULL),
-(8, 8, 'Coriandre ', 1, NULL),
-(9, 9, 'Pois chiche', 1, NULL),
-(10, 10, 'Sel', 0, NULL),
-(11, 11, 'levure boulangère', 0, NULL),
-(12, 12, 'Farine', 0, NULL),
-(13, 13, 'Eau', 1, NULL),
-(14, 14, 'Poivre noir', 1, NULL),
-(15, 15, 'Semoule fine', 0, NULL),
-(16, 16, 'Orange', 1, 'http://drive.google.com/uc?export=view&id=1pbM7rK_i9KzDXDznlGf5AfW0xOSSY7Yw'),
-(17, 17, 'Pasthèque', 1, 'http://drive.google.com/uc?export=view&id=1t_E4Nlrr8um7rCoLF-24K77EjBYvi7yP'),
-(18, 18, 'Citron', 1, 'http://drive.google.com/uc?export=view&id=1DmyHddEdpM-tKQPvi-UZC1U9P3Bb8Gc5'),
-(19, 19, 'Fraise', 1, 'http://drive.google.com/uc?export=view&id=1D_U-19FFdqgxV6z4dayZ24vjAj8hf6Pq'),
-(20, 20, 'Olives', 1, 'http://drive.google.com/uc?export=view&id=1WsctyAL7qNhBtWKNSvAyFp2Nym4yTRht');
+INSERT INTO `ingredient` (`id_infos`, `id_ingred`, `nom_ingred`, `healthy`, `img_ingred`, `ingred_valid`) VALUES
+(1, 1, 'Tomate', 0, 'http://drive.google.com/uc?export=view&id=1ZPyENlf-ivzgsIYtXnGnNRwOFF77obp7', 1),
+(2, 2, 'agneau', 1, 'https://www.laviandedhenri.fr/200-large_default/gigot-d-agneau-piece-entiere.jpg', 1),
+(3, 3, 'Oignon', 1, 'https://www.lespaniersdegaia.fr/sites/default/files/styles/uc_product_full/public/field-image/paniers-gaia/oignons_jaunes_500_gr_.jpeg?itok=HiCUfrGt', 1),
+(4, 4, 'Pomme de terre', 1, 'https://cdn-elle.ladmedia.fr/var/plain_site/storage/images/elle-a-table/les-dossiers-de-la-redaction/news-de-la-redaction/variete-pomme-de-terre-raclette-4075102/97776692-1-fre-FR/Quelle-variete-de-pomme-de-terre-pour-une-raclette.jpg', 0),
+(5, 5, 'Carotte', 1, 'http://drive.google.com/uc?export=view&id=1K3aAYKAjzV2GYM4lmd_28WVXb8R7LCw5', 1),
+(6, 6, 'Courgette', 1, 'http://drive.google.com/uc?export=view&id=1FoZ0wN0gRAWtL-oCs9zBDDJ9cqxAnNfv', 1),
+(7, 7, 'Huile de tournesol', 0, 'https://cdn.tridge.com/fulfillment_image/d7/4d/f1/d74df10a84fa63b5b4b30657ec67523360917de3/ukraine_sunflower_oil_1.jpg', 0),
+(8, 8, 'Coriandre ', 1, 'https://i.pinimg.com/736x/ae/82/14/ae82142bcfcc0838a1ba441e3882b618.jpg', 0),
+(9, 9, 'Pois chiche', 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKR5ypxc3P0GaxTjovnvEoO-gtYrcCHCM5GUatbgup8hvSfWH0zhipU5YragLC4apfG4I&usqp=CAU', 0),
+(10, 10, 'Sel', 0, 'https://fac.img.pmdstatic.net/fit/https.3A.2F.2Fi.2Epmdstatic.2Enet.2Ffac.2F2021.2F02.2F21.2F681a8ede-4ed1-43c0-bc79-28f2ec1c6540.2Ejpeg/1200x600/quality/80/crop-from/center/sel-sans-sodium-dans-quel-cas-faut-il-en-consommer.jpeg', 0),
+(11, 11, 'Levure boulangère', 0, 'https://www.jraedorade.com/wp-content/uploads/2016/11/iStock_000025829494Small.jpg', 0),
+(12, 12, 'Farine', 0, 'https://i.pinimg.com/736x/36/9e/20/369e2019b91ce387504ea2cb704c3429.jpg', 0),
+(21, 21, 'Chocolat noir', 0, 'https://i.pinimg.com/736x/e8/45/97/e84597f9432f8193900d72f341597647.jpg', 0),
+(14, 14, 'Poivre noir', 1, 'https://images.anaca3.com/wp-content/uploads/2014/06/Le-poivre-fait-il-grossir--1000x516.jpg', 0),
+(15, 15, 'Semoule fine', 0, 'https://i.pinimg.com/736x/eb/b5/21/ebb52169cce84ce44a4027a1352a50e1.jpg', 0),
+(16, 16, 'Orange', 1, 'http://drive.google.com/uc?export=view&id=1pbM7rK_i9KzDXDznlGf5AfW0xOSSY7Yw', 1),
+(17, 17, 'Pasthèque', 1, 'http://drive.google.com/uc?export=view&id=1t_E4Nlrr8um7rCoLF-24K77EjBYvi7yP', 0),
+(18, 18, 'Citron', 1, 'http://drive.google.com/uc?export=view&id=1DmyHddEdpM-tKQPvi-UZC1U9P3Bb8Gc5', 0),
+(19, 19, 'Fraise', 1, 'http://drive.google.com/uc?export=view&id=1D_U-19FFdqgxV6z4dayZ24vjAj8hf6Pq', 0),
+(20, 20, 'Olives', 1, 'http://drive.google.com/uc?export=view&id=1WsctyAL7qNhBtWKNSvAyFp2Nym4yTRht', 0),
+(26, 23, 'Sucre', 0, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2zQ8wF4eF9Ry9T6Q72fRs9Ru21c3il4s7ZpwNUam0khiGPIKzLMHzyiPaxL5rXVoiXaA&usqp=CAU', 1),
+(27, 24, 'Beurre', 0, 'https://static.750g.com/images/622-auto/17b8e2ac66385f1ca58ad621be88e93e/adobestock-210305380.jpeg', 1),
+(28, 25, 'Oeuf', 1, NULL, 1),
+(29, 22, 'persil', 0, NULL, 1),
+(30, 22, 'persil', 0, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -388,12 +447,11 @@ INSERT INTO `menu` (`id_menu`, `titre_menu`) VALUES
 
 DROP TABLE IF EXISTS `necessiter`;
 CREATE TABLE IF NOT EXISTS `necessiter` (
-  `id_categ` int(11) NOT NULL,
   `id_recette` int(11) NOT NULL,
   `id_ingred` int(11) NOT NULL,
   `quantite` decimal(15,2) DEFAULT NULL,
   `unite_mesure` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id_categ`,`id_recette`,`id_ingred`),
+  PRIMARY KEY (`id_recette`,`id_ingred`),
   KEY `id_infos` (`id_ingred`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -401,28 +459,37 @@ CREATE TABLE IF NOT EXISTS `necessiter` (
 -- Déchargement des données de la table `necessiter`
 --
 
-INSERT INTO `necessiter` (`id_categ`, `id_recette`, `id_ingred`, `quantite`, `unite_mesure`) VALUES
-(1, 1, 1, '500.00', 'grammes'),
-(1, 1, 2, '500.00', 'grammes'),
-(1, 1, 3, '2.00', 'pièce'),
-(1, 1, 4, '1.00', 'pièce'),
-(1, 1, 5, '0.50', 'pièce'),
-(1, 1, 6, '0.50', 'pièce'),
-(1, 1, 7, '3.00', 'CAS'),
-(1, 1, 8, '1.00', 'botte'),
-(1, 1, 9, '1.00', 'tasse'),
-(1, 1, 10, '2.00', 'CAC'),
-(1, 1, 11, '1.00', 'CAC'),
-(1, 1, 12, '2.00', 'tasse'),
-(1, 1, 13, '1.00', 'litre'),
-(1, 1, 14, '1.00', 'CAC'),
-(4, 34, 16, NULL, NULL),
-(3, 30, 19, NULL, NULL),
-(4, 32, 18, NULL, NULL),
-(4, 37, 18, NULL, NULL),
-(4, 39, 17, NULL, NULL),
-(4, 40, 19, NULL, NULL),
-(2, 20, 20, NULL, NULL);
+INSERT INTO `necessiter` (`id_recette`, `id_ingred`, `quantite`, `unite_mesure`) VALUES
+(2, 14, NULL, NULL),
+(2, 18, NULL, NULL),
+(1, 14, '1.00', 'cac'),
+(41, 25, NULL, NULL),
+(41, 14, NULL, NULL),
+(41, 10, NULL, NULL),
+(41, 7, NULL, NULL),
+(41, 1, NULL, NULL),
+(34, 16, NULL, NULL),
+(30, 19, NULL, NULL),
+(32, 18, NULL, NULL),
+(37, 18, NULL, NULL),
+(39, 17, NULL, NULL),
+(40, 19, NULL, NULL),
+(20, 20, NULL, NULL),
+(1, 12, '2.00', 'tasse'),
+(1, 10, '1.00', 'cas'),
+(1, 9, '1.00', 'tasse'),
+(1, 8, '1.00', 'botte'),
+(1, 7, '3.00', 'cas'),
+(1, 6, '0.50', 'piece'),
+(1, 5, '0.50', 'piece'),
+(1, 4, '1.00', 'piece'),
+(1, 3, '1.00', 'piece'),
+(1, 2, '500.00', 'g'),
+(1, 1, '2.00', 'piece'),
+(2, 10, NULL, NULL),
+(2, 7, NULL, NULL),
+(2, 3, NULL, NULL),
+(2, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -460,7 +527,7 @@ CREATE TABLE IF NOT EXISTS `recette` (
   `id_categ` int(11) NOT NULL AUTO_INCREMENT,
   `id_recette` int(11) NOT NULL,
   `nom_recette` varchar(50) DEFAULT NULL,
-  `notation` int(5) NOT NULL,
+  `notation` int(5) NOT NULL DEFAULT '0',
   `tmp_prep` time DEFAULT NULL,
   `tmp_repos` time DEFAULT NULL,
   `tmp_cuisson` time DEFAULT NULL,
@@ -477,46 +544,47 @@ CREATE TABLE IF NOT EXISTS `recette` (
 --
 
 INSERT INTO `recette` (`id_categ`, `id_recette`, `nom_recette`, `notation`, `tmp_prep`, `tmp_repos`, `tmp_cuisson`, `img_recette`, `difficulte`, `nb_calories`, `lien_video`, `recette_valid`) VALUES
-(1, 1, 'Hrira Oranaise', 0, '00:25:00', '00:00:00', '00:40:00', NULL, 6, 110, NULL, 1),
-(1, 2, 'Bourek', 4, '00:15:00', '00:00:00', '00:15:00', NULL, NULL, 315, NULL, 0),
-(1, 3, 'Bricks', 4, NULL, NULL, NULL, NULL, NULL, 280, NULL, 1),
-(1, 4, 'Chorba Frik', 3, '00:45:00', NULL, '00:40:00', NULL, NULL, 63, NULL, 1),
-(1, 5, 'Maakouda', 5, NULL, NULL, NULL, NULL, NULL, 107, NULL, 1),
-(1, 6, 'Hmiss', 4, NULL, NULL, NULL, NULL, NULL, 88, NULL, 1),
-(1, 7, 'Chaussons', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(1, 8, 'Batbouts', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(1, 9, 'Croquettes de poulet', 4, '00:10:00', NULL, '00:15:00', NULL, NULL, NULL, NULL, 0),
-(1, 10, 'Carottes chermoula', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(2, 11, 'Bekoukes', 4, NULL, NULL, NULL, NULL, NULL, 83, NULL, 0),
+(1, 3, 'Bricks', 4, '00:20:00', '00:00:00', '00:10:00', NULL, 4, 280, NULL, 1),
+(1, 4, 'Chorba Frik', 3, '00:20:00', '00:00:00', '00:40:00', NULL, 4, 63, NULL, 1),
+(1, 5, 'Maakouda', 5, '00:20:00', '00:30:00', '00:15:00', 'http://drive.google.com/uc?export=view&id=1h5i6SwVV04KhJDO8XUVGtbhTeBwtSRDh', 4, 107, 'https://www.youtube.com/embed/YHYImdYjV1Y', 1),
+(1, 6, 'Hmiss', 4, '00:40:00', '00:00:00', '00:40:00', 'http://drive.google.com/uc?export=view&id=1GPCGvmDVFbFH7MHFw0w7A9IRYcWaNWkN', 4, 88, 'https://www.youtube.com/embed/YHYImdYjV1Y', 1),
+(1, 7, 'Chaussons', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(1, 8, 'Batbouts', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(1, 9, 'Croquettes de poulet', 4, '00:10:00', NULL, '00:15:00', NULL, NULL, NULL, NULL, 1),
+(1, 10, 'Carottes chermoula', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(2, 11, 'Bekoukes', 4, NULL, NULL, NULL, NULL, NULL, 83, NULL, 1),
 (2, 12, 'Chakhchoukha', 5, '00:40:00', NULL, '02:00:00', NULL, NULL, NULL, NULL, 1),
-(2, 13, 'Couscous', 5, NULL, NULL, NULL, NULL, NULL, 169, NULL, 0),
-(2, 14, 'Lham Hlou', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(2, 15, 'M\'hajeb', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(2, 16, 'Mthewem', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(2, 17, 'Poulet Roulé', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(2, 18, 'Rechta', 5, NULL, NULL, NULL, NULL, NULL, 140, NULL, 0),
-(2, 19, 'Seffa', 5, NULL, NULL, NULL, NULL, NULL, 169, NULL, 0),
-(2, 20, 'Tajine d\'olives', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(3, 21, 'Baklawa', 4, '02:30:00', NULL, '01:00:00', NULL, NULL, 461, NULL, 0),
-(3, 22, 'Chamia', 4, NULL, NULL, NULL, NULL, NULL, 417, NULL, 0),
-(3, 23, 'Cheesecake', 4, NULL, NULL, NULL, NULL, NULL, 350, NULL, 0),
-(3, 24, 'Makrout', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(3, 25, 'Mhalbi', 3, '00:10:00', '00:00:00', '00:15:00', NULL, NULL, NULL, NULL, 0),
-(3, 26, 'Zlabia', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(2, 13, 'Couscous', 5, NULL, NULL, NULL, NULL, NULL, 169, NULL, 1),
+(2, 14, 'Lham Hlou', 4, '00:30:00', '00:00:00', '00:40:00', NULL, 4, 630, NULL, 1),
+(2, 15, 'M\'hajeb', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(2, 16, 'Mthewem', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(2, 17, 'Poulet Roulé', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(2, 18, 'Rechta', 5, NULL, NULL, NULL, NULL, NULL, 140, NULL, 1),
+(2, 19, 'Seffa', 5, NULL, NULL, NULL, NULL, NULL, 169, NULL, 1),
+(2, 20, 'Tajine d\'olives', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(3, 21, 'Baklawa', 4, '02:30:00', NULL, '01:00:00', NULL, NULL, 461, NULL, 1),
+(3, 22, 'Chamia', 4, NULL, NULL, NULL, NULL, NULL, 417, NULL, 1),
+(3, 23, 'Cheesecake', 4, NULL, NULL, NULL, NULL, NULL, 350, NULL, 1),
+(3, 24, 'Makrout', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(3, 25, 'Mhalbi', 3, '00:10:00', '00:00:00', '00:15:00', NULL, NULL, NULL, NULL, 1),
+(3, 26, 'Zlabia', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
 (3, 27, 'Samsa', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(3, 28, 'San Sebastian Cheesecake', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(3, 29, 'Tiramisu', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(3, 30, 'Verrine', 4, '00:15:00', NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(3, 28, 'San Sebastian Cheesecake', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(3, 29, 'Tiramisu', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(3, 30, 'Verrine', 4, '00:15:00', NULL, NULL, NULL, NULL, NULL, NULL, 1),
 (4, 31, 'Chocolat Chaud', 5, '00:05:00', NULL, '00:10:00', NULL, NULL, NULL, NULL, 0),
-(4, 32, 'Citronnade à la menthe', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(4, 33, 'Iced Coffee', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(4, 34, 'Jus d\'orange', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(4, 35, 'Mocaccino ', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(4, 36, 'Café arabe', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(4, 37, 'Mojito', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(4, 38, 'Smoothie aux fruits', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(4, 39, 'Jus de pastèque et gingembre', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(4, 40, 'Jus de fraise', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+(4, 32, 'Citronnade à la menthe', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(4, 33, 'Iced Coffee', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(4, 34, 'Jus d\'orange', 5, '00:05:00', '00:00:00', '00:00:00', NULL, 2, NULL, 'https://www.youtube.com/embed/bN-IkigYf08', 1),
+(4, 35, 'Mocaccino ', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(4, 36, 'Café arabe', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(4, 37, 'Mojito', 5, NULL, NULL, NULL, NULL, 3, NULL, NULL, 1),
+(4, 38, 'Smoothie aux fruits', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(4, 39, 'Jus de pastèque et gingembre', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(4, 40, 'Jus de fraise', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(1, 41, 'Chakchouka', 0, '00:10:00', '00:00:00', '00:20:00', 'https://images.radio-canada.ca/v1/alimentation/recette/1x1/chakchouka-oeufs-sauce-tomate-solo.jpg', 2, 131, 'https://www.youtube.com/embed/h0kfG9Z9M2A', 1),
+(1, 1, 'Hrira Oranaise', 0, '00:20:00', '00:00:00', '00:40:00', 'http://drive.google.com/uc?export=view&id=1LWc0kWeirPvdKTDLNf4AoIXCjc0kMYJN', 4, 110, 'https://www.youtube.com/embed/M8ubolXaG88', 1),
+(1, 2, 'Bourek', 0, '00:20:00', '00:00:00', '00:15:00', 'http://drive.google.com/uc?export=view&id=1M1tM9P7iKkV8sstT6SBIgTPC2LuPXunJ', 4, 315, 'https://www.youtube.com/embed/YHYImdYjV1Y', 1);
 
 -- --------------------------------------------------------
 
@@ -529,7 +597,7 @@ CREATE TABLE IF NOT EXISTS `saison` (
   `id_saison` int(11) NOT NULL AUTO_INCREMENT,
   `nom_saison` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_saison`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `saison`
@@ -540,7 +608,8 @@ INSERT INTO `saison` (`id_saison`, `nom_saison`) VALUES
 (2, 'Automne'),
 (3, 'Eté'),
 (4, 'Printemps'),
-(5, '4 saisons');
+(5, '4 saisons'),
+(6, 'Aucune');
 
 -- --------------------------------------------------------
 
@@ -552,11 +621,19 @@ DROP TABLE IF EXISTS `style`;
 CREATE TABLE IF NOT EXISTS `style` (
   `id_style` int(11) NOT NULL AUTO_INCREMENT,
   `font_titre` varchar(50) NOT NULL,
-  `font_soustitre` varchar(50) NOT NULL,
+  `lien_font1` varchar(1000) NOT NULL,
   `font_par` varchar(50) NOT NULL,
+  `lien_font2` varchar(1000) NOT NULL,
   `couleur1` varchar(50) NOT NULL,
   PRIMARY KEY (`id_style`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `style`
+--
+
+INSERT INTO `style` (`id_style`, `font_titre`, `lien_font1`, `font_par`, `lien_font2`, `couleur1`) VALUES
+(1, 'Playfair Display', 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap', '', '', '#FFF1E9');
 
 -- --------------------------------------------------------
 
@@ -566,10 +643,9 @@ CREATE TABLE IF NOT EXISTS `style` (
 
 DROP TABLE IF EXISTS `suivre`;
 CREATE TABLE IF NOT EXISTS `suivre` (
-  `id_categ` int(11) NOT NULL,
   `id_recette` int(11) NOT NULL,
   `id_etape` int(11) NOT NULL,
-  PRIMARY KEY (`id_categ`,`id_recette`,`id_etape`),
+  PRIMARY KEY (`id_recette`,`id_etape`),
   KEY `id_etape` (`id_etape`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -577,18 +653,23 @@ CREATE TABLE IF NOT EXISTS `suivre` (
 -- Déchargement des données de la table `suivre`
 --
 
-INSERT INTO `suivre` (`id_categ`, `id_recette`, `id_etape`) VALUES
-(1, 1, 1),
-(1, 1, 2),
-(1, 1, 3),
-(1, 1, 4),
-(1, 1, 5),
-(1, 1, 6),
-(1, 1, 7),
-(1, 1, 8),
-(1, 1, 9),
-(1, 1, 10),
-(1, 1, 11);
+INSERT INTO `suivre` (`id_recette`, `id_etape`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5),
+(1, 6),
+(1, 7),
+(1, 8),
+(1, 9),
+(1, 10),
+(1, 11),
+(2, 76),
+(2, 77),
+(2, 78),
+(2, 79),
+(2, 80);
 
 -- --------------------------------------------------------
 
@@ -606,19 +687,21 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `email` varchar(50) DEFAULT NULL,
   `mdp` varchar(50) DEFAULT NULL,
   `user_valid` tinyint(4) DEFAULT '0',
+  `photo_profile` varchar(1000) DEFAULT 'http://drive.google.com/uc?export=view&id=1DBjWTI3CcWwQfscFX3Pl5avY36drYltB',
   PRIMARY KEY (`id_user`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id_user`, `nom_user`, `prenom_user`, `datenaissance`, `sexe`, `email`, `mdp`, `user_valid`) VALUES
-(1, 'Haddou', 'Meriem Afaf', '2023-01-01', 'femme', 'jm_haddou@esi.dz', '123456789', 1),
-(2, 'Abdelaziz', 'Ines', '2023-01-01', 'femme', 'ji_abdelaziz@esi.dz', 'abcdefgh', 1),
-(3, 'Haddou', 'Manar El Imene', '2023-01-01', 'femme', 'manarhaddou03@gmail.com', 'manar03', 0),
-(4, 'Haddou', 'Ahmed Zoheir', '2023-01-01', 'homme', 'ahmedzoheir7@gmail.com', 'ahmed07', 0),
-(5, '', '', '2023-01-01', NULL, 'admin', 'admin', 1);
+INSERT INTO `utilisateur` (`id_user`, `nom_user`, `prenom_user`, `datenaissance`, `sexe`, `email`, `mdp`, `user_valid`, `photo_profile`) VALUES
+(1, 'Haddou', 'Meriem Afaf', '2002-01-08', 'femme', 'jm_haddou@esi.dz', '0000', 1, 'http://drive.google.com/uc?export=view&id=1DBjWTI3CcWwQfscFX3Pl5avY36drYltB'),
+(2, 'Abdelaziz', 'Ines', '2001-11-27', 'femme', 'ji_abdelaziz@esi.dz', '914519000', 1, 'http://drive.google.com/uc?export=view&id=1DBjWTI3CcWwQfscFX3Pl5avY36drYltB'),
+(3, 'Haddou', 'Manar El Imene', '2003-12-11', 'femme', 'manarhaddou03@gmail.com', 'manar03', 1, 'http://drive.google.com/uc?export=view&id=1DBjWTI3CcWwQfscFX3Pl5avY36drYltB'),
+(4, 'Haddou', 'Ahmed Zoheir', '1998-01-20', 'homme', 'ahmedzoheir7@gmail.com', 'ahmed07', 0, 'http://drive.google.com/uc?export=view&id=1DBjWTI3CcWwQfscFX3Pl5avY36drYltB'),
+(5, 'admin', 'admin', '2002-01-08', 'femme', 'admin', 'admin', 1, 'http://drive.google.com/uc?export=view&id=1DBjWTI3CcWwQfscFX3Pl5avY36drYltB'),
+(6, 'BOUAZZA', 'Akila', '2002-03-06', 'femme', 'akila.bouazza@gmail.com', '1234', 0, 'http://drive.google.com/uc?export=view&id=1DBjWTI3CcWwQfscFX3Pl5avY36drYltB');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

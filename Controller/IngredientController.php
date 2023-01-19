@@ -1,6 +1,6 @@
 <?php
 //Appeler le modele
-require_once "C:\wamp64\www\ElBenna\Model\IngredientModel.php";
+require_once ".\Model\IngredientModel.php";
 class IngredientController{
     public function get_ingredient($id){
         $model = new IngredientModel();

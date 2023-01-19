@@ -1,6 +1,6 @@
 <?php
 //Nous aurons besoin d'utiliser les fichiers suivants
-require_once "C:\wamp64\www\ElBenna\Controller\DiapoController.php";
+require_once ".\Controller\DiapoController.php";
 class DiapoView
 {
     //Pour creer une vue de categorie, il faut donner son identifiant

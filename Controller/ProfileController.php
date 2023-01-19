@@ -1,6 +1,6 @@
 <?php
 //Appeler le modele
-require_once "C:\wamp64\www\ElBenna\Model\ProfileModel.php";
+require_once ".\Model\ProfileModel.php";
 class ProfileController{
     public function get_profile($id){
         $model = new ProfileModel();

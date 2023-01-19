@@ -1,6 +1,6 @@
 <?php
 //Nous aurons besoin d'utiliser les fichiers suivants
-require_once "C:\wamp64\www\ElBenna\Controller\LoginController.php";
+require_once ".\Controller\LoginController.php";
 class LoginView
 {
     private $controller;
@@ -21,7 +21,7 @@ class LoginView
                 </div>
                 <div class='login_img'>
                     <img src='http://drive.google.com/uc?export=view&id=1bre43I5xlswHFOTTLQqjE5HALFdC3uGS'>
-                    <p>Vous n'avez pas de compte? <a href='http://localhost/ElBenna/Inscription.php'>Inscrivez Vous</a></p>
+                    <p>Vous n'avez pas de compte? <a href='Inscription.php'>Inscrivez Vous</a></p>
                 </div>
             </div>
             ";

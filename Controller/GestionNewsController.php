@@ -1,6 +1,6 @@
 <?php
 //Appeler le modele
-require_once "C:\wamp64\www\ElBenna\Model\GestionNewsModel.php";
+require_once ".\Model\GestionNewsModel.php";
 class GestionNewsController{
     public function get_news(){
         $model = new GestionNewsModel();

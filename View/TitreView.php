@@ -1,6 +1,6 @@
 <?php
 //Nous aurons besoin d'utiliser les fichiers suivants
-require_once "C:\wamp64\www\ElBenna\Controller\TitreController.php";
+require_once ".\Controller\TitreController.php";
 class TitreView
 {
     //Pour creer une vue de categorie, il faut donner son identifiant

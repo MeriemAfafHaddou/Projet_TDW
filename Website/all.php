@@ -19,6 +19,7 @@ require_once "View/LoginView.php";
 require_once "View/InscriptionView.php";
 require_once "View/ProfileView.php";
 require_once "View/FavorisView.php";
+require_once "View/ContactView.php";
 
 header('Content-type: text/html; charset=UTF-8');
 class website
@@ -351,6 +352,22 @@ class website
         //Construire le menu
         $menu->Menu();
         $fav->Favoris($id);
+        $footer = new FooterView();
+        $footer->Footer();
+        echo"</body></html>";
+    }
+    public function build_contact(){
+        //Declaration du menu, diapo, categorie, et footer
+        $menu =new MenuView();
+        $contact=new ContactView();
+        echo"<!DOCTYPE html>
+        <html>";
+        //Appeler le header
+        $this->header();
+        echo"<body>";
+        //Construire le menu
+        $menu->Menu();
+        $contact->Contact();
         $footer = new FooterView();
         $footer->Footer();
         echo"</body></html>";
