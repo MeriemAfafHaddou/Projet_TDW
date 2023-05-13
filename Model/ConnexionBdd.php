@@ -5,7 +5,7 @@ class ConnexionBdd{
     private $bdd_host = "localhost";
     private $bdd_user = "root";
     private $bdd_pswd = "";
-    private $bdd_name = "tdw";
+    private $bdd_name = "elbenna";
 
     // La methode qui permet de se connecter a la bdd
     public function connexion(){
